@@ -1,3 +1,121 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("../fonts/ChakraPetch-Bold.woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("../fonts/ChakraPetch-SemiBold.woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("../fonts/ChakraPetch-Medium.woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("../fonts/ChakraPetch-Regular.woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("../fonts/ChakraPetch-Light.woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter24pt-SemiBold.woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-purple-10: #CA6AEB;
+  --color-blue: #19B5F1;
+  --color-green: #00C566;
+  --color-red: #FF4747;
+  --color-yellow: #FACC15;
+  --color-black-100: #18181B;
+  --color-black-50: #252532;
+  --color-grey-1: #B0B0B2;
+  --color-grey-2: #D1D1D1;
+  --color-white: #FFFFFF;
+  --linear-gradient: linear-gradient(90deg, #0cbaf1 0%, #e95ce9 100%);
+  --font-family-base: "Chakra Petch", sans-serif;
+  --font-family-accent: "Inter", sans-serif;
+  --transition-duration: 0.2s;
+  --container-width: 1200px;
+  --container-padding-x: 16px;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin: 0 auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--color-white);
+  background-color: var(--color-black-100);
+}
+
+h1, .h1,
+h2, .h2 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h3, .h3 {
+  font-weight: 400;
+}
+
+h1, .h1 {
+  font-size: clamp(40px, 5.3333333333vw, 64px);
+}
+
+h2, .h2 {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+a {
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=main.css.map */

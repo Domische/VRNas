@@ -1,0 +1,29 @@
+@use 'helpers' as *;
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-white);
+    background-color: var(--color-black-100);
+}
+
+h1, .h1,
+h2, .h2 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+h3, .h3 {
+    font-weight: 400;
+}
+
+h1, .h1 {
+    @include clamp-text(40, 64);
+}
+
+h2, .h2 {
+    @include clamp-text(32, 48);
+}
+
+a {
+    text-decoration: none;
+}

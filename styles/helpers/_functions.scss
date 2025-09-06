@@ -1,0 +1,7 @@
+@function simple-clamp($min, $max){
+    $container-width: 1200;
+
+    $middle: $max / $container-width * 100;
+
+    @return clamp(#{$min * 1px}, #{$middle * 1vw}, #{$max * 1px});
+}
