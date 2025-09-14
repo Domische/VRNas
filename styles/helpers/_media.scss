@@ -1,6 +1,19 @@
 
+$laptop: 1024.98px;
 $tablet: 768.98px;
 $mobile-l: 430.98px;
+
+@mixin laptop {
+    @media(max-width: #{$laptop}){
+        @content;
+    }
+}
+
+@mixin laptop-above {
+    @media(min-width: #{$laptop}){
+        @content;
+    }
+}
 
 @mixin tablet {
     @media(max-width: #{$tablet}){

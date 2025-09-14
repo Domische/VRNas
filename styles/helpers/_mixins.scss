@@ -16,3 +16,10 @@
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
 }
+
+@mixin abs-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}

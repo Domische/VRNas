@@ -10,3 +10,16 @@
 html {
     scroll-behavior: smooth;
 }
+
+button,
+label {
+    cursor: pointer;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: currentColor;
+    font: inherit;
+}
