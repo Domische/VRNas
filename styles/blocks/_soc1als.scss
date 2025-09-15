@@ -1,0 +1,36 @@
+@use '../helpers' as *;
+
+.soc1als {
+
+    &__list {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+    }
+
+    &__link {
+        @include circle(46);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: var(--color-black-100);
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            z-index: -1;
+            background: var(--linear-gradient);
+            border-radius: 50%;
+        }
+
+        &:hover {
+            background-color: var(--linear-gradient);
+        }
+
+        
+
+        //исправить hover на svg!
+    }
+}

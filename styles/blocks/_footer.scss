@@ -1,0 +1,90 @@
+@use '../helpers' as *;
+
+.footer {
+    font-weight: 300;
+    padding: 115px 0 40px;
+
+    &__body {
+        display: grid;
+        grid-template-areas: 
+        'logo menu'
+        'soc1als menu'
+        ;
+        grid-template-columns: auto 1fr;
+        column-gap: 177px;
+        padding-bottom: 33px;
+        border-image: var(--linear-gradient) 0 0 1/1px stretch;
+
+        @include laptop {
+            grid-template-areas: 
+                'logo soc1als'
+                'menu menu'
+            ;
+            gap: 56px;
+            align-items: center;
+        }
+
+        @include mobile-l {
+            grid-template-areas: 
+                'logo logo'
+                'soc1als soc1als'
+                'menu menu'
+            ;
+        }
+    }
+
+    &__extra {
+        padding-top: 32px;
+        text-align: center;
+    }
+
+    &__logo {
+        grid-area: logo;
+    }
+
+    &__soc1als {
+        grid-area: soc1als;
+        align-self: end;
+        padding-bottom: 20px;
+
+        @include laptop {
+            padding-bottom: 0;
+            justify-self: end;
+        }
+
+        @include mobile-l {
+            justify-self: start;
+        }
+        
+    }
+
+    &__menu {
+        grid-area: menu;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 64px;
+        flex-wrap: wrap;
+
+        @include laptop {
+            justify-content: start;
+        }
+
+        
+
+        &-column, &-list {
+            display: grid;
+            row-gap: 16px;
+        }
+
+        &-main-link {
+            font-weight: 600;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+        }
+    }
+}

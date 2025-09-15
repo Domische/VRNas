@@ -23,3 +23,16 @@ button {
     color: currentColor;
     font: inherit;
 }
+
+a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+ul {
+    list-style: none;
+}
+
+address {
+    font-style: normal;
+}

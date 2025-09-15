@@ -4,6 +4,7 @@
     position: sticky;
     top: 0;
     transition-duration: var(--transition-duration);
+    z-index: 1;
 
     &.is-scroll {
         background-color: var(--color-black-100);
@@ -69,6 +70,7 @@
         &-item:has(.header__menu-button) {
             position: relative;
             left: 5.5px;
+            
 
             .header__menu-overlay {
                 display: flex;
@@ -97,7 +99,6 @@
                 background-color: var(--color-black-50);
                 border-image: var(--border-image-gradient);
                 transition-duration: .5s;
-                z-index: 1;
                 max-width: 200px;
                 width: max-content;
                 transform-origin: top;

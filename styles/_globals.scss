@@ -7,9 +7,18 @@ html {
 }
 
 body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
     font-family: var(--font-family-base);
     color: var(--color-white);
     background-color: var(--color-black-100);
+
+    main {
+        flex-grow: 1;
+    }
 
     &::before {
         content: '';
@@ -18,11 +27,29 @@ body {
         right: 0;
         width: 736px;
         height: 353px;
-        background: url('../../images/background.svg') top right/contain no-repeat;
+        background: url('../../images/background-top.svg') top right/contain no-repeat;
         pointer-events: none;
+        opacity: 0.2;
 
         @include tablet {
             width: 414px;
+        }
+    }    
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 498px;
+        background: url('../images/background-bottom.svg') bottom left/contain no-repeat;
+        pointer-events: none;
+        opacity: 0.3;
+
+        @include tablet {
+            height: 314px;
+            background-size: cover;
         }
     }
 }
@@ -50,15 +77,6 @@ h2,
     @include clamp-text(32, 48);
 }
 
-a {
-    text-decoration: none;
-    color: var(--color-white);
-}
-
-ul {
-    list-style: none;
-}
-
 a,
 button {
     position: relative;
@@ -72,21 +90,10 @@ button {
 
         @include abs-center;
     }
-
-    @include tablet-above {
-
-        &:hover,
-        &:hover>* {
-            background-image: var(--linear-gradient);
-            background-clip: text;
-            color: transparent;
-            transition-duration: var(--transition-duration);
-        }
-    }
 }
 
 @media(hover: hover) {
-    a,
+    a:not(:has(svg)),
     button {
         &:hover {
             background-image: var(--linear-gradient);
