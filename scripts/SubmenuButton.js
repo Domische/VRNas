@@ -98,13 +98,13 @@ class SubMenuButton {
     }
 
     onButtonEnter = () => {
-        if (window.matchMedia('(min-width: 768px)').matches) {
+        if (window.matchMedia('(hover: hover)').matches) {
             this.expand();
         }
     }
 
     onButtonLeave = () => {
-        if (window.matchMedia('(min-width: 768px)').matches) {
+        if (window.matchMedia('(hover: hover)').matches) {
             this.collapse();
         }
     }

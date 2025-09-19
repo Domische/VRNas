@@ -1,0 +1,81 @@
+@use '../helpers' as *;
+
+.hero-alt {
+    overflow: hidden;
+    padding-top: 87px;
+
+    @include tablet {
+        padding-top: 47px;
+    }
+
+    &__main {
+        position: relative;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 875px;
+            height: 760px;
+            top: 20px;
+            right: calc(((100% - var(--container-width)) / 2) - 110px);
+            background: url('../../images/features/background-gradient.png') center/contain no-repeat;
+            border-radius: 0 50% 0 0;
+            filter: blur(30px);
+            z-index: -1;
+
+            @include laptop {
+                height: 825px;
+            }
+
+            @include tablet {
+                top: 40%;
+                height: 649px;
+                right: calc(((100% - var(--container-width)) / 2));
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 526px;
+            height: 626px;
+            bottom: 0;
+            right: calc((100% - var(--container-width)) / 2);
+            background: url('../../images/features/background-human.png') center/contain no-repeat;
+            z-index: -1;
+
+            @include laptop {
+                height: 576px;
+            }
+
+            @include tablet {
+                height: 422px;
+                right: calc(((100% - var(--container-width)) / 2) + 185px);
+            }
+
+            @include mobile-l {
+                
+            }
+        }
+    }
+
+    &__body {
+        max-width: 540px;
+        padding-bottom: 42px;
+    }
+
+    &__title {
+        padding-bottom: 12px;
+
+        @include mobile-l-above{
+            @include clamp-text(48, 64);
+        }
+    }
+
+    &__description {
+        max-width: 446px;
+        padding-bottom: 32px;
+    }
+}

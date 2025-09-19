@@ -1,0 +1,29 @@
+@use '../helpers' as *;
+
+.product-features {
+    &__list {
+        display: flex;
+        align-items: start;
+        gap: 50px;
+        padding: 42px 63px 53px;
+        background-color: var(--color-black-50);
+        border-image: var(--border-image-gradient-grey-black);
+
+        @include tablet {
+            flex-direction: column;
+            padding: 36px;
+        }
+    }
+
+    &__image {
+        padding-bottom: 42px;
+    }
+
+    &__title {
+        padding-bottom: 12px;
+    }
+
+    &__description p {
+        font-size: 14px;
+    }
+}

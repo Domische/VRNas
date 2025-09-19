@@ -1,0 +1,43 @@
+@use '../helpers' as *;
+
+.clients {
+    display: flex;
+    align-items: center;
+    column-gap: 75px;
+    padding-bottom: 66px;
+
+    @include tablet {
+        flex-direction: column;
+        align-items: start;
+        row-gap: 145px;
+        padding-bottom: 144px;
+    }
+
+    &__body {
+        display: flex;
+        column-gap: 18px;
+    }
+
+    &__advantage {
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+    }
+
+    &__number {
+        position: relative;
+        font-weight: 600;
+        color: var(--color-white);
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 48px;
+            height: 7px;
+            position: absolute;
+            bottom: 2px;
+            left: -6px;
+            background: url('../../images/clients/underline.svg') center/contain no-repeat;
+        }
+    }
+}

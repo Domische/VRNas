@@ -15,7 +15,8 @@
     --color-white: #FFFFFF;
 
     --linear-gradient: linear-gradient(90deg, #0cbaf1 0%, #e95ce9 100%);
-    --border-image-gradient: var(--linear-gradient) 1/1px stretch;
+    --border-image-gradient-blue-pink: var(--linear-gradient) 1/1px stretch;
+    --border-image-gradient-grey-black: linear-gradient(90deg, var(--color-grey-1) 0%, var(--color-black-50) 80%) 1/1px stretch;
 
     --font-family-base: "Chakra Petch", sans-serif;
     --font-family-accent: "Inter", sans-serif;

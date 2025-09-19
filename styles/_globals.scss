@@ -30,11 +30,12 @@ body {
         background: url('../../images/background-top.svg') top right/contain no-repeat;
         pointer-events: none;
         opacity: 0.2;
+        z-index: -2;
 
         @include tablet {
             width: 414px;
         }
-    }    
+    }
 
     &::after {
         content: '';
@@ -46,6 +47,7 @@ body {
         background: url('../images/background-bottom.svg') bottom left/contain no-repeat;
         pointer-events: none;
         opacity: 0.3;
+        z-index: -2;
 
         @include tablet {
             height: 314px;
@@ -64,6 +66,7 @@ h2,
 
 h3,
 .h3 {
+    font-size: 20px;
     font-weight: 400;
 }
 
@@ -92,14 +95,39 @@ button {
     }
 }
 
+p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--color-grey-2);
+}
+
+ul p {
+    font-weight: 400;
+    line-height: 2;
+    color: var(--color-grey-1);
+}
+
 @media(hover: hover) {
+
     a:not(:has(svg)),
     button {
+
+        &::before,
+        &::after {
+            transition-duration: var(--transition-duration);
+        }
+
         &:hover {
             background-image: var(--linear-gradient);
             background-clip: text;
             color: transparent;
             transition-duration: var(--transition-duration);
+
+            &::before,
+            &::after {
+                transition-duration: var(--transition-duration);
+            }
         }
     }
 }

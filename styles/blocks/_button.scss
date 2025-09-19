@@ -1,0 +1,44 @@
+@use '../helpers' as *;
+
+.button {
+    position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    padding: 18px 38px;
+    border-image: var(--border-image-gradient-blue-pink);
+    
+
+    &--painted {
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            inset: 1;
+            background-color: var(--color-black-50);
+            z-index: -2;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--linear-gradient);
+            opacity: 1; 
+            z-index: -1;          
+        }
+
+        @media(hover: hover) {
+            &:hover {
+                &::after{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+}

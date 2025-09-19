@@ -97,7 +97,7 @@
                 row-gap: 10px;
                 padding: 10px;
                 background-color: var(--color-black-50);
-                border-image: var(--border-image-gradient);
+                border-image: var(--border-image-gradient-blue-pink);
                 transition-duration: .5s;
                 max-width: 200px;
                 width: max-content;
@@ -169,7 +169,7 @@
         // border-image-width: 1px;
         // border-image-repeat: stretch;
         //или
-        border-image: var(--border-image-gradient);
+        border-image: var(--border-image-gradient-blue-pink);
 
     }
 }
