@@ -74,6 +74,7 @@
 
         &-column, &-list {
             display: grid;
+            justify-items: start;
             row-gap: 16px;
         }
 

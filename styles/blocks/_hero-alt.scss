@@ -1,75 +1,147 @@
 @use '../helpers' as *;
 
 .hero-alt {
+    position: relative;
     overflow: hidden;
-    padding-top: 87px;
+    padding-top: 13px;
+    padding-bottom: 120px;
 
     @include tablet {
-        padding-top: 47px;
+        padding-bottom: 100px;
     }
 
     &__main {
-        position: relative;
         
+        display: flex;
+        justify-content: space-between;
+        column-gap: 1rem;
+
+        @include laptop {
+            flex-direction: column;
+        }
+
         &::before {
             content: '';
-            position: absolute;
             display: inline-block;
-            width: 875px;
-            height: 760px;
-            top: 20px;
-            right: calc(((100% - var(--container-width)) / 2) - 110px);
-            background: url('../../images/features/background-gradient.png') center/contain no-repeat;
-            border-radius: 0 50% 0 0;
-            filter: blur(30px);
+            position: absolute;
+            width: 1000px;
+            height: 721px;
+            top: 140px;
+            left: 0;
+            background: url('../../images/background-cells.svg') center/contain no-repeat;
             z-index: -1;
-
-            @include laptop {
-                height: 825px;
-            }
-
-            @include tablet {
-                top: 40%;
-                height: 649px;
-                right: calc(((100% - var(--container-width)) / 2));
-            }
         }
+
+        //-----
+        //!!!!!исправить верстку и стили, убрать before after для main и сделать отдельный блок hero-alt__picture и в него положить hero-alt__image, так как к img before/after не применяются
+        //-----
+
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     display: inline-block;
+        //     width: 875px;
+        //     height: 760px;
+        //     top: -50px;
+        //     right: calc(((100% - var(--container-width)) / 2) - 110px);
+        //     background: url('../../images/background-gradient.png') center/contain no-repeat;
+        //     filter: blur(40px);
+        //     z-index: -1;
+
+        //     @include laptop {
+        //         height: 825px;
+        //     }
+
+        //     @include tablet {
+        //         top: 40%;
+        //         height: 649px;
+        //         right: calc(((100% - var(--container-width)) / 2));
+        //     }
+        // }
+
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     display: inline-block;
+        //     width: 526px;
+        //     height: 626px;
+        //     bottom: 0;
+        //     right: calc((100% - var(--container-width)) / 2);
+        //     background: url('../../images/features/background-human.png') center/contain no-repeat;
+        //     z-index: -1;
+
+        //     @include laptop {
+        //         height: 576px;
+        //     }
+
+        //     @include tablet {
+        //         height: 422px;
+        //         right: calc(((100% - var(--container-width)) / 2) + 185px);
+        //     }
+
+        // }
+    }
+
+
+    &__body {
+        display: grid;
+        justify-items: start;
+        align-items: end;
+        row-gap: 42px;
+        max-width: 540px;
+    }
+
+
+    &__clients {
+        align-self: start;
+    }
+
+    &__picture {
+        margin-bottom: -5px;
+        position: relative;
+        z-index: -1;
 
         &::after {
             content: '';
-            position: absolute;
             display: inline-block;
-            width: 526px;
-            height: 626px;
-            bottom: 0;
-            right: calc((100% - var(--container-width)) / 2);
-            background: url('../../images/features/background-human.png') center/contain no-repeat;
+            position: absolute;
+            width: 875px;
+            height: 760px;
+            top: -30px;
+            right: calc(((100% - var(--container-width)) / 2) + 210px);
+            background: url('../../images/background-gradient.png') center/contain no-repeat;
+            filter: blur(40px);
             z-index: -1;
 
-            @include laptop {
-                height: 576px;
-            }
-
             @include tablet {
-                height: 422px;
-                right: calc(((100% - var(--container-width)) / 2) + 185px);
+                width: 440px;
+                height: 649px;
+                top: -50px;
+                right: 30px;
             }
+        }
 
-            @include mobile-l {
-                
-            }
+        @include laptop {
+            align-self: end;
+            padding-top: 50px;
+        }
+
+        @include tablet {
+            margin-right: -130px;
         }
     }
 
-    &__body {
-        max-width: 540px;
-        padding-bottom: 42px;
+    &__image {
+        @include tablet {
+            width: 354px;
+            height: 422px;
+        }
     }
 
     &__title {
         padding-bottom: 12px;
 
-        @include mobile-l-above{
+        @include mobile-l-above {
             @include clamp-text(48, 64);
         }
     }

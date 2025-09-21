@@ -108,48 +108,51 @@
         </div>
     </header>
 
-    <!-- Доделать: JS video-player -->
-
     <main class="main">
         <section class="hero-alt" aria-labelledby="hero-alt-title">
             <div class="hero-alt__main container">
                 <div class="hero-alt__body">
-                    <h1 class="hero-alt__title" id="hero-alt-title">Immerse Yourself <br> in Virtual Reality</h1>
-                    <div class="hero-alt__description">
-                        <p>Experience Unforgettable Events in VR. Bring your events to life like never before with
-                            our
-                            VR services</p>
+                    <div class="hero-alt__info">
+                        <h1 class="hero-alt__title" id="hero-alt-title">Immerse Yourself <br> in Virtual Reality</h1>
+                        <div class="hero-alt__description">
+                            <p>Experience Unforgettable Events in VR. Bring your events to life like never before with
+                                our
+                                VR services</p>
+                        </div>
+                        <a href="#" class="hero-alt__link button button--painted" type="button">discover more</a>
                     </div>
-                    <button class="hero-alt__button button button--painted" type="button">discover more</button>
+                    <div class="hero-alt__clients clients">
+                        <div class="clients__body">
+                            <div class="clients__team team">
+                                <img src="./images/team/1.png" alt="" class="team__image" width="50" height="50">
+                                <img src="./images/team/2.png" alt="" class="team__image" width="50" height="50">
+                                <img src="./images/team/3.png" alt="" class="team__image" width="50" height="50">
+                            </div>
+                            <div class="clients__advantage">
+                                <p class="clients__number">32k+</p>
+                                <p class="clients__title">Happy Client</p>
+                            </div>
+                        </div>
+                        <div class="clients__video video-player" data-js-video-player>
+                            <video src="./videos/short-video.mp4" class="video-player__video"
+                                poster="./images/videos/poster-clients.jpg" data-js-video-player-video></video>
+                            <button class="video-player__button" type="button" aria-label="Play video" title="Play video" data-js-video-player-button>
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g data-figma-bg-blur-radius="6.22222">
+                                        <rect x="0.583333" y="0.583333" width="26.8333" height="26.8333" rx="13.4167"
+                                            stroke="white" stroke-width="1.16667" />
+                                        <path
+                                            d="M19.6875 13.2664C20.2708 13.5924 20.2708 14.4076 19.6875 14.7336L11.8125 19.1352C11.2292 19.4613 10.5 19.0537 10.5 18.4016L10.5 9.59836C10.5 8.94626 11.2292 8.53871 11.8125 8.86475L19.6875 13.2664Z"
+                                            fill="white" />
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="hero-alt__clients clients">
-                    <div class="clients__body">
-                        <div class="clients__team team">
-                            <img src="./images/team/1.png" alt="" class="team__image" width="50" height="50">
-                            <img src="./images/team/2.png" alt="" class="team__image" width="50" height="50">
-                            <img src="./images/team/3.png" alt="" class="team__image" width="50" height="50">
-                        </div>
-                        <div class="clients__advantage">
-                            <p class="clients__number">32k+</p>
-                            <p class="clients__title">Happy Client</p>
-                        </div>
-                    </div>
-                    <div class="clients__video video-player" data-js-video-player>
-                        <video src="./videos/short-video.mp4" class="video-player__video"
-                            poster="./images/videos/poster-clients.jpg" data-js-video-player-video></video>
-                        <button class="video-player__button" type="button" aria-label="Play video" title="Play video" data-js-video-player-button>
-                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <g data-figma-bg-blur-radius="6.22222">
-                                    <rect x="0.583333" y="0.583333" width="26.8333" height="26.8333" rx="13.4167"
-                                        stroke="white" stroke-width="1.16667" />
-                                    <path
-                                        d="M19.6875 13.2664C20.2708 13.5924 20.2708 14.4076 19.6875 14.7336L11.8125 19.1352C11.2292 19.4613 10.5 19.0537 10.5 18.4016L10.5 9.59836C10.5 8.94626 11.2292 8.53871 11.8125 8.86475L19.6875 13.2664Z"
-                                        fill="white" />
-                                </g>
-                            </svg>
-                        </button>
-                    </div>
+                <div class="hero-alt__picture">
+                    <img src="./images/features/background-human.png" alt="" class="hero-alt__image" width="526" height="626">
                 </div>
             </div>
             <div class="hero-alt__product-features product-features container">
@@ -181,6 +184,44 @@
                         </div>
                     </li>
                 </ul>
+            </div>
+        </section>
+        <section class="section">
+            <div class="section__main container">
+                <div class="section__picture">
+                    <div class="section__image">
+                        <img src="./images/about-us/human.svg" alt="a man in glasses giving a thumbs up" width="518" height="621">
+                    </div>
+                    <div class="section__video video-player" data-js-video-player>
+                        <video src="./videos/short-video.mp4" class="video-player__video"
+                            poster="./images/videos/poster-about-us.jpg" data-js-video-player-video></video>
+                        <button class="video-player__button" type="button" aria-label="Play video" title="Play video" data-js-video-player-button>
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g data-figma-bg-blur-radius="6.22222">
+                                    <rect x="0.583333" y="0.583333" width="26.8333" height="26.8333" rx="13.4167"
+                                        stroke="white" stroke-width="1.16667" />
+                                    <path
+                                        d="M19.6875 13.2664C20.2708 13.5924 20.2708 14.4076 19.6875 14.7336L11.8125 19.1352C11.2292 19.4613 10.5 19.0537 10.5 18.4016L10.5 9.59836C10.5 8.94626 11.2292 8.53871 11.8125 8.86475L19.6875 13.2664Z"
+                                        fill="white" />
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="section__body">
+                    <p class="section__subtitle gradient-text">ABOUT US</p>
+                    <h2 class="section__title">Bring your events to life like never before with our VR services.</h2>
+                    <div class="section__description">
+                        <p>VRNas is a leading provider of VR services for education, entertainment, architecture, and events. Our mission is to bring the power of virtual reality to everyone, allowing them to explore new worlds, learn in new ways, and experience events in a whole new light.</p>
+                    </div>
+                    <ul class="section__list product-characteristics">
+                        <li class="product-characteristics__item">Cutting-Edge Technology</li>
+                        <li class="product-characteristics__item">Versatile Applications</li>
+                        <li class="product-characteristics__item">Affordable and Accessible</li>
+                    </ul>
+                    <a href="#" class="section__button button button--painted">read more</a>
+                </div>
             </div>
         </section>
     </main>

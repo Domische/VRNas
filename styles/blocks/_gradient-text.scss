@@ -1,0 +1,8 @@
+@use '../helpers' as *; 
+
+.gradient-text {
+    display: inline;
+    background: var(--linear-gradient) center/contain no-repeat;
+    background-clip: text;
+    color: transparent;
+}
