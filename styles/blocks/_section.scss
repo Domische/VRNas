@@ -4,6 +4,10 @@
     overflow: hidden;
     padding-bottom: 150px;
 
+    @include tablet {
+        padding-bottom: 105px;
+    }
+
     &__main {
         @include laptop-above {
             display: flex;

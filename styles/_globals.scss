@@ -108,6 +108,11 @@ ul p {
     color: var(--color-grey-1);
 }
 
+p[class$=subtitle] {
+    font-weight: 500;
+    letter-spacing: 0.14em;
+}
+
 @media(hover: hover) {
 
     a:not(:has(svg)),
