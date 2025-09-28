@@ -1,0 +1,19 @@
+@use '../helpers' as *;
+
+.section-alt {
+
+    &__header {
+        max-width: 679px;
+        text-align: center;
+    }
+
+    &__subtitle {
+        padding-bottom: 12px;
+    }
+
+    &__main {
+        display: grid;
+        justify-items: center;
+        row-gap: 48px;
+    }
+}

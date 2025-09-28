@@ -15,7 +15,7 @@
             column-gap: 94px;
         }
 
-        &:has(.accordion) {
+        &:has(.accordion-group) {
             @include laptop-above {
                 align-items: start;
                 column-gap: 233px;
@@ -27,8 +27,12 @@
                 row-gap: 48px;
             }
 
+            .section__title {
+                padding-bottom: 20px;
+            }
+
             .section__body {
-                padding-top: 94px;
+                padding-top: 84px;
 
                 @include laptop {
                     padding-top: 0;

@@ -6,12 +6,59 @@
     width: 196px;
     height: 128px;
 
+    &--wide {
+        width: 1200px;
+        height: 522px;
+
+        .video-player__video {
+            border-radius: 12px;
+        }
+
+        .video-player__button>svg {
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+        }
+
+        .video-player__title {
+            font-size: clamp-text(20px, 36px);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 116px;
+            background: linear-gradient(180deg, rgba(92, 107, 206, 0) 0%, #2c40ba 100%);
+        }
+    }
+
+    &__timeline {
+        z-index: 1;
+    }
+
+    &__info {
+        display: grid;
+        row-gap: 12px;
+    }
+
+    &__window {
+        display: flex;
+        flex-direction: column;
+        justify-items: start;
+        justify-content: space-between;
+        position: absolute;
+        inset: 0;
+        padding: 52px 34px 33px;
+    }
+
     &__video {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-    
+
     &__button {
         @include abs-center;
 
