@@ -1,18 +1,34 @@
 @use '../helpers' as *;
 
 .timeline {
+    --progress-width: 8px;
+
     display: flex;
-    align-items: end;
+    align-items: center;
     column-gap: 12px;
 
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 16px;
+        height: 16px;
+
+        &-vertical-line {
+            width: 5px;
+            height: 90%;
+            background-color: white;
+            border-radius: 10px;
+        }
+    }
+
     &__line {
+        --transition: width .5s ease-out;
         position: relative;
         width: 100%;
         height: 8px;
         background: rgb(255, 255, 255, 0.3);
         border-radius: 4px;
-        margin-bottom: 9px;
-
 
         &::before {
             content: '';
@@ -20,9 +36,10 @@
             top: 0;
             left: 0;
             height: 8px;
-            width: 8px;
+            width: var(--progress-width);
             border-radius: 4px;
             background-color: var(--color-white);
+            transition: var(--transition);
         }
 
         &::after {

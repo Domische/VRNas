@@ -20,7 +20,7 @@
         }
 
         .video-player__title {
-            font-size: clamp-text(20px, 36px);
+            @include clamp-text(20, 36);
         }
 
         &::after {
@@ -41,6 +41,14 @@
     &__info {
         display: grid;
         row-gap: 12px;
+        visibility: visible;
+        opacity: 1;
+        transition-duration: var(--transition-duration);
+
+        &.is-active {
+            visibility: hidden;
+            opacity: 0;
+        }
     }
 
     &__window {
