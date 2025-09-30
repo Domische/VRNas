@@ -12,8 +12,30 @@
     }
 
     &__main {
+        position: relative;
         display: grid;
         justify-items: center;
         row-gap: 48px;
+
+        @include tablet {
+            row-gap: 32px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: -260px;
+            width: 616px;
+            height: 619px;
+            background: url('../../images/background-gradient.png') center/contain no-repeat;
+            filter: blur(50px);
+            opacity: 0.8;
+            z-index: -1;
+
+            @include tablet {
+                display: none;
+            }
+        }
     }
 }

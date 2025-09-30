@@ -41,12 +41,8 @@ class VideoPlayer {
 
         this.buttonElement.classList.toggle(this.stateClasses.isActive, this.initialState.isPlay);
         this.infoElement.classList.toggle(this.stateClasses.isActive, this.initialState.isPlay);
-
-        // const progressWidth = window.getComputedStyle(this.timelineElement).getPropertyValue('--progress-width').replace('px', '');
-        //доделать timeline и сейчас я на ветке video-player-js-update, которая ответвилась от ветки section-alt, то есть сначала сделать коммит на этой (video-player-js-update) ветке потом перейти на ветку секции-алт сделать merge ветки video-player-js-update и сделать коммит возможно и потом перейти на ветку маин и сделать merge и коммит возможно
-        //улучшить читаемость кода!
-        //почти закончил, осталось закоммитить и смерджить в ветку section-alt
-
+        
+        //смена кнопки play на кнопку pause и наоборот
         if (this.timelineLineElement && this.initialState.isPlay) {
 
             this.timelineButtonElement.innerHTML = '';
@@ -72,8 +68,13 @@ class VideoPlayer {
     onTimelineLineClick = (event) => {
         const clickPositionPercentX = (event.clientX - this.timelineLineElement.getBoundingClientRect().x) * 100 / this.timelineLineElement.offsetWidth;
         const newCurrentTime = clickPositionPercentX * this.videoElement.duration / 100;
-        
+
         this.timelineLineElement.style.setProperty(this.stateProperty.transition, 'width .1s ease-out');
+
+        setTimeout(() => {
+            this.timelineLineElement.style.setProperty(this.stateProperty.transition, 'width .5s ease-out');
+        }, 100);
+
         this.timelineLineElement.style.setProperty(this.stateProperty.progressWidth, `${clickPositionPercentX}%`);
 
         this.videoElement.currentTime = newCurrentTime;
