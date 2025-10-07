@@ -3,6 +3,7 @@
 .timeline {
     --progress-width: 8px;
 
+    position: relative;
     display: flex;
     align-items: center;
     column-gap: 12px;
@@ -42,16 +43,25 @@
             transition: var(--transition);
         }
 
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     height: 8px;
+        //     width: 80px;
+        //     border-radius: 4px;
+        //     background-color: var(--color-white);
+        //     opacity: 0.5;
+        // }
+
         &::after {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 8px;
-            width: 80px;
-            border-radius: 4px;
-            background-color: var(--color-white);
-            opacity: 0.5;
+            display: block;
+            inset: 0;
+            height: 44px;
+
+            @include abs-y;
         }
     }
 }

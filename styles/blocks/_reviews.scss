@@ -1,0 +1,313 @@
+@use '../helpers' as *;
+
+.reviews {
+    --container-size: 1247px;
+    --bg-before: var(--linear-gradient-grey-black);
+    --opacity: 0;
+    --visibility: hidden;
+
+    width: var(--container-size);
+    aspect-ratio: 1;
+
+    @include laptop {
+        @include abs-x;
+
+        --container-size: 1007px;
+    }
+
+    &__circle {
+        border: 1px solid rgba(255, 255, 255, 0.17);
+        border-radius: 50%;
+        aspect-ratio: 1;
+
+        &:nth-child(1) {
+            --rotate: 30deg;
+            rotate: var(--rotate);
+
+            .reviews__info {
+                transform-origin: 0% 50%;
+                rotate: calc(var(--rotate) * -1);
+            }
+
+            @include laptop {
+                --rotate: 65deg;
+
+                .reviews__info {
+                    // translate: 2% 0; переделать origin так как если аватар заходит за сдледующий блок то обработчик события не работает
+                    transform-origin: 0% -25%;
+                }
+            }
+
+        }
+
+        &:nth-child(2) {
+            --rotate: 330deg;
+            rotate: var(--rotate);
+
+            .reviews__info {
+                transform-origin: 0% 70%;
+                rotate: calc(var(--rotate) * -1);
+            }
+
+            @include laptop {
+                --rotate: 270deg;
+
+                .reviews__info {
+                    transform-origin: 7% 90%;
+                }
+            }
+
+        }
+
+        &:nth-child(3) {
+            --rotate: 190deg;
+            rotate: var(--rotate);
+
+            .reviews__info {
+                transform-origin: 4.2% 50%;
+                rotate: calc(var(--rotate) * -1);
+            }
+
+            @include laptop {
+                --rotate: 305deg;
+
+                .reviews__info {
+                    transform-origin: 10% 100%;
+                }
+            }
+        }
+
+        &:nth-child(4) {
+            --rotate: 130deg;
+            rotate: var(--rotate);
+
+            .reviews__info {
+                transform-origin: 5% 50%;
+                rotate: calc(var(--rotate) * -1);
+            }
+
+            @include laptop {
+                --rotate: 100deg;
+
+                .reviews__info {
+                    transform-origin: 5% 45%;
+                }
+            }
+
+        }
+
+        &:nth-child(5) {
+            --rotate: 285deg;
+            rotate: var(--rotate);
+
+            .reviews__info {
+                transform-origin: 7% 50%;
+                rotate: calc(var(--rotate) * -1);
+            }
+
+            @include laptop {
+                --rotate: 255deg;
+
+                .reviews__info {
+                    transform-origin: 9% 50%;
+                }
+            }
+
+        }
+
+        &:last-child {
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -220px;
+                left: -320px;
+                width: 1062px;
+                height: 767px;
+                background: url('../../images/background-gradient.png') center/contain no-repeat;
+                filter: blur(30px);
+                pointer-events: none;
+            }
+        }
+
+        @include abs-center;
+
+        @for $i from 0 through 5 {
+            &:nth-child(#{$i+1}) {
+                --circle-gap: 163px;
+                width: calc(var(--container-size) - $i * var(--circle-gap));
+
+                @include laptop {
+                    --circle-gap: 132px;
+                }
+            }
+        }
+    }
+
+    &__avatar {
+        position: relative;
+        width: 75px;
+        height: 75px;
+        // top: 50%;
+        // left: -35px;
+        padding: 12px;
+        border-radius: 50%;
+        background-color: rgba(37, 37, 50, 0.6);
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--bg-before);
+            padding: 1px;
+            border-radius: inherit;
+            mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+            z-index: -1;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -20px;
+            width: 101px;
+            height: 92px;
+            background: url('../../images/background-gradient.png') center/contain no-repeat;
+            filter: blur(5px);
+            z-index: -1;
+            opacity: var(--opacity);
+            transition-duration: var(--transition-duration);
+        }
+    }
+
+    &__info {
+        // --bg-before: var(--linear-gradient-grey-black);
+        position: relative;
+        display: flex;
+        align-items: center;
+        column-gap: 28px;
+        top: 50%;
+        left: -35px;
+        // width: 75px;
+        // height: 75px;
+        // padding: 12px;
+        // border-radius: 50%;
+        // background-color: rgba(37, 37, 50, 0.6);
+
+        &.is-active {
+            --bg-before: var(--linear-gradient-blue-pink);
+            --opacity: 1;
+            --visibility: visible;
+        }
+
+        // &:hover {
+        //     --bg-before: var(--linear-gradient-blue-pink);
+        //     --opacity: 1;
+        // }
+
+        &:nth-child(2) {
+            top: 55%;
+            left: calc(100% - 80px);
+
+            @include laptop {
+                top: 70%;
+                left: calc(100% - 200px);
+            }
+        }
+
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     inset: 0;
+        //     background: var(--bg-before);
+        //     padding: 1px;
+        //     border-radius: inherit;
+        //     mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+        //     z-index: -1;
+        // }
+
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     top: -5px;
+        //     left: -20px;
+        //     width: 101px;
+        //     height: 92px;
+        //     background: url('../../images/background-gradient.png') center/contain no-repeat;
+        //     filter: blur(5px);
+        //     z-index: -1;
+        //     opacity: var(--opacity);
+        //     transition-duration: var(--transition-duration);
+        // }
+    }
+
+    &__image {
+        width: 100%;
+        border: 1px solid var(--color-black-100);
+        border-radius: inherit;
+    }
+
+    &__body {
+        display: grid;
+        position: relative;
+        row-gap: 8px;
+        // left: 91px;
+        padding: 18px 19px 13px 23px;
+        background-color: var(--color-grey-transparent);
+        width: 297px;
+        height: 123px;
+        clip-path: polygon(5% 0%,
+                100% 0%,
+                100% 100%,
+                5% 100%,
+                0% 50%,
+            );
+        opacity: var(--opacity);
+        visibility: var(--visibility);
+        transition-duration: var(--transition-duration);
+
+        & p {
+            font-size: 12px;
+            font-weight: 400;
+
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--linear-gradient-grey-black);
+            clip-path: inherit;
+            z-index: -1;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            background: var(--color-black-50);
+            clip-path: inherit;
+            z-index: -1;
+        }
+    }
+
+    &__author {
+        border-image: var(--border-image-gradient-blue-pink);
+        border-image-slice: 0 0 1 0;
+        width: max-content;
+    }
+
+    &__main-image {
+        bottom: -5px;
+        transform: rotate(1deg);
+        transform-origin: bottom;
+        pointer-events: none;
+
+        @include abs-x;
+
+        @include laptop {
+            width: 535px;
+            height: 390px;
+        }
+    }
+}

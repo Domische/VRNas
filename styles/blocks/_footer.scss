@@ -13,7 +13,7 @@
         grid-template-columns: auto 1fr;
         column-gap: 177px;
         padding-bottom: 33px;
-        border-image: var(--linear-gradient) 0 0 1/1px stretch;
+        border-image: var(--linear-gradient-blue-pink) 0 0 1/1px stretch;
 
         @include laptop {
             grid-template-areas: 

@@ -4,7 +4,7 @@
     position: sticky;
     top: 0;
     transition-duration: var(--transition-duration);
-    z-index: 1;
+    z-index: 10;
 
     &.is-scroll {
         background-color: var(--color-black-100);
@@ -164,7 +164,7 @@
     &__contact-us-link {
         padding: simple-clamp(10, 12) simple-clamp(10, 24);
 
-        // border-image-source: var(--linear-gradient);
+        // border-image-source: var(--linear-gradient-blue-pink);
         // border-image-slice: 1;
         // border-image-width: 1px;
         // border-image-repeat: stretch;

@@ -21,12 +21,12 @@
             position: absolute;
             inset: -1px;
             z-index: -1;
-            background: var(--linear-gradient);
+            background: var(--linear-gradient-blue-pink);
             border-radius: 50%;
         }
 
         &:hover {
-            background-color: var(--linear-gradient);
+            background-color: var(--linear-gradient-blue-pink);
         }
 
         

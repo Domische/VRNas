@@ -24,7 +24,19 @@
     translate: -50% -50%;
 }
 
-@mixin square($size){
+@mixin abs-y {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+}
+
+@mixin abs-x {
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+}
+
+@mixin square($size) {
     width: $size + px;
     aspect-ratio: 1;
 }

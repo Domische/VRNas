@@ -14,9 +14,10 @@
 
     --color-white: #FFFFFF;
 
-    --linear-gradient: linear-gradient(90deg, #0cbaf1 0%, #e95ce9 100%);
-    --border-image-gradient-blue-pink: var(--linear-gradient) 1/1px stretch;
-    --border-image-gradient-grey-black: linear-gradient(90deg, var(--color-grey-1) 0%, var(--color-black-50) 80%) 1/1px stretch;
+    --linear-gradient-blue-pink: linear-gradient(90deg, #0cbaf1 0%, #e95ce9 100%);
+    --linear-gradient-grey-black: linear-gradient(90deg, var(--color-grey-1) 0%, var(--color-black-50) 80%);
+    --border-image-gradient-blue-pink: var(--linear-gradient-blue-pink) 1/1px stretch;
+    --border-image-gradient-grey-black: var(--linear-gradient-grey-black) 1/1px stretch;
     --border: 1px solid rgba(255, 255, 255, 0.35);
 
     --font-family-base: "Chakra Petch", sans-serif;
