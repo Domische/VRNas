@@ -1,0 +1,53 @@
+@use '../helpers' as *;
+
+.circles {
+
+    &__item {
+        border: 1px solid rgba(255, 255, 255, 0.17);
+        border-radius: 50%;
+        aspect-ratio: 1;
+
+        @include abs-center;
+
+        &:last-child {
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -220px;
+                left: -320px;
+                width: 1062px;
+                height: 767px;
+                background: url('../../images/background-gradient.png') center/contain no-repeat;
+                filter: blur(30px);
+                pointer-events: none;
+            }
+        }
+
+        @for $i from 0 through 5 {
+            &:nth-child(#{$i+1}) {
+                --circle-gap: 163px;
+                width: calc(var(--container-size) - $i * var(--circle-gap));
+
+                @include laptop {
+                    --circle-gap: 132px;
+                }
+            }
+        }
+    }
+
+    &__main-image {
+        bottom: -5px;
+        transform: rotate(1deg);
+        transform-origin: bottom;
+        pointer-events: none;
+
+        @include abs-x;
+
+        @include laptop {
+            width: 535px;
+            height: 390px;
+        }
+    }
+
+}
