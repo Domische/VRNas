@@ -6,16 +6,51 @@
 
     padding-bottom: 100px;
 
+    &:has(.price) {
+        overflow-inline: clip;
+
+        .section-alt__main {
+            row-gap: 40px;
+
+            @include tablet {
+                row-gap: 47px;
+            }
+
+            &::before {
+                width: 1103px;
+                height: 783px;
+                bottom: -90px;
+                right: -120px;
+                scale: 1.2;
+                filter: blur(30px);
+
+                @include tablet {
+                    width: 530px;
+                    height: 685px;
+                    right: -20px;
+                }
+            }
+        }
+
+        .section-alt__description {
+            max-width: 625px;
+        }
+
+        .section-alt__title {
+            padding-bottom: 16px;
+        }
+    }
+
     &:has(.reviews) {
         position: relative;
         overflow-inline: clip;
-        // width: 100vw;
         width: 100%;
         height: 1247px;
-        margin-bottom: 155px;
+        margin-bottom: 100px;
 
         @include laptop {
             height: 1007px;
+            margin-bottom: 250px;
         }
 
         .section-alt__header {
@@ -23,7 +58,7 @@
             z-index: 1;
 
             @include abs-x;
-            
+
             @include laptop {
                 position: relative;
                 top: 0;
@@ -42,9 +77,32 @@
         }
     }
 
-    &__header {
-        max-width: 679px;
-        text-align: center;
+    &:has(.video-player) {
+
+        .section-alt__main {
+            row-gap: simple-clamp(32, 48);
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -120px;
+                left: -260px;
+                width: 616px;
+                height: 619px;
+                background: url('../../images/background-gradient.png') center/contain no-repeat;
+                filter: blur(50px);
+                opacity: 0.8;
+                z-index: -1;
+
+                @include tablet {
+                    display: none;
+                }
+            }
+        }
+
+        .section-alt__header {
+            max-width: 679px;
+        }
     }
 
     &__subtitle {
@@ -55,8 +113,14 @@
     &__main {
         position: relative;
         display: grid;
-        justify-items: center;
-        row-gap: 48px;
+
+        &--center {
+            justify-items: center;
+
+            .section-alt__header {
+                text-align: center;
+            }
+        }
 
         @include tablet {
             row-gap: 32px;
@@ -65,18 +129,8 @@
         &::before {
             content: '';
             position: absolute;
-            top: -120px;
-            left: -260px;
-            width: 616px;
-            height: 619px;
             background: url('../../images/background-gradient.png') center/contain no-repeat;
-            filter: blur(50px);
-            opacity: 0.8;
             z-index: -1;
-
-            @include tablet {
-                display: none;
-            }
         }
     }
 

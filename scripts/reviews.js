@@ -56,11 +56,11 @@ function reviews(rootElement) {
             const reviewsItemElementColumnGap = +getComputedStyle(reviewsItemElement).getPropertyValue('--column-gap').replace('px', '');
             const reviewsBodyElementWidth = +getComputedStyle(reviewsItemElement).getPropertyValue('--body-width').replace('px', '');
 
-            const isOnTheLeftSide = right + reviewsBodyElementWidth + reviewsItemElementColumnGap > windowPositionX;
-            const isOnTheBottomSide = left - reviewsBodyElementWidth - reviewsItemElementColumnGap < 0 && isOnTheLeftSide;
+            const toTheLeftSide = right + reviewsBodyElementWidth + reviewsItemElementColumnGap > windowPositionX;
+            const toTheBottomSide = left - reviewsBodyElementWidth - reviewsItemElementColumnGap < 0 && toTheLeftSide;
 
-            reviewsBodyElement.classList.toggle(stateClasses.isOnTheLeftSide, isOnTheLeftSide);
-            reviewsBodyElement.classList.toggle(stateClasses.isOnTheBottomSide, isOnTheBottomSide);
+            reviewsBodyElement.classList.toggle(stateClasses.isOnTheLeftSide, toTheLeftSide);
+            reviewsBodyElement.classList.toggle(stateClasses.isOnTheBottomSide, toTheBottomSide);
         })
     }
 

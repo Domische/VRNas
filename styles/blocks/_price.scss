@@ -1,0 +1,139 @@
+@use '../helpers' as *;
+
+.price {
+
+    display: grid;
+    grid-template-columns: 65% auto;
+    background-color: rgba(37, 37, 50, 0.81);
+    border-image: var(--border-image-gradient-grey-black);
+    margin-bottom: 48px;
+
+    @include tablet {
+        margin-bottom: 88px;
+    }
+
+    @include laptop {
+        grid-template-columns: 1fr;
+        row-gap: 37px;
+    }
+
+    &__list {
+        --border: 1px solid rgb(255, 255, 255, 0.1);
+        display: grid;
+        justify-content: space-between;
+        row-gap: 32px;
+        padding: 0px 118px 0px 42px;
+        margin-block: 55px;
+        border-right: var(--border);
+
+        @include laptop {
+            border-right: none;
+            border-bottom: var(--border);
+            margin-inline: 22px;
+            margin-block: 0;
+            padding: 32px 0 48px;
+        }
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 16px;
+    }
+
+    &__icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        height: 42px;
+
+        &-image {
+            z-index: 1;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--linear-gradient-blue-pink);
+            border-radius: 50%;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            background-color: var(--color-black-100);
+            border-radius: 50%;
+        }
+    }
+
+    &__advantage {
+        display: grid;
+        row-gap: 12px;
+    }
+
+    &__title {
+        font-size: 18px;
+    }
+
+    &__image {
+        align-self: end;
+        justify-self: end;
+        transform: scale(1.07);
+        transform-origin: bottom right;
+
+        @include laptop {
+            transform: scale(1);
+        }
+
+        @include tablet {
+            width: 256px;
+            height: 370px;
+        }
+    }
+
+    &__info {
+        position: absolute;
+        display: grid;
+        row-gap: 14px;
+        text-align: center;
+        padding: 20px 70px;
+        background-color: var(--color-black-50);
+        right: 200px;
+        bottom: 0;
+        border-image: var(--border-image-gradient-blue-pink);
+
+        @include laptop {
+            right: 78px;
+        }
+
+        @include mobile-l {
+            padding: 20px 50px;
+        }
+    }
+
+    &__start {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    &__size {
+        font-size: 60px;
+        font-weight: 600;
+        color: var(--color-white);
+        line-height: 1.1;
+
+        @include mobile-l {
+            font-size: 55px;
+        }
+    }
+
+    &__guarantee {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--color-grey-1);
+    }
+}

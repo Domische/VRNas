@@ -13,7 +13,7 @@
         display: flex;
         align-items: start;
         column-gap: 274px;
-        padding-bottom: 46px;
+        padding-bottom: simple-clamp(24, 46);
 
         @include laptop {
             column-gap: 174px;
@@ -22,7 +22,6 @@
         @include tablet {
             flex-direction: column;
             row-gap: 12px;
-            padding-bottom: 24px;
         }
 
     }
