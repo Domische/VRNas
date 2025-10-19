@@ -6,6 +6,18 @@
 
     padding-bottom: 100px;
 
+    &:has(.partners) {
+            overflow-inline: clip;
+
+
+        .section-alt__main {
+            max-width: 1055px;
+            row-gap: simple-clamp(24, 58);
+            padding-inline: 0;
+        }
+        
+    }
+
     &:has(.price) {
         overflow-inline: clip;
 

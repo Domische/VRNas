@@ -1,0 +1,296 @@
+@use '../helpers' as *;
+
+.partners {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 741px;
+
+    @include laptop {
+        height: 700px;
+    }
+
+    @include tablet {
+        height: 310px;
+    }
+
+    &__semicircles {
+        position: relative;
+        width: 100%;
+        height: 540px;
+        overflow: hidden;
+
+        @include laptop {
+            height: 505px;
+        }
+
+        @include tablet {
+            max-width: 430px;
+            height: 220px;
+        }
+
+        &-item {
+            aspect-ratio: 1;
+            border-radius: 50%;
+
+            @include abs-center;
+
+            top: 100%;
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: rgba(255, 255, 255, 0.17);
+                padding: 1px;
+                border-radius: inherit;
+                mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 50%;
+                width: 100%;
+                height: 81px;
+                background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, rgba(24, 24, 27, 0.68) 52%, #18181b 100%);
+                z-index: 1;
+            }
+
+            &:nth-child(2) {
+
+                &::before {
+                    background: var(--linear-gradient-blue-pink);
+                }
+            }
+
+        }
+
+        @for $i from 0 through 3 {
+            &-item:nth-child(#{$i + 1}) {
+                width: calc(100% - #{$i * 2 * 75px});
+
+                @include tablet {
+                    width: calc(100% - #{$i * 2 * 30px});
+                }
+            }
+        }
+
+    }
+
+    &__image {
+        @include abs-x;
+        top: 28%;
+
+        &>img {
+            width: 707px;
+            height: auto;
+
+            @include laptop {
+                width: 498px;
+            }
+
+            @include tablet {
+                width: 288px;
+            }
+        }
+
+        @include laptop {
+            top: 37%;
+        }
+
+        @include tablet {
+            top: 27%;
+        }
+
+
+        &::before {
+            content: '';
+            @include abs-x;
+            top: 18%;
+            width: calc(455 / 707 * 100%);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: var(--color-black-50);
+            border: 1px solid rgba(255, 255, 255, 0.17);
+            z-index: -1;
+
+            @include laptop {
+                top: 17%;
+            }
+        }
+
+        &::after {
+            content: '';
+            @include abs-x;
+            width: 1038px;
+            height: 692px;
+            background: url('../../images/background-gradient.png') center/contain no-repeat;
+            filter: blur(40px);
+            z-index: -1;
+
+            @include laptop {
+                width: 725px;
+                height: 488px;
+                bottom: -25%;
+            }
+
+            @include tablet {
+                width: 413px;
+                height: 283px;
+                bottom: -25%;
+            }
+        }
+    }
+
+
+    &__item {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 102px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: rgba(37, 37, 50, 0.8);
+        z-index: 2;
+
+        &>img {
+
+            @include laptop {
+                width: 51px;
+            }
+
+            @include tablet {
+                width: 32px;
+            }
+        }
+
+        @include laptop {
+            width: 72px;
+        }
+
+        @include tablet {
+            width: 42px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--linear-gradient-grey-black);
+            padding: 1px;
+            border-radius: inherit;
+            mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+        }
+
+        &:nth-child(1) {
+            bottom: 50%;
+            left: -5.5%;
+
+            @include laptop {
+                left: -4%;
+            }
+
+            @include tablet {
+                left: -7%;
+            }
+
+            @include tablet {
+                left: -6%;
+            }
+        }
+
+        &:nth-child(2) {
+            bottom: 70%;
+            left: 1.5%;
+
+            @include laptop {
+                left: 2%;
+            }
+        }
+
+        &:nth-child(3) {
+            bottom: 87%;
+            left: 18.5%;
+
+            @include laptop {
+                left: 17.5%;
+            }
+
+            @include tablet {
+                left: 18.5%;
+            }
+        }
+
+        &:nth-child(4) {
+            bottom: 94%;
+            left: 44.5%;
+
+            @include laptop {
+                bottom: 95.5%;
+                left: 45.5%;
+            }
+
+            @include tablet {
+                bottom: 94.5%;
+                left: 44.5%;
+            }
+
+            @include mobile-l {
+                left: 43.5%;
+            }
+        }
+
+        &:nth-child(5) {
+            bottom: 87%;
+            left: 70.5%;
+
+            @include laptop {
+                left: 74.5%;
+            }
+
+            @include tablet {
+                left: 70.5%;
+            }
+
+            @include mobile-l {
+                left: 69%;
+            }
+        }
+
+        &:nth-child(6) {
+            bottom: 70%;
+            left: 87.5%;
+
+            @include laptop {
+                left: 89.5%;
+            }
+
+            @include tablet {
+                left: 87.5%;
+            }
+
+            @include mobile-l {
+                left: 86%;
+            }
+        }
+
+        &:nth-child(7) {
+            bottom: 50%;
+            left: 94.5%;
+
+            @include laptop {
+                left: 95.5%;
+            }
+
+            @include tablet {
+                left: 94.5%;
+            }
+
+            @include mobile-l {
+                left: 93%;
+            }
+        }
+    }
+}
