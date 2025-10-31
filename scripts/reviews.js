@@ -13,6 +13,11 @@ function reviews(rootElement) {
         isOnTheBottomSide: 'is-on-the-bottom-side',
     }
 
+    const stateProperty = {
+        columnGap: '--column-gap',
+        bodyWidth: '--body-width'
+    }
+
     const initialState = {
         activeIndex: 0
     }
@@ -53,8 +58,8 @@ function reviews(rootElement) {
 
             const { left, right } = reviewsItemElement.getBoundingClientRect();
 
-            const reviewsItemElementColumnGap = +getComputedStyle(reviewsItemElement).getPropertyValue('--column-gap').replace('px', '');
-            const reviewsBodyElementWidth = +getComputedStyle(reviewsItemElement).getPropertyValue('--body-width').replace('px', '');
+            const reviewsItemElementColumnGap = +getComputedStyle(reviewsItemElement).getPropertyValue(stateProperty.columnGap).replace('px', '');
+            const reviewsBodyElementWidth = +getComputedStyle(reviewsItemElement).getPropertyValue(stateProperty.bodyWidth).replace('px', '');
 
             const toTheLeftSide = right + reviewsBodyElementWidth + reviewsItemElementColumnGap > windowPositionX;
             const toTheBottomSide = left - reviewsBodyElementWidth - reviewsItemElementColumnGap < 0 && toTheLeftSide;

@@ -1,0 +1,126 @@
+@use '../helpers' as *;
+
+.slider {
+
+    @include laptop {
+        padding-bottom: 32px;
+    }
+
+    &__body {
+        max-width: 636px;
+        overflow-inline: clip;
+
+        @include laptop {
+            max-width: 100%;
+        }
+    }
+
+    &__list {
+        display: flex;
+        transition-duration: var(--transition-duration);
+    }
+
+    &__item {
+        min-width: 100%;
+    }
+
+    &__card {
+        position: relative;
+        display: flex;
+        justify-content: start;
+        align-items: end;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(180deg, #3246BC00 0%, #192883 100%);
+        }
+
+        &-image {
+            width: 100%;
+            object-fit: cover;
+
+            @include tablet {
+                height: 266px;
+            }
+        }
+
+
+        &-info {
+            position: absolute;
+            display: grid;
+            grid-template-areas:
+                'subtitle subtitle'
+                'title link'
+            ;
+            align-items: center;
+            row-gap: 12px;
+            column-gap: 29px;
+            width: 100%;
+            padding: simple-clamp(16, 24);
+            z-index: 1;
+        }
+
+        &-subtitle {
+            grid-area: subtitle;
+        }
+
+        &-title {
+            grid-area: title;
+            font-size: 32px;
+            font-weight: 600;
+            align-self: start;
+
+            @include tablet {
+                font-weight: 500;
+                font-size: 20px;
+            }
+        }
+
+        &-link {
+            grid-area: link;
+
+            @include square(50);
+
+            &::after {
+                @include square(17);
+            }
+        }
+    }
+
+
+    &__dots {
+        display: flex;
+        justify-content: center;
+        column-gap: 12px;
+        padding-top: 44px;
+
+        @include tablet {
+            padding-top: 32px;
+        }
+    }
+
+    &__dot {
+        --dot-width: 9px;
+        position: relative;
+        width: var(--dot-width);
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.31);
+        border-radius: 32px;
+        transition-duration: var(--transition-duration);
+
+        &::before {
+            content: '';
+            @include abs-center;
+            width: var(--dot-width);
+            height: 44px;
+        }
+
+        &.is-active {
+            --dot-width: 17px;
+            background-color: var(--color-white);
+        }
+    }
+}
