@@ -2,7 +2,7 @@
 
 .article {
     position: relative;
-    overflow-inline: clip;
+    overflow: hidden;
     padding-bottom: 150px;
 
     @include tablet {

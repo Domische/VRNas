@@ -8,7 +8,7 @@
 
     &__body {
         max-width: 636px;
-        overflow-inline: clip;
+        overflow: hidden;
 
         @include laptop {
             max-width: 100%;

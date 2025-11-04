@@ -182,15 +182,15 @@
 
         &.is-on-the-bottom-side {
             height: auto;
-            padding: 23px 19px 13px 18px;
-            top: calc(75px + var(--column-gap));
+            padding: 13px 19px 23px 18px;
+            bottom: calc(75px + var(--column-gap));
             width: 138px;
             left: -42%;
-            clip-path: polygon(0% 5%,
-                    50% 0%,
-                    100% 5%,
-                    100% 100%,
-                    0% 100%,
+            clip-path: polygon(0% 0%,
+                    100% 0%,
+                    100% 95%,
+                    50% 100%,
+                    0% 95%,
                 );
 
             .reviews__author {
