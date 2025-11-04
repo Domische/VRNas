@@ -101,7 +101,7 @@
                 left: -260px;
                 width: 616px;
                 height: 619px;
-                background: url('../../images/background-gradient.png') center/contain no-repeat;
+                background: url('../images/background-gradient.png') center/contain no-repeat;
                 filter: blur(50px);
                 opacity: 0.8;
                 z-index: -1;
@@ -141,7 +141,7 @@
         &::before {
             content: '';
             position: absolute;
-            background: url('../../images/background-gradient.png') center/contain no-repeat;
+            background: url('../images/background-gradient.png') center/contain no-repeat;
             z-index: -1;
         }
     }

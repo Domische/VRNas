@@ -49,7 +49,7 @@
 
         &::after {
             content: '';
-            background: url('../../icons/arrow-right.svg') center/contain no-repeat;
+            background: url('../icons/arrow-right.svg') center/contain no-repeat;
             @include abs-center;
         }
 

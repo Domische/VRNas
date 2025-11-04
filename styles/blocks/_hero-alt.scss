@@ -28,7 +28,7 @@
             height: 721px;
             top: 85px;
             left: -10px;
-            background: url('../../images/background-cells.svg') center/cover no-repeat;
+            background: url('../images/background-cells.svg') center/cover no-repeat;
             z-index: -1;
 
             @include tablet {
@@ -48,7 +48,7 @@
         //     height: 760px;
         //     top: -50px;
         //     right: calc(((100% - var(--container-width)) / 2) - 110px);
-        //     background: url('../../images/background-gradient.png') center/contain no-repeat;
+        //     background: url('../images/background-gradient.png') center/contain no-repeat;
         //     filter: blur(40px);
         //     z-index: -1;
 
@@ -71,7 +71,7 @@
         //     height: 626px;
         //     bottom: 0;
         //     right: calc((100% - var(--container-width)) / 2);
-        //     background: url('../../images/features/background-human.png') center/contain no-repeat;
+        //     background: url('../images/features/background-human.png') center/contain no-repeat;
         //     z-index: -1;
 
         //     @include laptop {
@@ -113,7 +113,7 @@
             height: 760px;
             top: -30px;
             right: calc(((100% - var(--container-width)) / 2) + 210px);
-            background: url('../../images/background-gradient.png') center/contain no-repeat;
+            background: url('../images/background-gradient.png') center/contain no-repeat;
             filter: blur(40px);
             z-index: -1;
 
