@@ -9,7 +9,17 @@
     aspect-ratio: 1;
     padding: 13px 11px;
     background-color: transparent;
-    border-image: var(--border-image-gradient-blue-pink);
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        opacity: 1;
+        padding: 1px;
+        background: var(--linear-gradient-blue-pink);
+        mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+        transition-duration: var(--transition-duration);
+    }
 
     &__line {
         height: 1px;
