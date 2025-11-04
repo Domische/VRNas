@@ -21,24 +21,25 @@ const initialState = {
 function slider(rootElement) {
     const sliderListElement = rootElement.querySelector(selectors.sliderList);
     const sliderDotElements = rootElement.querySelectorAll(selectors.sliderDot);
+    const dotElements = [...sliderDotElements];
 
     const moveSlider = () => {
         sliderListElement.style.translate = `${-sliderListElement.clientWidth * initialState.sliderDotIndex}px`;
     }
 
     const activeDot = () => {
-        sliderDotElements.forEach(sliderDotElement => {
-            sliderDotElement.classList.remove(stateClasses.isActive);
-        });
+        const pastActiveDotElement = dotElements.find((item)=> item.classList.contains(stateClasses.isActive));
 
-        const activeDotElement = [...sliderDotElements].find((item, index) => index === initialState.sliderDotIndex);
+        pastActiveDotElement.classList.remove(stateClasses.isActive);
+
+        const activeDotElement = dotElements.find((item, index) => index === initialState.sliderDotIndex);
 
         activeDotElement.classList.add(stateClasses.isActive);
     }
 
     const onClickDot = ({ target }) => {
         if (target.closest(selectors.sliderDot)) {
-            initialState.sliderDotIndex = [...sliderDotElements].indexOf(target);
+            initialState.sliderDotIndex = dotElements.indexOf(target);
             
             activeDot();
             moveSlider();

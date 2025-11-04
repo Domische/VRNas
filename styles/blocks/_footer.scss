@@ -2,7 +2,6 @@
 
 .footer {
     font-weight: 300;
-    padding: 115px 0 40px;
 
     &__body {
         display: grid;
@@ -34,7 +33,7 @@
     }
 
     &__extra {
-        padding-top: 32px;
+        padding-block: 32px;
         text-align: center;
     }
 

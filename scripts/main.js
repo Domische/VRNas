@@ -5,6 +5,7 @@ import VideoPlayerCollection from "./VideoPlayer.js";
 import reviewsCollection from "./reviews.js";
 import ScrollbarCollection from "./Scrollbar.js";
 import sliderCollection from "./slider.js";
+import EmailValidationCollection from "./EmailValidation.js";
 
 //Со строчной буквы - функциональный подход, с заглавной - классовый подход;
 
@@ -15,3 +16,4 @@ new VideoPlayerCollection();
 reviewsCollection();
 new ScrollbarCollection();
 sliderCollection();
+new EmailValidationCollection();

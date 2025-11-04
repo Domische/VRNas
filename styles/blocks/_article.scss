@@ -5,6 +5,10 @@
     overflow-inline: clip;
     padding-bottom: 150px;
 
+    @include tablet {
+        padding-bottom: 100px;
+    }
+
     --color-grey-transparent: rgba(255, 255, 255, 0.15);
 
     & h3 {
@@ -51,6 +55,13 @@
             &::after {
                 top: 56.5%;
                 left: -500px;
+            }
+        }
+
+        @include tablet {
+
+            &::after {
+                top: 58.5%;
             }
         }
     }
