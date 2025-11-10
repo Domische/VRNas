@@ -144,7 +144,7 @@ body::before {
   right: 0;
   width: 736px;
   height: 353px;
-  background: url("../images/background-top.svg") top right/contain no-repeat;
+  background: url("../images/background-top.webp") top right/contain no-repeat;
   pointer-events: none;
   opacity: 0.2;
   z-index: -2;
@@ -161,7 +161,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 498px;
-  background: url("../images/background-bottom.svg") bottom left/contain no-repeat;
+  background: url("../images/background-bottom.webp") bottom left/contain no-repeat;
   pointer-events: none;
   opacity: 0.3;
   z-index: -2;
@@ -627,7 +627,7 @@ p[class$=subtitle] {
   height: 760px;
   top: -30px;
   right: calc((100% - var(--container-width)) / 2 + 210px);
-  background: url("../images/background-gradient.png") center/contain no-repeat;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
   filter: blur(40px);
   z-index: -1;
 }
@@ -1041,7 +1041,7 @@ p[class$=subtitle] {
   top: -40px;
   width: 805px;
   height: 785px;
-  background: url("../images/background-gradient.png") center/contain no-repeat;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
   border: 0 50% 0 0;
   filter: blur(40px);
   z-index: -1;
@@ -1156,7 +1156,7 @@ p[class$=subtitle] {
     opacity: 0.8;
     z-index: -1;
     filter: blur(50px);
-    background: url("../images/background-gradient.png") center/contain no-repeat;
+    background: url("../images/background-gradient.webp") center/contain no-repeat;
   }
 }
 .service__list {
@@ -1402,7 +1402,7 @@ p[class$=subtitle] {
   left: -260px;
   width: 616px;
   height: 619px;
-  background: url("../images/background-gradient.png") center/contain no-repeat;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
   filter: blur(50px);
   opacity: 0.8;
   z-index: -1;
@@ -1437,7 +1437,7 @@ p[class$=subtitle] {
 .section-alt__main::before {
   content: "";
   position: absolute;
-  background: url("../images/background-gradient.png") center/contain no-repeat;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
   z-index: -1;
 }
 .section-alt__body {
@@ -1475,7 +1475,6 @@ p[class$=subtitle] {
   border-radius: 10px;
 }
 .timeline__line {
-  --transition: width .5s ease-out;
   position: relative;
   width: 100%;
   height: 8px;
@@ -1491,7 +1490,6 @@ p[class$=subtitle] {
   width: var(--progress-width);
   border-radius: 4px;
   background-color: var(--color-white);
-  transition: var(--transition);
 }
 .timeline__line::after {
   content: "";
@@ -1626,7 +1624,7 @@ p[class$=subtitle] {
   left: -20px;
   width: 101px;
   height: 92px;
-  background: url("../images/background-gradient.png") center/contain no-repeat;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
   filter: blur(5px);
   z-index: -1;
   opacity: var(--opacity);
@@ -1712,7 +1710,7 @@ p[class$=subtitle] {
   left: -320px;
   width: 1062px;
   height: 767px;
-  background: url("../images/background-gradient.png") center/contain no-repeat;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
   filter: blur(30px);
   pointer-events: none;
 }
@@ -2068,7 +2066,7 @@ p[class$=subtitle] {
   translate: -50% 0;
   width: 1038px;
   height: 692px;
-  background: url("../images/background-gradient.png") center/contain no-repeat;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
   filter: blur(40px);
   z-index: -1;
 }
@@ -2272,7 +2270,7 @@ p[class$=subtitle] {
   left: calc((100vw - var(--container-width)) / 2 - 230px);
   width: 619px;
   height: 485px;
-  background: url("../images/background-gradient.png") center/contain no-repeat;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
   filter: blur(20px);
   z-index: -1;
 }

@@ -24,7 +24,7 @@
     }
 
     &__line {
-        --transition: width .5s ease-out;
+        // --transition: width .5s ease-out;
         position: relative;
         width: 100%;
         height: 8px;
@@ -40,7 +40,7 @@
             width: var(--progress-width);
             border-radius: 4px;
             background-color: var(--color-white);
-            transition: var(--transition);
+            // transition: var(--transition);
         }
 
         // &::after {

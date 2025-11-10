@@ -40,7 +40,7 @@ class VideoPlayer {
         this.initialState.isPlay ? this.videoElement.play() : this.videoElement.pause();
 
         this.buttonElement.classList.toggle(this.stateClasses.isActive, this.initialState.isPlay);
-        this.infoElement.classList.toggle(this.stateClasses.isActive, this.initialState.isPlay);
+        this.infoElement?.classList.toggle(this.stateClasses.isActive, this.initialState.isPlay);
         
         //смена кнопки play на кнопку pause и наоборот
         if (this.timelineLineElement && this.initialState.isPlay) {
@@ -57,7 +57,7 @@ class VideoPlayer {
                 this.timelineLineElement.style.setProperty(this.stateProperty.progressWidth, `${100 * event.target.currentTime / this.videoElement.duration}%`)
             })
 
-        } else if (!this.initialState.isPlay) {
+        } else if (this.timelineLineElement && !this.initialState.isPlay) {
             this.timelineButtonElement.innerHTML =
                 `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.19995 2.86327C2.19995 1.61155 3.57248 0.844595 4.63851 1.50061L12.9856 6.63731C14.0009 7.26209 14.0009 8.73784 12.9856 9.36262L4.63851 14.4993C3.57247 15.1553 2.19995 14.3884 2.19995 13.1367V2.86327Z" fill="white" />
