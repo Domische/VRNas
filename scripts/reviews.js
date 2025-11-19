@@ -36,10 +36,6 @@ function reviews(rootElement) {
     }
 
     const onReviewsClick = (event) => {
-        if(event.type === 'touchend') {
-            event.preventDefault();
-        }
-        
         fixReviewsItemPosition();
         const { target } = event;
         const reviewsAvatarElement = target.closest(selectors.reviewsAvatar);
@@ -73,9 +69,7 @@ function reviews(rootElement) {
         })
     }
 
-    document.addEventListener('click', (event) => onReviewsClick(event));
-
-    document.addEventListener('touchend', (event) => onReviewsClick(event))
+    document.addEventListener('pointerup', (event) => onReviewsClick(event));
 
     window.addEventListener('resize', fixReviewsItemPosition);
 }
