@@ -57,6 +57,10 @@ function accordion(rootElement) {
         buttonElement.addEventListener('click', (event) => onClickButton(event));
     })
 
+    buttonElements.forEach(buttonElement => {
+        buttonElement.addEventListener('touchend', (event) => onClickButton(event));
+    })
+
 }
 
 function accordionCollection() {
