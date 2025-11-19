@@ -20,6 +20,10 @@ function accordion(rootElement) {
     const buttonElements = rootElement.querySelectorAll(selectors.button);
 
     const onClickButton = (event) => {
+        if(event.type === 'touchend') {
+            event.preventDefault();
+        } //для предотвращения двойного вызова из-за двух событий (click, touchend)        
+        
         const element = event.target.closest(selectors.button);
         const buttonElementsArray = [...buttonElements];
         const newActiveButtonIndex = buttonElementsArray.indexOf(element);
