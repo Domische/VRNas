@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         slider: 'data-js-slider',
         scrollbar: 'data-js-scrollbar',
         emailForm: 'data-js-email-form',
+        accordion: 'data-js-accordion-group',
     }
     
     const VideoPlayerCollection = await import('./VideoPlayer.js');
@@ -108,6 +109,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (element.getAttributeNames().includes(selectorsObserver.emailForm)) {
             const EmailValidationCollection = await import('./EmailValidation.js');
             new EmailValidationCollection.default();
+        }
+
+        if (element.getAttributeNames().includes(selectorsObserver.accordion)) {
+            const accordionCollection = await import('./accordion.js');
+            accordionCollection.default();
         }
 
     }

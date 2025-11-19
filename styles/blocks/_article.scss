@@ -87,7 +87,8 @@
 
     &__body {
         @include laptop-above {
-            display: flex;
+            display: grid;
+            grid-template-columns: min(calc(636 / 1200 * 100vw), 636px) min(calc(730 / 1440 * 100vw), 730px);
             align-items: center;
             height: 605px;
         }
@@ -105,6 +106,10 @@
         }
     }
 
+    &__slider {
+        z-index: 1;
+    }
+
     &__feed {
         display: grid;
         grid-template-areas:
@@ -117,9 +122,12 @@
         border-image: var(--border-image-gradient-grey-black);
 
         @include laptop-above {
-            margin-left: -47px;
+            translate: -47px 0;
+
+            //подход с margin-right плохо работает в safari, новый подход в .article__body {...grid-template-columns: min(calc(636 / 1200 * 100vw), 636px) min(calc(730 / 1440 * 100vw), 730px);...}
+            // margin-left: -47px;
             // margin-right: -120px; //еще в голове просчитать вариант снизу, чтобы запомнить!!!
-            margin-right: min(calc((100vw - var(--container-width)) / 2 * -1), calc(var(--container-padding-x) * -1));
+            // margin-right: min(calc((100vw - var(--container-width)) / 2 * -1), calc(var(--container-padding-x) * -1)); 
         }
 
         @include laptop {

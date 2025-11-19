@@ -38,16 +38,19 @@
     }
 
     &__main-image {
-        bottom: -5px;
+        bottom: -17px;
         transform: rotate(1deg);
         transform-origin: bottom;
         pointer-events: none;
-
+        
+        
         @include abs-x;
+        left: 55%;
 
         @include laptop {
             width: 535px;
             height: 390px;
+            bottom: -15px;
         }
     }
 

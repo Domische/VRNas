@@ -34,7 +34,9 @@ class VideoPlayer {
         this.bindEvents();
     }
 
-    customControls = () => {
+    customControls = (event) => {
+        event.preventDefault();
+        
         this.initialState.isPlay = !this.initialState.isPlay;
 
         this.initialState.isPlay ? this.videoElement.play() : this.videoElement.pause();
@@ -81,10 +83,10 @@ class VideoPlayer {
     }
 
     bindEvents() {
-        this.buttonElement.addEventListener('click', this.customControls);
-        this.timelineButtonElement?.addEventListener('click', this.customControls);
-        this.videoElement.addEventListener('click', this.customControls);
-        this.videoElement.addEventListener('ended', this.customControls);
+        this.buttonElement.addEventListener('click', (event)=>this.customControls(event));
+        this.timelineButtonElement?.addEventListener('click', (event)=>this.customControls(event));
+        this.videoElement.addEventListener('click', (event)=>this.customControls(event));
+        this.videoElement.addEventListener('ended', (event)=>this.customControls(event));
         this.timelineLineElement?.addEventListener('click', this.onTimelineLineClick);
     }
 }

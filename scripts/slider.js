@@ -32,7 +32,7 @@ function slider(rootElement) {
 
         pastActiveDotElement.classList.remove(stateClasses.isActive);
 
-        const activeDotElement = dotElements.find((item, index) => index === initialState.sliderDotIndex);
+        const activeDotElement = dotElements[initialState.sliderDotIndex];
 
         activeDotElement.classList.add(stateClasses.isActive);
     }
