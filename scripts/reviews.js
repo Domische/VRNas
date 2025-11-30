@@ -69,7 +69,7 @@ function reviews(rootElement) {
         })
     }
 
-    document.addEventListener('pointerup', (event) => onReviewsClick(event));
+    rootElement.addEventListener('pointerup', (event) => onReviewsClick(event));
 
     window.addEventListener('resize', fixReviewsItemPosition);
 }

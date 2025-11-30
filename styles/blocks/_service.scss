@@ -105,10 +105,10 @@
             transition-duration: var(--transition-duration);
             background: linear-gradient(180deg, rgba(37, 37, 50, 0) 0%, rgba(37, 37, 50, 0.91) 53.06%, #252532 100%);
 
-            &:hover {
-                visibility: visible;
-                opacity: 1;
-            }
+            // &:hover {
+            //     visibility: visible;
+            //     opacity: 1;
+            // }
         }
 
         &-link {
