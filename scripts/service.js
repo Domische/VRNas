@@ -22,14 +22,17 @@ function service(rootElement) {
 
     const onClickServiceItem = (event) => {
         const serviceItem = event.target.closest(selectors.serviceItem);
-        const newActiveIndex = [...serviceItemElements].indexOf(serviceItem);
 
-        if (initialState.lastActiveIndex !== newActiveIndex) {
-            closeLastActiveElement();
-            initialState.lastActiveIndex = newActiveIndex;
-        }
+        if (serviceItem) {
+            const newActiveIndex = [...serviceItemElements].indexOf(serviceItem);
 
-        serviceItem.classList.toggle(stateClasses.isActive);
+            if (initialState.lastActiveIndex !== newActiveIndex) {
+                closeLastActiveElement();
+                initialState.lastActiveIndex = newActiveIndex;
+            }
+
+            serviceItem.classList.toggle(stateClasses.isActive);
+        } 
     }
 
     rootElement.addEventListener('pointerup', (event) => onClickServiceItem(event))
