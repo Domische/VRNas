@@ -126,21 +126,10 @@
             transition-duration: var(--transition-duration);
         }
 
-        @media(hover: hover){
-            &:hover {
-                &::after {
-                    transition-duration: var(--transition-duration);
-                    opacity: 1;
-                }
-            }
-        }
-
-        @media(hover: none){
-            &:active {
-                &::after {
-                    transition-duration: var(--transition-duration);
-                    opacity: 1;
-                }
+        &:hover {
+            &::after {
+                transition-duration: var(--transition-duration);
+                opacity: 1;
             }
         }
 

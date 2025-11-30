@@ -104,7 +104,6 @@
             opacity: 0;
             transition-duration: var(--transition-duration);
             background: linear-gradient(180deg, rgba(37, 37, 50, 0) 0%, rgba(37, 37, 50, 0.91) 53.06%, #252532 100%);
-
             // &:hover {
             //     visibility: visible;
             //     opacity: 1;
@@ -119,19 +118,11 @@
             font-size: 14px;
         }
 
-        &:hover {
-            .service__item-link-container {
-                visibility: visible;
-                opacity: 1;
-            }
-        }
-
         &::before {
             content: '';
             position: absolute;
             inset: 0;
             opacity: 0;
-            pointer-events: none;
             transition-duration: var(--transition-duration);
             border: 1px solid transparent;
             background: linear-gradient(var(--color-black-50), var(--color-black-50)) padding-box, var(--linear-gradient-blue-pink) border-box;
@@ -143,19 +134,39 @@
             position: absolute;
             inset: 0;
             opacity: 1;
-            pointer-events: none;
             transition-duration: var(--transition-duration);
             border: 1px solid transparent;
             background: linear-gradient(var(--color-black-50), var(--color-black-50)) padding-box, var(--linear-gradient-grey-black) border-box;
             z-index: -1;
         }
 
-        &:hover {
-            &::before {
-                opacity: 1;
+        @media (hover: hover){
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+                &::after {
+                    opacity: 0;
+                }
+                .service__item-link-container {
+                    visibility: visible;
+                    opacity: 1;
+                }
             }
-            &::after {
-                opacity: 0;
+        }
+
+        @media(hover: none){
+            &.is-active {
+                &::before {
+                    opacity: 1;
+                }
+                &::after {
+                    opacity: 0;
+                }
+                .service__item-link-container {
+                    visibility: visible;
+                    opacity: 1;
+                }
             }
         }
 

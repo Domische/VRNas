@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         scrollbar: 'data-js-scrollbar',
         emailForm: 'data-js-email-form',
         accordion: 'data-js-accordion-group',
+        service: 'data-js-service-list'
     }
     
     const VideoPlayerCollection = await import('./VideoPlayer.js');
@@ -114,6 +115,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (element.getAttributeNames().includes(selectorsObserver.accordion)) {
             const accordionCollection = await import('./accordion.js');
             accordionCollection.default();
+        }
+
+        if (element.getAttributeNames().includes(selectorsObserver.service)) {
+            const serviceCollection = await import('./service.js');
+            serviceCollection.default();
         }
 
     }

@@ -1214,16 +1214,11 @@ p[class$=subtitle] {
 .service__item-description > p {
   font-size: 14px;
 }
-.service__item:hover .service__item-link-container {
-  visibility: visible;
-  opacity: 1;
-}
 .service__item::before {
   content: "";
   position: absolute;
   inset: 0;
   opacity: 0;
-  pointer-events: none;
   transition-duration: var(--transition-duration);
   border: 1px solid transparent;
   background: linear-gradient(var(--color-black-50), var(--color-black-50)) padding-box, var(--linear-gradient-blue-pink) border-box;
@@ -1234,17 +1229,34 @@ p[class$=subtitle] {
   position: absolute;
   inset: 0;
   opacity: 1;
-  pointer-events: none;
   transition-duration: var(--transition-duration);
   border: 1px solid transparent;
   background: linear-gradient(var(--color-black-50), var(--color-black-50)) padding-box, var(--linear-gradient-grey-black) border-box;
   z-index: -1;
 }
-.service__item:hover::before {
-  opacity: 1;
+@media (hover: hover) {
+  .service__item:hover::before {
+    opacity: 1;
+  }
+  .service__item:hover::after {
+    opacity: 0;
+  }
+  .service__item:hover .service__item-link-container {
+    visibility: visible;
+    opacity: 1;
+  }
 }
-.service__item:hover::after {
-  opacity: 0;
+@media (hover: none) {
+  .service__item.is-active::before {
+    opacity: 1;
+  }
+  .service__item.is-active::after {
+    opacity: 0;
+  }
+  .service__item.is-active .service__item-link-container {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 @media (min-width: 1024.98px) {
   .service__item:nth-child(3n+2) {
@@ -2694,17 +2706,9 @@ p[class$=subtitle] {
   opacity: 0;
   transition-duration: var(--transition-duration);
 }
-@media (hover: hover) {
-  .subscribe__submit-button:hover::after {
-    transition-duration: var(--transition-duration);
-    opacity: 1;
-  }
-}
-@media (hover: none) {
-  .subscribe__submit-button:active::after {
-    transition-duration: var(--transition-duration);
-    opacity: 1;
-  }
+.subscribe__submit-button:hover::after {
+  transition-duration: var(--transition-duration);
+  opacity: 1;
 }
 
 /*# sourceMappingURL=main.css.map */
