@@ -1559,6 +1559,11 @@ p[class*=subtitle]:not([class$=tile]) {
   padding-bottom: 100px;
   overflow: hidden;
 }
+@media (min-width: 768.98px) {
+  .section-alt:has(.accordion--painted) {
+    padding-bottom: 150px;
+  }
+}
 .section-alt:has(.section-alt__main--about-us .product-features) {
   position: relative;
   margin-top: -721px;
@@ -1579,6 +1584,11 @@ p[class*=subtitle]:not([class$=tile]) {
   .section-alt:has(.section-alt__main--about-us .product-features)::before {
     top: 160px;
     left: -75px;
+  }
+}
+@media (min-width: 768.98px) {
+  .section-alt:has(.partners) {
+    padding-bottom: 150px;
   }
 }
 .section-alt:has(.partners) .section-alt__main {
@@ -3017,7 +3027,7 @@ p[class*=subtitle]:not([class$=tile]) {
   top: -100px;
   width: 669px;
   height: 367px;
-  background: url("../../images/hero/background-gradient.webp") center/contain no-repeat;
+  background: url("../images/hero/background-gradient.webp") center/contain no-repeat;
   z-index: -1;
 }
 @media (max-width: 768.98px) {
@@ -3054,7 +3064,7 @@ p[class*=subtitle]:not([class$=tile]) {
   position: absolute;
   bottom: 0;
   right: 0;
-  background: url("../../icons/arrow-down.svg") center/contain no-repeat;
+  background: url("../icons/arrow-down.svg") center/contain no-repeat;
   rotate: 270deg;
   width: 18px;
   aspect-ratio: 1;

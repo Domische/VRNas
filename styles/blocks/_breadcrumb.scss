@@ -20,7 +20,7 @@
                 position: absolute;
                 bottom: 0;
                 right: 0;
-                background: url('../../icons/arrow-down.svg') center/contain no-repeat;
+                background: url('../icons/arrow-down.svg') center/contain no-repeat;
                 rotate: 270deg;
                 @include square(18);
             }

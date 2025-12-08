@@ -8,6 +8,13 @@
 
     overflow: hidden;
 
+    &:has(.accordion--painted) {
+        
+        @include tablet-above {
+            padding-bottom: 150px;
+        }
+    }
+
     &:has(.section-alt__main--about-us .product-features) {
         position: relative;
         margin-top: -721px;
@@ -36,6 +43,10 @@
 
     &:has(.partners) {
         // overflow: hidden;
+
+        @include tablet-above {
+            padding-bottom: 150px;
+        }
 
 
         .section-alt__main {
