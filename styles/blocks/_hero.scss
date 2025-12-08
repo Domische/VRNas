@@ -1,0 +1,48 @@
+@use '../helpers' as *;
+
+.hero {
+    padding-top: 80px;
+    padding-bottom: 150px;
+    overflow: hidden;
+
+    @include tablet {
+        padding-bottom: 100px;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        padding-bottom: 77px;
+
+        &::before {
+            content: '';
+            @include abs-x;
+            top: -100px;
+            width: 669px;
+            height: 367px;
+            background: url('../../images/hero/background-gradient.webp') center/contain no-repeat;
+            z-index: -1;
+
+            @include tablet {
+                width: 430px;
+                height: 318px;
+                filter: blur(30px);
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            height: 1px;
+            width: 100%;
+            background: var(--linear-gradient-blue-pink);
+        }
+    }
+
+    &__title {
+        padding-bottom: 29px;
+    }
+}

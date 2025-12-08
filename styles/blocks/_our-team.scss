@@ -1,0 +1,50 @@
+@use '../helpers' as *;
+
+.our-team {
+    padding-bottom: 152px;
+
+    @include tablet {
+        padding-bottom: 100px;
+    }
+
+    &__main {
+        display: grid;
+        grid-template-areas:
+            'header button'
+            'body body'
+        ;
+        row-gap: 41px;
+
+        @include tablet {
+            grid-template-areas:
+                'header'
+                'body'
+                'button'
+            ;
+            justify-content: center;
+            row-gap: 32px;
+            text-align: center;
+        }
+    }
+
+
+    &__header {
+        grid-area: header;
+    }
+
+    &__button {
+        grid-area: button;
+        align-self: center;
+        justify-self: end;
+        
+        @include tablet {
+            align-self: end;
+            justify-self: center;
+        }
+    }
+
+    &__body {
+        grid-area: body;
+    }
+
+}

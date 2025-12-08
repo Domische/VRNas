@@ -45,6 +45,11 @@
                 left: 30.5%;
             }
 
+            @include mobile-l {
+                top: 4.5%;
+                left: 34.5%;
+            }
+
         }
 
         &:nth-child(2) {

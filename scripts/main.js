@@ -27,12 +27,12 @@
 //     console.log(navigator.connection.effectiveType);
 // })
 
-document.addEventListener('DOMContentLoaded', async () => {
+async function load() {
 
     const observerImage = new IntersectionObserver(
         (entries, observer) => {
-            entries.forEach(entry=> {
-                if(entry.isIntersecting){
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
                     entry.target.setAttribute('src', entry.target.dataset.src);
                     entry.target.removeAttribute('data-src');
                     observer.unobserve(entry.target);
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     )
 
-    document.querySelectorAll('img[data-src]').forEach(image=> {
+    document.querySelectorAll('img[data-src]').forEach(image => {
         observerImage.observe(image);
     });
 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         accordion: 'data-js-accordion-group',
         service: 'data-js-service-list'
     }
-    
+
     const VideoPlayerCollection = await import('./VideoPlayer.js');
     const scrollPage = await import('./scrollPage.js');
     const SubMenuButtonCollection = await import('./SubmenuButton.js');
@@ -79,10 +79,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         {}
     )
 
-    
 
     for (const key in selectorsObserver) {
-        observerJs.observe(document.querySelector(`[${selectorsObserver[key]}]`));
+        const dataJs = document.querySelector(`[${selectorsObserver[key]}]`);
+        dataJs && observerJs.observe(dataJs);
     }
 
     async function JsLoad(element) {
@@ -124,23 +124,26 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     }
 
+}
 
 
-    // const burgerButton = await import('./menuBurgerButton.js');
-    // const scrollPage = await import('./scrollPage.js');
-    // const SubMenuButtonCollection = await import('./SubmenuButton.js');
-    // const VideoPlayerCollection = await import('./VideoPlayer.js');
-    // const reviewsCollection = await import('./reviews.js');
-    // const ScrollbarCollection = await import('./Scrollbar.js');
-    // const sliderCollection = await import('./slider.js');
-    // const EmailValidationCollection = await import('./EmailValidation.js');
+document.addEventListener('DOMContentLoaded', load);
 
-    // burgerButton.default();
-    // scrollPage.default();
-    // new SubMenuButtonCollection.default();
-    // new VideoPlayerCollection.default();
-    // reviewsCollection.default();
-    // new ScrollbarCollection.default();
-    // sliderCollection.default();
-    // new EmailValidationCollection.default();
-});
+
+// const burgerButton = await import('./menuBurgerButton.js');
+// const scrollPage = await import('./scrollPage.js');
+// const SubMenuButtonCollection = await import('./SubmenuButton.js');
+// const VideoPlayerCollection = await import('./VideoPlayer.js');
+// const reviewsCollection = await import('./reviews.js');
+// const ScrollbarCollection = await import('./Scrollbar.js');
+// const sliderCollection = await import('./slider.js');
+// const EmailValidationCollection = await import('./EmailValidation.js');
+
+// burgerButton.default();
+// scrollPage.default();
+// new SubMenuButtonCollection.default();
+// new VideoPlayerCollection.default();
+// reviewsCollection.default();
+// new ScrollbarCollection.default();
+// sliderCollection.default();
+// new EmailValidationCollection.default();

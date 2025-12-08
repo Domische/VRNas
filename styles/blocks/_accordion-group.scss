@@ -3,4 +3,8 @@
 .accordion-group {
     display: grid;
     row-gap: 36px;
+
+    &:has(.accordion--painted){
+        row-gap: 24px;
+    }
 }

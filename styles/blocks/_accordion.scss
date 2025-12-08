@@ -3,6 +3,66 @@
 .accordion {
     --transition-duration: 0.3s;
 
+    &--painted {
+        position: relative;
+        padding: 24px;
+        background-color: var(--color-black-50);
+
+        &:has(.accordion__button.is-active) {
+            &::before {
+                opacity: 1;
+            }
+
+            &::after {
+                opacity: 0;
+            }
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            z-index: -1;
+            transition-duration: var(--transition-duration);
+        }
+
+        &::before {
+            background: var(--linear-gradient-blue-pink);
+            opacity: 0;
+        }
+
+        &::after {
+            background: var(--linear-gradient-grey-black);
+            opacity: 1;
+        }
+
+        .accordion__content {
+            padding-top: 0;
+
+            & p {
+                margin-top: 12px;
+                padding-top: 12px;
+                border-top: var(--border);
+            }
+
+        }
+
+        .accordion__button {
+            border: none;
+            padding-bottom: 0;
+            color: var(--color-grey-2);
+            transition-duration: var(--transition-duration);
+
+            &.is-active {
+                color: var(--color-white);
+            }
+        }
+
+
+
+    }
+
     &__button {
         font-size: 20px;
         font-weight: 500;
@@ -41,7 +101,7 @@
         }
     }
 
-    .accordion__content {
+    &__content {
         display: grid;
         grid-template-rows: 0fr;
         padding-top: 12px;

@@ -1,7 +1,7 @@
 @use '../helpers' as *; 
 
 .gradient-text {
-    display: inline;
+    display: inline-block;
     background: var(--linear-gradient-blue-pink) center/contain no-repeat;
     background-clip: text;
     color: transparent;

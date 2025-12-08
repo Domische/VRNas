@@ -1,0 +1,114 @@
+@use '../helpers' as *;
+
+.team-members {
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 11px;
+
+        @include laptop {
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: center;
+            gap: 24px;
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &__item {
+        --padding: 9px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: end;
+        position: relative;
+        padding: var(--padding);
+        background-color: var(--color-black-50);
+        cursor: pointer;
+
+        @include tablet-above {
+            &:nth-child(odd){
+                justify-self: end;
+            }
+            &:nth-child(even){
+                justify-self: start;
+            }
+        }
+        
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            z-index: -1;
+            transition-duration: var(--transition-duration);
+        }
+
+        &::before {
+            background: var(--linear-gradient-blue-pink);
+            opacity: 0;
+        }
+        
+        &::after {
+            background: var(--linear-gradient-grey-black);
+            opacity: 1;
+        }
+
+        &:hover {
+
+            &::before {
+                opacity: 1;
+            }
+
+            &::after {
+                opacity: 0;
+            }
+
+            .team-members__soc1als {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__image {
+        user-select: none;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: var(--padding);
+            background: linear-gradient(180deg, rgba(50, 70, 188, 0) 0%, #192883 100%);
+        }
+
+        &>img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__info {
+        position: absolute;
+        text-align: center;
+        padding-bottom: 9px;
+    }
+
+    &__name {
+        font-weight: 600;
+        line-height: 1.75;
+        color: var(--color-white);
+    }
+
+    &__job-title {
+        font-size: 12px;
+        line-height: 1.67;
+    }
+
+    &__soc1als {
+        padding-bottom: 16px;
+        visibility: hidden;
+        opacity: 0;
+        transition-duration: var(--transition-duration);
+    }
+}

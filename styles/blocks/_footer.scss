@@ -39,6 +39,8 @@
 
     &__logo {
         grid-area: logo;
+        align-self: start;
+        justify-self: start;
     }
 
     &__soc1als {

@@ -108,7 +108,7 @@ ul p {
     color: var(--color-grey-1);
 }
 
-p[class$=subtitle] {
+p[class*=subtitle]:not([class$=tile]) {
     font-weight: 500;
     letter-spacing: 0.14em;
 }
