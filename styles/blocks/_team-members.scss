@@ -29,16 +29,23 @@
         background-color: var(--color-black-50);
         cursor: pointer;
 
+        @include laptop {
+            width: 293px;
+            height: 389px;
+        }
+
         @include tablet-above {
-            &:nth-child(odd){
+            &:nth-child(odd) {
                 justify-self: end;
             }
-            &:nth-child(even){
+
+            &:nth-child(even) {
                 justify-self: start;
             }
         }
-        
-        &::before, &::after {
+
+        &::before,
+        &::after {
             content: '';
             position: absolute;
             inset: -1px;
@@ -50,7 +57,7 @@
             background: var(--linear-gradient-blue-pink);
             opacity: 0;
         }
-        
+
         &::after {
             background: var(--linear-gradient-grey-black);
             opacity: 1;
@@ -84,11 +91,9 @@
         }
 
         &>img {
-
-            @include laptop-above {
-                width: 100%;
-                object-fit: cover;
-            }
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
         }
     }
 

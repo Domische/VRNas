@@ -3152,6 +3152,12 @@ p[class*=subtitle]:not([class$=tile]) {
   background-color: var(--color-black-50);
   cursor: pointer;
 }
+@media (max-width: 1024.98px) {
+  .team-members__item {
+    width: 293px;
+    height: 389px;
+  }
+}
 @media (min-width: 768.98px) {
   .team-members__item:nth-child(odd) {
     justify-self: end;
@@ -3194,11 +3200,10 @@ p[class*=subtitle]:not([class$=tile]) {
   inset: var(--padding);
   background: linear-gradient(180deg, rgba(50, 70, 188, 0) 0%, #192883 100%);
 }
-@media (min-width: 1024.98px) {
-  .team-members__image > img {
-    width: 100%;
-    object-fit: cover;
-  }
+.team-members__image > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .team-members__info {
   position: absolute;
