@@ -84,8 +84,11 @@
         }
 
         &>img {
-            width: 100%;
-            object-fit: cover;
+
+            @include laptop-above {
+                width: 100%;
+                object-fit: cover;
+            }
         }
     }
 

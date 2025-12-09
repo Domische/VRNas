@@ -3013,7 +3013,8 @@ p[class*=subtitle]:not([class$=tile]) {
 }
 
 .hero {
-  padding-top: 80px;
+  padding-top: 180px;
+  margin-top: -100px;
   padding-bottom: 150px;
   overflow: hidden;
 }
@@ -3193,9 +3194,11 @@ p[class*=subtitle]:not([class$=tile]) {
   inset: var(--padding);
   background: linear-gradient(180deg, rgba(50, 70, 188, 0) 0%, #192883 100%);
 }
-.team-members__image > img {
-  width: 100%;
-  object-fit: cover;
+@media (min-width: 1024.98px) {
+  .team-members__image > img {
+    width: 100%;
+    object-fit: cover;
+  }
 }
 .team-members__info {
   position: absolute;
