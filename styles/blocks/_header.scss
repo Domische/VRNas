@@ -70,6 +70,7 @@
         &-item:has(.header__menu-button) {
             position: relative;
             left: 5.5px;
+            will-change: transform;
 
 
             .header__menu-overlay {

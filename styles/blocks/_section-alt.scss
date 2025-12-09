@@ -9,7 +9,7 @@
     overflow: hidden;
 
     &:has(.accordion--painted) {
-        
+
         @include tablet-above {
             padding-bottom: 150px;
         }
@@ -97,13 +97,16 @@
         width: 100%;
         height: 1247px;
         margin-bottom: 100px;
-        padding-top: 100px;
-        margin-top: -100px;
         z-index: 2;
 
         @include laptop {
             height: 1207px;
             margin-bottom: 50px;
+        }
+
+        @include mobile-l {
+            padding-top: 100px;
+            margin-top: -100px;
         }
 
         .section-alt__header {
@@ -230,5 +233,9 @@
 
     &__body {
         width: 100%;
+    }
+
+    &__header {
+        contain: paint;
     }
 }

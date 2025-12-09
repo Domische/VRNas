@@ -6,6 +6,7 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         column-gap: 11px;
+        will-change: opacity;
 
         @include laptop {
             grid-template-columns: repeat(2, 1fr);

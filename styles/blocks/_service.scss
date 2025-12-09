@@ -82,6 +82,8 @@
         padding: 38px 32px 25px;
         min-height: 291px;
         z-index: 1;
+        will-change: opacity;
+
 
         &-image {
             padding-bottom: 60px;

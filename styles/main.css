@@ -315,6 +315,7 @@ p[class*=subtitle]:not([class$=tile]) {
 .header__menu-item:has(.header__menu-button) {
   position: relative;
   left: 5.5px;
+  will-change: transform;
 }
 .header__menu-item:has(.header__menu-button) .header__menu-overlay {
   display: flex;
@@ -1367,6 +1368,7 @@ p[class*=subtitle]:not([class$=tile]) {
   padding: 38px 32px 25px;
   min-height: 291px;
   z-index: 1;
+  will-change: opacity;
 }
 .service__item-image {
   padding-bottom: 60px;
@@ -1460,48 +1462,49 @@ p[class*=subtitle]:not([class$=tile]) {
 
 .accordion {
   --transition-duration: 0.3s;
+  will-change: transform, opacity;
 }
-.accordion--painted {
+.accordion__inner--painted {
   position: relative;
   padding: 24px;
   background-color: var(--color-black-50);
 }
-.accordion--painted:has(.accordion__button.is-active)::before {
+.accordion__inner--painted:has(.accordion__button.is-active)::before {
   opacity: 1;
 }
-.accordion--painted:has(.accordion__button.is-active)::after {
+.accordion__inner--painted:has(.accordion__button.is-active)::after {
   opacity: 0;
 }
-.accordion--painted::before, .accordion--painted::after {
+.accordion__inner--painted::before, .accordion__inner--painted::after {
   content: "";
   position: absolute;
   inset: -1px;
   z-index: -1;
   transition-duration: var(--transition-duration);
 }
-.accordion--painted::before {
+.accordion__inner--painted::before {
   background: var(--linear-gradient-blue-pink);
   opacity: 0;
 }
-.accordion--painted::after {
+.accordion__inner--painted::after {
   background: var(--linear-gradient-grey-black);
   opacity: 1;
 }
-.accordion--painted .accordion__content {
+.accordion__inner--painted .accordion__content {
   padding-top: 0;
 }
-.accordion--painted .accordion__content p {
+.accordion__inner--painted .accordion__content p {
   margin-top: 12px;
   padding-top: 12px;
   border-top: var(--border);
 }
-.accordion--painted .accordion__button {
+.accordion__inner--painted .accordion__button {
   border: none;
   padding-bottom: 0;
   color: var(--color-grey-2);
   transition-duration: var(--transition-duration);
 }
-.accordion--painted .accordion__button.is-active {
+.accordion__inner--painted .accordion__button.is-active {
   color: var(--color-white);
 }
 .accordion__button {
@@ -1535,7 +1538,6 @@ p[class*=subtitle]:not([class$=tile]) {
   display: grid;
   grid-template-rows: 0fr;
   padding-top: 12px;
-  transition-property: grid-template-rows;
   transition-duration: var(--transition-duration);
 }
 .accordion__content-inner {
@@ -1630,14 +1632,18 @@ p[class*=subtitle]:not([class$=tile]) {
   width: 100%;
   height: 1247px;
   margin-bottom: 100px;
-  padding-top: 100px;
-  margin-top: -100px;
   z-index: 2;
 }
 @media (max-width: 1024.98px) {
   .section-alt:has(.reviews) {
     height: 1207px;
     margin-bottom: 50px;
+  }
+}
+@media (max-width: 425.98px) {
+  .section-alt:has(.reviews) {
+    padding-top: 100px;
+    margin-top: -100px;
   }
 }
 .section-alt:has(.reviews) .section-alt__header {
@@ -1743,6 +1749,9 @@ p[class*=subtitle]:not([class$=tile]) {
 .section-alt__body {
   width: 100%;
 }
+.section-alt__header {
+  contain: paint;
+}
 
 .tile {
   font-size: 14px;
@@ -1832,6 +1841,7 @@ p[class*=subtitle]:not([class$=tile]) {
   display: flex;
   align-items: center;
   z-index: 1;
+  will-change: left, top;
 }
 .reviews__item.is-active {
   --bg-before: var(--linear-gradient-blue-pink);
@@ -3117,6 +3127,7 @@ p[class*=subtitle]:not([class$=tile]) {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 11px;
+  will-change: opacity;
 }
 @media (max-width: 1024.98px) {
   .team-members__list {

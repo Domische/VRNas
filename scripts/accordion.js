@@ -35,17 +35,17 @@ function accordion(rootElement) {
             previousActiveButton.setAttribute(stateAttributes.ariaExpanded, false);
 
             //чтобы в safari не дергалась анимация
-            if (isTheSafariBrowser) {
-                setTimeout(() => {
-                    element.classList.add(stateClasses.isActive);
-                }, 150) //это лучше в safari
-                //или
-                // requestAnimationFrame(()=> {
-                //     element.classList.toggle(stateClasses.isActive);
-                // })
-            } else {
+            // if (isTheSafariBrowser) {
+            //     setTimeout(() => {
+            //         element.classList.add(stateClasses.isActive);
+            //     }, 150) //это лучше в safari
+            //     //или
+            //     // requestAnimationFrame(()=> {
+            //     //     element.classList.add(stateClasses.isActive);
+            //     // })
+            // } else {
                 element.classList.add(stateClasses.isActive);
-            }
+            // }
         } else {
             element.classList.toggle(stateClasses.isActive);
         }
