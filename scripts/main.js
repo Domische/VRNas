@@ -56,7 +56,7 @@ async function load() {
         scrollbar: 'data-js-scrollbar',
         emailForm: 'data-js-email-form',
         accordion: 'data-js-accordion-group',
-        service: 'data-js-service-list'
+        addIsActive: 'data-js-list'
     }
 
     const VideoPlayerCollection = await import('./VideoPlayer.js');
@@ -117,9 +117,9 @@ async function load() {
             accordionCollection.default();
         }
 
-        if (element.getAttributeNames().includes(selectorsObserver.service)) {
-            const serviceCollection = await import('./service.js');
-            serviceCollection.default();
+        if (element.getAttributeNames().includes(selectorsObserver.addIsActive)) {
+            const addIsActiveCollection = await import('./addIsActive.js');
+            addIsActiveCollection.default();
         }
 
     }

@@ -3181,15 +3181,29 @@ p[class*=subtitle]:not([class$=tile]) {
   background: var(--linear-gradient-grey-black);
   opacity: 1;
 }
-.team-members__item:hover::before {
-  opacity: 1;
+@media (hover: none) {
+  .team-members__item.is-active::before {
+    opacity: 1;
+  }
+  .team-members__item.is-active::after {
+    opacity: 0;
+  }
+  .team-members__item.is-active .team-members__soc1als {
+    visibility: visible;
+    opacity: 1;
+  }
 }
-.team-members__item:hover::after {
-  opacity: 0;
-}
-.team-members__item:hover .team-members__soc1als {
-  visibility: visible;
-  opacity: 1;
+@media (hover: hover) {
+  .team-members__item:hover::before {
+    opacity: 1;
+  }
+  .team-members__item:hover::after {
+    opacity: 0;
+  }
+  .team-members__item:hover .team-members__soc1als {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 .team-members__image {
   user-select: none;

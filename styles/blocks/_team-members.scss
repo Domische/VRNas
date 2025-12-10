@@ -63,21 +63,43 @@
             opacity: 1;
         }
 
-        &:hover {
+        @media (hover: none) {
+            &.is-active {
 
-            &::before {
-                opacity: 1;
-            }
+                &::before {
+                    opacity: 1;
+                }
 
-            &::after {
-                opacity: 0;
-            }
+                &::after {
+                    opacity: 0;
+                }
 
-            .team-members__soc1als {
-                visibility: visible;
-                opacity: 1;
+                .team-members__soc1als {
+                    visibility: visible;
+                    opacity: 1;
+                }
             }
         }
+
+        @media (hover: hover) {
+            &:hover {
+
+                &::before {
+                    opacity: 1;
+                }
+
+                &::after {
+                    opacity: 0;
+                }
+
+                .team-members__soc1als {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+
+
     }
 
     &__image {
