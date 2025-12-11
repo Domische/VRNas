@@ -8,7 +8,17 @@
 
     overflow: hidden;
 
-    &:has(.accordion--painted) {
+    &:has(.section-alt__main--our-service .reviews) {
+        
+        @include tablet-above {
+            margin-bottom: 150px;
+        }
+    }
+
+    &:has(.accordion__inner--painted),
+    &:has(.section-alt__main--our-service .price) {
+        margin-top: -150px;
+        padding-top: 150px;
 
         @include tablet-above {
             padding-bottom: 150px;
@@ -185,7 +195,8 @@
             }
         }
 
-        &--homepage {
+        &--homepage,
+        &--our-service {
             @include tablet {
                 row-gap: 32px;
             }
@@ -195,6 +206,27 @@
                 position: absolute;
                 background: url('../images/background-gradient.webp') center/contain no-repeat;
                 z-index: -1;
+            }
+        }
+
+        &--our-service {
+
+            &:has(.price) {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: -110px;
+                    left: -220px;
+                    width: 577px;
+                    height: 551px;
+                    background: url('../images/background-gradient.webp') center/contain no-repeat;
+                    filter: blur(40px);
+                    z-index: -1;
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
             }
         }
 
@@ -210,6 +242,22 @@
 
                 @include tablet {
                     padding-bottom: 32px;
+                }
+            }
+
+            &:has(.accordion__inner--painted) {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    right: -350px;
+                    top: -50px;
+                    width: 656px;
+                    height: 551px;
+                    background: url('../images/background-gradient.webp') center/contain no-repeat;
+                    filter: blur(40px);
+                    opacity: 0.9;
                 }
             }
 
