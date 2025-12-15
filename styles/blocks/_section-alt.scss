@@ -114,8 +114,9 @@
         }
 
         @include mobile-l {
-            padding-top: 100px;
-            margin-top: -100px;
+            padding-top: 102px;
+            margin-top: -102px;
+            height: 1300px;
         }
 
         .section-alt__header {
