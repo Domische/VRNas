@@ -2,7 +2,8 @@
 
 .accordion-group {
     display: grid;
-    row-gap: 36px;  
+    row-gap: 36px; 
+    will-change: transform;
 
     &:has(.accordion--painted){
         row-gap: 24px;

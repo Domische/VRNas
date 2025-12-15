@@ -68,6 +68,7 @@
         column-gap: 26px;
         row-gap: 32px;
         padding-bottom: calc(var(--translate-item) + 78px);
+        will-change: opacity;
 
         @include laptop {
             grid-template-columns: repeat(2, 1fr);
@@ -86,7 +87,6 @@
         padding: 38px 32px 25px;
         min-height: 291px;
         z-index: 1;
-        will-change: opacity;
 
 
         &-image {

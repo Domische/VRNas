@@ -110,7 +110,6 @@
         z-index: 2;
 
         @include laptop {
-            height: 1207px;
             margin-bottom: 50px;
         }
 
@@ -176,6 +175,10 @@
 
         .section-alt__header {
             max-width: 679px;
+        }
+
+        .section-alt__button {
+            will-change: opacity;
         }
     }
 
@@ -251,6 +254,7 @@
                 &::before {
                     content: '';
                     position: absolute;
+                    transform: translateZ(0); //создает новый слой и не перерисовывается от изменения аккордеона (исправление дерганности анимации аккордеона)
                     right: -350px;
                     top: -50px;
                     width: 656px;

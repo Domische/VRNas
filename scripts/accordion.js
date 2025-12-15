@@ -27,10 +27,13 @@ function accordion(rootElement) {
         const wasExpanded = element.getAttribute(stateAttributes.ariaExpanded) === 'true';
 
         element.setAttribute(stateAttributes.ariaExpanded, !wasExpanded);
+        console.log(previousActiveButtonIndex);
+        console.log(newActiveButtonIndex);
+        
 
         if (previousActiveButtonIndex !== newActiveButtonIndex) {
             const previousActiveButton = buttonElementsArray[previousActiveButtonIndex];            
-            const isTheSafariBrowser = navigator.userAgent.toLowerCase().includes('safari') && !navigator.userAgent.toLowerCase().includes('chrome');
+            // const isTheSafariBrowser = navigator.userAgent.toLowerCase().includes('safari') && !navigator.userAgent.toLowerCase().includes('chrome');
             previousActiveButton.classList.remove(stateClasses.isActive);
             previousActiveButton.setAttribute(stateAttributes.ariaExpanded, false);
 

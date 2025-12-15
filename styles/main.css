@@ -315,7 +315,6 @@ p[class*=subtitle]:not([class$=tile]) {
 .header__menu-item:has(.header__menu-button) {
   position: relative;
   left: 5.5px;
-  will-change: transform;
 }
 .header__menu-item:has(.header__menu-button) .header__menu-overlay {
   display: flex;
@@ -1351,6 +1350,7 @@ p[class*=subtitle]:not([class$=tile]) {
   column-gap: 26px;
   row-gap: 32px;
   padding-bottom: calc(var(--translate-item) + 78px);
+  will-change: opacity;
 }
 @media (max-width: 1024.98px) {
   .service__list {
@@ -1370,7 +1370,6 @@ p[class*=subtitle]:not([class$=tile]) {
   padding: 38px 32px 25px;
   min-height: 291px;
   z-index: 1;
-  will-change: opacity;
 }
 .service__item-image {
   padding-bottom: 60px;
@@ -1464,7 +1463,6 @@ p[class*=subtitle]:not([class$=tile]) {
 
 .accordion {
   --transition-duration: 0.3s;
-  will-change: transform, opacity;
 }
 .accordion__inner--painted {
   position: relative;
@@ -1552,6 +1550,7 @@ p[class*=subtitle]:not([class$=tile]) {
 .accordion-group {
   display: grid;
   row-gap: 36px;
+  will-change: transform;
 }
 .accordion-group:has(.accordion--painted) {
   row-gap: 24px;
@@ -1647,7 +1646,6 @@ p[class*=subtitle]:not([class$=tile]) {
 }
 @media (max-width: 1024.98px) {
   .section-alt:has(.reviews) {
-    height: 1207px;
     margin-bottom: 50px;
   }
 }
@@ -1714,6 +1712,9 @@ p[class*=subtitle]:not([class$=tile]) {
 .section-alt:has(.video-player) .section-alt__header {
   max-width: 679px;
 }
+.section-alt:has(.video-player) .section-alt__button {
+  will-change: opacity;
+}
 .section-alt__subtitle {
   padding-bottom: 12px;
 }
@@ -1769,6 +1770,7 @@ p[class*=subtitle]:not([class$=tile]) {
 .section-alt__main--about-us:has(.accordion__inner--painted)::before {
   content: "";
   position: absolute;
+  transform: translateZ(0);
   right: -350px;
   top: -50px;
   width: 656px;
@@ -1882,7 +1884,7 @@ p[class*=subtitle]:not([class$=tile]) {
   display: flex;
   align-items: center;
   z-index: 1;
-  will-change: left, top;
+  will-change: left, top, opacity;
 }
 .reviews__item.is-active {
   --bg-before: var(--linear-gradient-blue-pink);

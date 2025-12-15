@@ -2,8 +2,7 @@
 
 .accordion {
     --transition-duration: 0.3s;
-    will-change: transform, opacity;
-
+    
     &__inner {
         &--painted {
             position: relative;
