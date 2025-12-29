@@ -16,7 +16,7 @@
     }
 
     &:has(.accordion__inner--painted),
-    &:has(.section-alt__main--our-service .price) {
+    &:has(.price) {
         margin-top: -150px;
         padding-top: 150px;
 
@@ -175,7 +175,7 @@
         }
 
         .section-alt__header {
-            max-width: 679px;
+            // max-width: 679px;
         }
 
         .section-alt__button {
@@ -200,7 +200,8 @@
         }
 
         &--homepage,
-        &--our-service {
+        &--our-service,
+        &--detail-service {
             @include tablet {
                 row-gap: 32px;
             }
@@ -269,7 +270,7 @@
         }
 
         &:has(.section-alt__accordion-group) {
-            max-width: 790px;
+            max-width: calc(790px + var(--container-padding-x) * 2);
 
             .section-alt__title {
                 padding-bottom: 24px;

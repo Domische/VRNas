@@ -1,0 +1,213 @@
+@use '../helpers' as *;
+
+.detail-service {
+    --margin-top: 264px;
+    --translate-top: -30px;
+
+    overflow: hidden;
+
+    padding-bottom: calc(150px + var(--translate-top));
+
+    @include tablet {
+        padding-bottom: calc(100px + var(--translate-top));
+        ;
+    }
+
+    &__main {
+        position: relative;
+        max-width: calc(625px + var(--container-padding-x) * 2);
+        margin-top: var(--margin-top);
+    }
+
+    &__body {
+        position: relative;
+        z-index: 1;
+        translate: 0 var(--translate-top);
+    }
+
+    &__subtitle,
+    &__title {
+        text-align: center;
+    }
+
+    &__subtitle {
+        padding-bottom: 12px;
+    }
+
+    &__title {
+        font-size: 48px;
+        padding-bottom: 16px;
+    }
+
+    &__info {
+        margin: 22px auto 32px;
+        padding: 30px;
+        max-width: 431px;
+        background-color: rgba(37, 37, 50, 0.8);
+        border-image: var(--border-image-gradient-grey-black);
+    }
+
+    &__generalization {
+        padding-bottom: 24px;
+    }
+
+    &__description {
+        padding-bottom: 32px;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__circles {
+        @include abs-x;
+        top: var(--margin-top);
+    }
+
+    &__circle {
+        --rotate: 0deg;
+        @include abs-center;
+        border: 1px solid rgba(255, 255, 255, 0.17);
+
+        @for $i from 0 through 6 {
+            &:nth-child(#{$i}) {
+                $circle: #{1054 - (73 * 2 * ($i - 1))};
+                @include circle($circle);
+            }
+        }
+
+        &:has(.detail-service__tablist) {
+            rotate: var(--rotate);
+            z-index: 1;
+            transition: rotate 0.3s ease-out;
+        }
+
+        &:has(.detail-service__tabnavigation) {
+            z-index: 1;
+        }
+    }
+
+    &__tablist {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__tablink {
+        @include circle(102);
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 14px;
+        background-color: rgba(37, 37, 50, 0.8);
+        rotate: calc(var(--rotate) * -1);
+        will-change: transform;
+        // cursor: pointer;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 1;
+            padding: 1px;
+            background: var(--linear-gradient-grey-black);
+            border-radius: 50%;
+            mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+            opacity: 1;
+            z-index: -1;
+            transition-duration: var(--transition-duration);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0px;
+            padding: 1px;
+            background: var(--linear-gradient-blue-pink);
+            border-radius: 50%;
+            mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+            opacity: 0;
+            z-index: -1;
+            transition-duration: var(--transition-duration);
+        }
+
+        &.is-active {
+
+            &::before {
+                opacity: 0;
+            }
+
+            &::after {
+                opacity: 1;
+            }
+        }
+
+        &:nth-child(1),
+        &:nth-child(7) {
+            top: 380px;
+        }
+
+        &:nth-child(1) {
+            left: -60px;
+        }
+
+        &:nth-child(7) {
+            right: -60px;
+        }
+
+        &:nth-child(2),
+        &:nth-child(6) {
+            top: 190px;
+        }
+
+        &:nth-child(2) {
+            left: -140px;
+        }
+
+        &:nth-child(6) {
+            right: -140px;
+        }
+
+        &:nth-child(3),
+        &:nth-child(5) {
+            top: 20px;
+        }
+
+        &:nth-child(3) {
+            left: -110px;
+        }
+
+        &:nth-child(5) {
+            right: -110px;
+        }
+
+        &:nth-child(4) {
+            top: -50px;
+        }
+    }
+
+    &__tabnavigation {
+        display: none;
+
+        @include laptop {
+            @include abs-x;
+            display: flex;
+            top: 25px;
+            column-gap: 54px;
+        }
+    }
+
+    &__tabcontent {
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        transition: opacity 0.5s ease-in-out;
+
+        &.is-active {
+            opacity: 1;
+            visibility: visible;
+            max-height: 100%;
+        }
+    }
+}

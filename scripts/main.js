@@ -28,6 +28,11 @@
 // })
 
 async function load() {
+    if (document.location.pathname.includes('detail-service.html')) {
+        const TabsCollection = await import('./Tabs.js');
+        new TabsCollection.default();
+    }
+
 
     const observerImage = new IntersectionObserver(
         (entries, observer) => {
