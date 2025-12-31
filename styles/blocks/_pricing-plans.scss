@@ -1,0 +1,69 @@
+@use '../helpers' as *;
+
+.pricing-plans {
+    padding-top: 40px;
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 60px;
+
+        @include laptop {
+            gap: 40px;
+        }
+    }
+
+    &__item {
+        --border-radius: 6px;
+        position: relative;
+        justify-self: center;
+        height: 598px;
+        width: 359px;
+        padding: 35px;
+        background-color: var(--color-black-50);
+        border-radius: var(--border-radius);
+        
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: var(--linear-gradient-blue-pink);
+            border-radius: var(--border-radius);
+            opacity: 0;
+            z-index: -1;
+            transition-duration: var(--transition-duration);
+            will-change: opacity;
+        }
+
+        @media(hover:hover) {
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+    
+                .button {
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        @media(hover: none){
+            &.is-active {
+                &::before {
+                    opacity: 1;
+                }
+    
+                .button {
+                    &::after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

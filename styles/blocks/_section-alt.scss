@@ -1,15 +1,19 @@
 @use '../helpers' as *;
 
 .section-alt {
-    --container-width: 1247px;
-    --container-padding-x: 16px;
 
     padding-bottom: 100px;
 
     overflow: hidden;
 
+    &:has(.section-alt__main--pricing-plan){
+        @include tablet-above {
+            padding-bottom: 150px;
+        }
+    }
+
     &:has(.section-alt__main--our-service .reviews) {
-        
+
         @include tablet-above {
             margin-bottom: 150px;
         }
@@ -48,7 +52,6 @@
             }
         }
     }
-
 
 
     &:has(.partners) {
@@ -103,6 +106,8 @@
     }
 
     &:has(.reviews) {
+        --container-width: 1247px;
+        --container-padding-x: 16px;
         position: relative;
         width: 100%;
         height: 1247px;
@@ -211,6 +216,24 @@
                 position: absolute;
                 background: url('../images/background-gradient.webp') center/contain no-repeat;
                 z-index: -1;
+            }
+        }
+
+        &--pricing-plan {
+
+            &:has(.pricing-plans) {
+
+                .section-alt__header {
+                    max-width: 751px;
+                }
+
+                .section-alt__title {
+                    padding-bottom: 16px;
+                }
+
+                .section-alt__description>p {
+                    font-weight: 400;
+                }
             }
         }
 

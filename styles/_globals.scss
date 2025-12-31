@@ -135,4 +135,10 @@ p[class*=subtitle]:not([class$=tile]) {
             }
         }
     }
+
+    a[class*=painted-black]{
+        &:hover {
+            color: var(--color-white);
+        }
+    }
 }

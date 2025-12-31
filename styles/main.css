@@ -89,6 +89,7 @@ address {
   --color-black-50: #252532;
   --color-grey-1: #B0B0B2;
   --color-grey-2: #D1D1D1;
+  --color-grey-3: #71717a;
   --color-white: #FFFFFF;
   --linear-gradient-blue-pink: linear-gradient(90deg, #0cbaf1 0%, #e95ce9 100%);
   --linear-gradient-grey-black: linear-gradient(90deg, var(--color-grey-1) 0%, var(--color-black-50) 80%);
@@ -249,6 +250,9 @@ p[class*=subtitle]:not([class$=tile]) {
   button:has(svg):hover::before,
   button:has(svg):hover::after {
     transition-duration: var(--transition-duration);
+  }
+  a[class*=painted-black]:hover {
+    color: var(--color-white);
   }
 }
 .header {
@@ -783,31 +787,43 @@ p[class*=subtitle]:not([class$=tile]) {
 .button--painted-gradient, .button--painted-black {
   display: inline-block;
   position: relative;
+  z-index: 1;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
   padding: 18px 38px;
-  z-index: 1;
 }
-.button--painted-gradient::after, .button--painted-black::after {
+.button--painted-gradient::before {
   content: "";
   position: absolute;
-  inset: 1px;
-  background: var(--bg-color);
-  opacity: 1;
+  inset: 1;
+  background: var(--linear-gradient-blue-pink);
   z-index: -1;
 }
-@media (hover: hover) {
-  .button--painted-gradient:hover::after, .button--painted-black:hover::after {
-    opacity: 0;
-  }
+.button--painted-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 1;
 }
-.button--painted-gradient {
-  --bg-color: var(--linear-gradient-blue-pink);
+.button--painted-gradient:hover::before {
+  opacity: 0;
 }
 .button--painted-black {
-  --bg-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+.button--painted-black::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--linear-gradient-blue-pink);
+  opacity: 0;
+  z-index: -1;
+}
+.button--painted-black:hover::after {
+  opacity: 1;
 }
 .button--arrow-right::after {
   content: "";
@@ -990,7 +1006,7 @@ p[class*=subtitle]:not([class$=tile]) {
 .section__subtitle {
   padding-bottom: 12px;
 }
-.section:has(.section__main--about-us):has(.accordion-group) {
+.section:has(.section__main--about-us, .section__main--pricing-plan):has(.accordion-group) {
   margin-top: -100px;
   padding-top: 100px;
 }
@@ -1139,126 +1155,126 @@ p[class*=subtitle]:not([class$=tile]) {
     margin-left: -235px;
   }
 }
-.section__main--about-us:has(.section__description) {
+.section__main--about-us:has(.section__description), .section__main--pricing-plan:has(.section__description) {
   --translateY-video: 33px;
   position: relative;
   column-gap: 147px;
   z-index: 2;
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.section__description) {
+  .section__main--about-us:has(.section__description), .section__main--pricing-plan:has(.section__description) {
     --translateY-video: 26px;
   }
 }
 @media (max-width: 1024.98px) {
-  .section__main--about-us:has(.section__description) .section__picture {
+  .section__main--about-us:has(.section__description) .section__picture, .section__main--pricing-plan:has(.section__description) .section__picture {
     margin-left: 100px;
   }
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.section__description) .section__picture {
+  .section__main--about-us:has(.section__description) .section__picture, .section__main--pricing-plan:has(.section__description) .section__picture {
     margin-left: 75px;
   }
 }
-.section__main--about-us:has(.section__description) .section__body {
+.section__main--about-us:has(.section__description) .section__body, .section__main--pricing-plan:has(.section__description) .section__body {
   padding-top: 40px;
   max-width: 625px;
 }
 @media (max-width: 1024.98px) {
-  .section__main--about-us:has(.section__description) .section__body {
+  .section__main--about-us:has(.section__description) .section__body, .section__main--pricing-plan:has(.section__description) .section__body {
     padding-top: 0;
     max-width: 100%;
   }
 }
-.section__main--about-us:has(.section__description) .section__video {
+.section__main--about-us:has(.section__description) .section__video, .section__main--pricing-plan:has(.section__description) .section__video {
   margin-left: -478px;
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.section__description) .section__video {
+  .section__main--about-us:has(.section__description) .section__video, .section__main--pricing-plan:has(.section__description) .section__video {
     width: 155px;
     height: 101px;
     margin-left: -375px;
   }
 }
-.section__main--about-us:has(.section__description) .section__image > img {
+.section__main--about-us:has(.section__description) .section__image > img, .section__main--pricing-plan:has(.section__description) .section__image > img {
   margin-left: -18px;
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.section__description) .section__image > img {
+  .section__main--about-us:has(.section__description) .section__image > img, .section__main--pricing-plan:has(.section__description) .section__image > img {
     width: 315px;
     height: 453px;
   }
 }
-.section__main--about-us:has(.section__description) .section__title {
+.section__main--about-us:has(.section__description) .section__title, .section__main--pricing-plan:has(.section__description) .section__title {
   padding-bottom: 18px;
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.section__description) .section__image::before {
+  .section__main--about-us:has(.section__description) .section__image::before, .section__main--pricing-plan:has(.section__description) .section__image::before {
     width: 316px;
     height: 393px;
   }
 }
-.section__main--about-us:has(.section__description) .section__image::after {
+.section__main--about-us:has(.section__description) .section__image::after, .section__main--pricing-plan:has(.section__description) .section__image::after {
   right: -200px;
   top: -45px;
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.section__description) .section__image::after {
+  .section__main--about-us:has(.section__description) .section__image::after, .section__main--pricing-plan:has(.section__description) .section__image::after {
     right: -120px;
   }
 }
-.section__main--about-us:has(.accordion-group) {
+.section__main--about-us:has(.accordion-group), .section__main--pricing-plan:has(.accordion-group) {
   --translateY-video: 52px;
   justify-content: center;
   column-gap: 80px;
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.accordion-group) {
+  .section__main--about-us:has(.accordion-group), .section__main--pricing-plan:has(.accordion-group) {
     --translateY-video: 42px;
   }
 }
 @media (min-width: 1024.98px) {
-  .section__main--about-us:has(.accordion-group) .section__body {
+  .section__main--about-us:has(.accordion-group) .section__body, .section__main--pricing-plan:has(.accordion-group) .section__body {
     padding-top: 67px;
   }
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.accordion-group) .section__image {
+  .section__main--about-us:has(.accordion-group) .section__image, .section__main--pricing-plan:has(.accordion-group) .section__image {
     margin-left: 8px;
   }
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.accordion-group) .section__image::before {
+  .section__main--about-us:has(.accordion-group) .section__image::before, .section__main--pricing-plan:has(.accordion-group) .section__image::before {
     width: 326px;
     height: 405px;
   }
 }
-.section__main--about-us:has(.accordion-group) .section__image::after {
+.section__main--about-us:has(.accordion-group) .section__image::after, .section__main--pricing-plan:has(.accordion-group) .section__image::after {
   top: -80px;
   left: -220px;
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.accordion-group) .section__image::after {
+  .section__main--about-us:has(.accordion-group) .section__image::after, .section__main--pricing-plan:has(.accordion-group) .section__image::after {
     left: -140px;
   }
 }
-.section__main--about-us:has(.accordion-group) .section__image > img {
+.section__main--about-us:has(.accordion-group) .section__image > img, .section__main--pricing-plan:has(.accordion-group) .section__image > img {
   margin-left: -16px;
   padding-right: 16px;
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.accordion-group) .section__image > img {
+  .section__main--about-us:has(.accordion-group) .section__image > img, .section__main--pricing-plan:has(.accordion-group) .section__image > img {
     width: 407px;
     height: 468px;
     margin-left: -8px;
     padding-right: 0px;
   }
 }
-.section__main--about-us:has(.accordion-group) .section__video {
+.section__main--about-us:has(.accordion-group) .section__video, .section__main--pricing-plan:has(.accordion-group) .section__video {
   margin-left: -210px;
 }
 @media (max-width: 768.98px) {
-  .section__main--about-us:has(.accordion-group) .section__video {
+  .section__main--about-us:has(.accordion-group) .section__video, .section__main--pricing-plan:has(.accordion-group) .section__video {
     width: 160px;
     height: 104px;
     margin-left: -180px;
@@ -1557,10 +1573,13 @@ p[class*=subtitle]:not([class$=tile]) {
 }
 
 .section-alt {
-  --container-width: 1247px;
-  --container-padding-x: 16px;
   padding-bottom: 100px;
   overflow: hidden;
+}
+@media (min-width: 768.98px) {
+  .section-alt:has(.section-alt__main--pricing-plan) {
+    padding-bottom: 150px;
+  }
 }
 @media (min-width: 768.98px) {
   .section-alt:has(.section-alt__main--our-service .reviews) {
@@ -1638,6 +1657,8 @@ p[class*=subtitle]:not([class$=tile]) {
   padding-bottom: 16px;
 }
 .section-alt:has(.reviews) {
+  --container-width: 1247px;
+  --container-padding-x: 16px;
   position: relative;
   width: 100%;
   height: 1247px;
@@ -1736,6 +1757,15 @@ p[class*=subtitle]:not([class$=tile]) {
   position: absolute;
   background: url("../images/background-gradient.webp") center/contain no-repeat;
   z-index: -1;
+}
+.section-alt__main--pricing-plan:has(.pricing-plans) .section-alt__header {
+  max-width: 751px;
+}
+.section-alt__main--pricing-plan:has(.pricing-plans) .section-alt__title {
+  padding-bottom: 16px;
+}
+.section-alt__main--pricing-plan:has(.pricing-plans) .section-alt__description > p {
+  font-weight: 400;
 }
 .section-alt__main--our-service:has(.price)::after {
   content: "";
@@ -3544,6 +3574,103 @@ p[class*=subtitle]:not([class$=tile]) {
   opacity: 1;
   visibility: visible;
   max-height: 100%;
+}
+
+.pricing-plans {
+  padding-top: 40px;
+}
+.pricing-plans__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+@media (max-width: 1024.98px) {
+  .pricing-plans__list {
+    gap: 40px;
+  }
+}
+.pricing-plans__item {
+  --border-radius: 6px;
+  position: relative;
+  justify-self: center;
+  height: 598px;
+  width: 359px;
+  padding: 35px;
+  background-color: var(--color-black-50);
+  border-radius: var(--border-radius);
+}
+.pricing-plans__item::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: var(--linear-gradient-blue-pink);
+  border-radius: var(--border-radius);
+  opacity: 0;
+  z-index: -1;
+  transition-duration: var(--transition-duration);
+  will-change: opacity;
+}
+@media (hover: hover) {
+  .pricing-plans__item:hover::before {
+    opacity: 1;
+  }
+  .pricing-plans__item:hover .button::after {
+    opacity: 1;
+  }
+}
+@media (hover: none) {
+  .pricing-plans__item.is-active::before {
+    opacity: 1;
+  }
+  .pricing-plans__item.is-active .button::after {
+    opacity: 1;
+  }
+}
+
+.pricing-card {
+  display: grid;
+  row-gap: 62px;
+  height: 100%;
+}
+.pricing-card__title {
+  font-size: 18px;
+  padding-bottom: 9px;
+}
+.pricing-card__price {
+  color: var(--color-grey-3);
+  font-weight: 300;
+  line-height: 1.3;
+  padding-bottom: 9px;
+}
+.pricing-card__price-amount {
+  font-size: 64px;
+  font-weight: 600;
+  color: var(--color-white);
+}
+.pricing-card__description {
+  line-height: 1.75;
+  padding-bottom: 16px;
+}
+.pricing-card__list {
+  display: grid;
+  row-gap: 16px;
+}
+.pricing-card__item {
+  position: relative;
+  font-weight: 600;
+  padding-left: 26px;
+}
+.pricing-card__item::before {
+  content: "";
+  width: 20px;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 0;
+  background: url("../images/pricing-plan/check-circle.svg");
+}
+.pricing-card__button {
+  align-self: end;
 }
 
 /*# sourceMappingURL=main.css.map */

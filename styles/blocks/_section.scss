@@ -76,7 +76,7 @@
         padding-bottom: 12px;
     }
 
-    &:has(.section__main--about-us) {
+    &:has(.section__main--about-us, .section__main--pricing-plan) {
 
         &:has(.accordion-group) {
             margin-top: -100px;
@@ -250,7 +250,8 @@
             }
         }
 
-        &--about-us {
+        &--about-us,
+        &--pricing-plan {
 
             &:has(.section__description) {
                 --translateY-video: 33px;
