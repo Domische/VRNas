@@ -1,0 +1,11 @@
+@use '../helpers' as *; 
+
+.sidebar-section {
+    display: grid;
+    row-gap: 24px;
+
+    &__title {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}

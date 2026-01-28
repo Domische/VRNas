@@ -1,0 +1,44 @@
+@use '../helpers' as *; 
+
+.recent-article {
+
+    &__list {
+        display: grid;
+        row-gap: 24px;
+    }
+
+    &__item {
+        &:not(:last-child){
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+    }
+
+    &__link {
+        display: flex;
+        column-gap: 15px;
+    }
+
+    &__image {
+        width: 102px;
+        height: 65px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 7px;
+    }
+
+    &__subtitle {
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    &__title {
+        font-size: 12px;
+        
+    }
+}

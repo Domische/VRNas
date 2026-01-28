@@ -1,0 +1,10 @@
+@use '../helpers' as *; 
+
+.soc1al-networks {
+
+    &__list {
+        display: flex;
+        align-items: center;
+        column-gap: 24px;
+    }
+}

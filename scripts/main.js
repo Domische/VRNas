@@ -28,11 +28,7 @@
 // })
 
 async function load() {
-    if (document.location.pathname.includes('detail-service.html')) {
-        const TabsCollection = await import('./Tabs.js');
-        new TabsCollection.default();
-    }
-
+    
 
     const observerImage = new IntersectionObserver(
         (entries, observer) => {
@@ -56,19 +52,21 @@ async function load() {
 
     const selectorsObserver = {
         headerBurgerButton: 'data-js-header-burger-button',
+        videoPlayer: 'data-js-video-player',
         reviews: 'data-js-reviews',
         slider: 'data-js-slider',
         scrollbar: 'data-js-scrollbar',
         emailForm: 'data-js-email-form',
         accordion: 'data-js-accordion-group',
-        addIsActive: 'data-js-list'
+        addIsActive: 'data-js-list',
+        tabs: 'data-js-tablist',
+        blog: 'data-js-blog',
+        detailBlog: 'data-js-detail-blog',
     }
 
-    const VideoPlayerCollection = await import('./VideoPlayer.js');
     const scrollPage = await import('./scrollPage.js');
     const SubMenuButtonCollection = await import('./SubmenuButton.js');
 
-    new VideoPlayerCollection.default();
     scrollPage.default();
     new SubMenuButtonCollection.default();
 
@@ -84,7 +82,6 @@ async function load() {
         {}
     )
 
-
     for (const key in selectorsObserver) {
         const dataJs = document.querySelector(`[${selectorsObserver[key]}]`);
         dataJs && observerJs.observe(dataJs);
@@ -95,6 +92,11 @@ async function load() {
         if (element.getAttributeNames().includes(selectorsObserver.headerBurgerButton)) {
             const burgerButton = await import('./menuBurgerButton.js');
             burgerButton.default();
+        }
+
+        if (element.getAttributeNames().includes(selectorsObserver.videoPlayer)) {
+            const VideoPlayerCollection = await import('./VideoPlayer.js');
+            new VideoPlayerCollection.default();
         }
 
         if (element.getAttributeNames().includes(selectorsObserver.reviews)) {
@@ -127,7 +129,36 @@ async function load() {
             addIsActiveCollection.default();
         }
 
+        if (element.getAttributeNames().includes(selectorsObserver.tabs)) {
+            const TabsCollection = await import('./Tabs.js');
+            new TabsCollection.default();
+        }
+
+        if (element.getAttributeNames().includes(selectorsObserver.blog)) {
+            const blog = await import('./blog.js');
+            blog.default();
+        }
+
+        if (element.getAttributeNames().includes(selectorsObserver.detailBlog)) {
+            const DetailBlog = await import('./DetailBlog.js');
+            new DetailBlog.default();
+        }
+
     }
+
+    // const observerOfChanges = new MutationObserver((MutationRecord) => {
+    //     if(MutationRecord.length > 0){
+    //         const dataJs = document.querySelector(`[${selectorsObserver.addIsActive}]`);
+    //         dataJs && observerJs.observe(dataJs);
+    //     }
+    // })
+    
+    // const blog = document.querySelector(`[${selectorsObserver.blog}]`)
+
+    // blog && observerOfChanges.observe(blog, {
+    //     childList: true,
+    //     subtree: true
+    // })
 
 }
 

@@ -16,9 +16,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass-watch": "sass --watch ."
+    "sass-watch": "sass --watch .",
+    "server-3001": "npx json-server --watch server/db3001.json -p 3001 --delay 2000"
   },
   "devDependencies": {
+    "json-server": "^0.17.4",
     "sass": "^1.92.0",
     "svgo": "^4.0.0"
   }

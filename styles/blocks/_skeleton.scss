@@ -1,0 +1,24 @@
+@use '../helpers' as *;
+
+.skeleton {
+    width: 100%;
+    height: 437px;
+    background-color: var(--color-black-50);
+    animation-name: animate-skeleton;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animate-skeleton {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

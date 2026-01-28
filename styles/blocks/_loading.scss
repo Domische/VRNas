@@ -1,0 +1,39 @@
+@use '../helpers' as *; 
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+
+    &__circle {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        animation-name: animate-loading;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-duration: 1.5s;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            padding: 3px;
+            background: var(--linear-gradient-blue-pink);
+            border-radius: 50%;
+            mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+        }
+    }
+}
+
+@keyframes animate-loading {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
+}

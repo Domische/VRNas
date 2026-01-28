@@ -1,0 +1,16 @@
+@use '../helpers' as *; 
+
+.popular-hashtag {
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,32 @@
+@use '../helpers' as *;
+
+.pagination {
+
+    &__list {
+        display: flex;
+        column-gap: 16px;
+    }
+
+    &__link {
+        @include square(34);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.06);
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            padding: 1px;
+            background: var(--linear-gradient-blue-pink);
+            mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+            z-index: -1;
+        }
+
+        &:not(.is-active) {
+            opacity: 0.5;
+        }
+    }
+}

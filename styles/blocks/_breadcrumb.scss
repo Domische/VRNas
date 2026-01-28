@@ -10,7 +10,7 @@
 
     &__item {
 
-        &:has(.breadcrumb__link){
+        &:has(.breadcrumb__link) {
             position: relative;
             padding-right: 23px;
             font-weight: 600;
@@ -25,10 +25,21 @@
                 @include square(18);
             }
         }
+
+        &:has(.breadcrumb__current-page) {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
     }
 
     &__current-page {
         font-weight: 300;
         color: var(--color-grey-2);
+    }
+
+    &--article-page {
+        padding-block: 51px;
     }
 }

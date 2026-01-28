@@ -40,7 +40,7 @@
 
 @use 'blocks/partners';
 
-@use 'blocks/article';
+@use 'blocks/articles';
 @use 'blocks/slider';
 
 @use 'blocks/subscribe';
@@ -57,3 +57,18 @@
 
 @use 'blocks/pricing-plans';
 @use 'blocks/pricing-card';
+
+@use 'blocks/blog';
+@use 'blocks/skeleton';
+@use 'blocks/pagination';
+@use 'blocks/error';
+
+@use 'blocks/article';
+@use 'blocks/post-section';
+@use 'blocks/post-tags';
+@use 'blocks/soc1al-networks';
+@use 'blocks/sidebar-section';
+@use 'blocks/recent-article';
+@use 'blocks/popular-hashtag';
+
+@use 'blocks/loading';

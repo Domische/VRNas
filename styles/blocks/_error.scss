@@ -1,0 +1,17 @@
+@use '../helpers' as *;
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+
+    &__message {
+        font-size: 100px;
+        font-weight: 900;
+
+        @include tablet {
+            font-size: 50px;
+        }
+    }
+}
