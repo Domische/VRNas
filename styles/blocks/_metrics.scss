@@ -10,6 +10,12 @@
     @include tablet {
         padding-bottom: 100px;
     }
+
+    &--our-team {
+        @include tablet {
+            display: none;
+        }
+    }
     
     &__main {
         position: relative;

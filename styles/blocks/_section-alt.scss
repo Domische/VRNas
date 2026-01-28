@@ -6,6 +6,16 @@
 
     overflow: hidden;
 
+    &:has(.team-members--our-team){
+        @include tablet-above {
+            padding-bottom: 150px;
+        }
+
+        .section-alt__header {
+            padding-bottom: 48px;
+        }
+    }
+
     &:has(.section-alt__main--pricing-plan){
         @include tablet-above {
             padding-bottom: 150px;

@@ -2,25 +2,85 @@
 
 .team-members {
 
-    &__list {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        column-gap: 11px;
-        will-change: opacity;
+    &--about-us {
+        --padding: 9px;
 
-        @include laptop {
-            grid-template-columns: repeat(2, 1fr);
-            justify-items: center;
-            gap: 24px;
+        .team-members__list {
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 11px;
+
+            @include laptop {
+                grid-template-columns: repeat(2, 1fr);
+                justify-items: center;
+                gap: 24px;
+            }
+
+            @include tablet {
+                grid-template-columns: 1fr;
+            }
         }
 
-        @include tablet {
-            grid-template-columns: repeat(1, 1fr);
+        .team-members__item {
+
+            @include tablet-above {
+                &:nth-child(odd) {
+                    justify-self: end;
+                }
+
+                &:nth-child(even) {
+                    justify-self: start;
+                }
+            }
+        }
+
+        .team-members__image {
+            height: 370px;
         }
     }
 
+    &--our-team {
+        --padding: 12px;
+
+        .team-members__list {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+
+            @include laptop {
+                grid-template-columns: repeat(2, 1fr);
+                justify-items: center;
+            }
+
+            @include tablet {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .team-members__item {
+
+            @include laptop {
+                @include tablet-above {
+                    &:nth-child(odd) {
+                        justify-self: end;
+                    }
+
+                    &:nth-child(even) {
+                        justify-self: start;
+                    }
+                }
+            }
+        }
+
+        .team-members__image {
+            height: 479px;
+        }
+    }
+
+    &__list {
+        display: grid;
+        will-change: opacity;
+    }
+
     &__item {
-        --padding: 9px;
         display: inline-flex;
         justify-content: center;
         align-items: end;
@@ -28,21 +88,6 @@
         padding: var(--padding);
         background-color: var(--color-black-50);
         cursor: pointer;
-
-        @include laptop {
-            width: 293px;
-            height: 389px;
-        }
-
-        @include tablet-above {
-            &:nth-child(odd) {
-                justify-self: end;
-            }
-
-            &:nth-child(even) {
-                justify-self: start;
-            }
-        }
 
         &::before,
         &::after {
@@ -103,6 +148,7 @@
     }
 
     &__image {
+        width: 100%;
         user-select: none;
 
         &::before {
