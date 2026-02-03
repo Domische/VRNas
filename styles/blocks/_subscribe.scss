@@ -45,12 +45,28 @@
         border: none;
         padding: 3px;
 
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            padding: 1px;
+            background-color: var(--color-red);
+            mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+            pointer-events: none;
+            opacity: 0;
+            transition-duration: var(--transition-duration);
+        }
+
         @include mobile-l {
             width: 100%;
         }
 
         &.is-invalid {
-            border: 1px solid red;
+            position: relative;
+
+            &::after {
+                opacity: 1;
+            }
         }
     }
 

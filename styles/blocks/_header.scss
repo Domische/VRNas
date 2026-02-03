@@ -183,5 +183,8 @@
         //или
         border-image: var(--border-image-gradient-blue-pink);
 
+        &.is-active{
+            font-weight: 500;
+        }
     }
 }

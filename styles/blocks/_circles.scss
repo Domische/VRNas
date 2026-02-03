@@ -2,6 +2,92 @@
 
 .circles {
 
+    &--contact-us {
+        --container-size: 686px;
+        --circle-gap: 116px;
+
+        @include tablet {
+            --container-size: 472px;
+            --circle-gap: 82px;
+        }
+
+        position: relative;
+        height: var(--container-size);
+        width: var(--container-size);
+
+        .circles__main-image {
+            object-fit: contain;
+            bottom: 0px;
+            left: 57.5%;
+            rotate: -1deg;
+            width: 512px;
+
+            @include tablet {
+                width: 350px;
+                bottom: -87px;
+                rotate: -0.5deg;
+            }
+        }
+
+        .circles__item {
+
+            &:last-child {
+
+                &::before {
+                    bottom: -140px;
+                    left: -245px;
+                    width: 929px;
+                    height: 692px;
+
+                    @include tablet {
+                        bottom: -110px;
+                        left: -200px;
+                        width: 677px;
+                        height: 477px;
+                    }
+                }
+            }
+        }
+    }
+
+    &--homepage,
+    &--our-service {
+        --container-size: 1247px;
+        --circle-gap: 163px;
+
+        @include laptop {
+            --container-size: 1007px;
+            --circle-gap: 132px;
+        }
+
+        .circles__item {
+
+            &:last-child {
+
+                &::before {
+                    bottom: -220px;
+                    left: -320px;
+                    width: 1062px;
+                    height: 767px;
+                }
+            }
+
+        }
+
+        .circles__main-image {
+            bottom: -17px;
+            transform: rotate(1deg);
+
+            left: 55%;
+
+            @include laptop {
+                width: 535px;
+                height: 390px;
+                bottom: -15px;
+            }
+        }
+    }
+
     &__item {
         border: 1px solid rgba(255, 255, 255, 0.17);
         border-radius: 50%;
@@ -15,10 +101,6 @@
             &::before {
                 content: '';
                 position: absolute;
-                bottom: -220px;
-                left: -320px;
-                width: 1062px;
-                height: 767px;
                 background: url('../images/background-gradient.webp') center/contain no-repeat;
                 filter: blur(30px);
                 pointer-events: none;
@@ -27,31 +109,16 @@
 
         @for $i from 0 through 5 {
             &:nth-child(#{$i+1}) {
-                --circle-gap: 163px;
                 width: calc(var(--container-size) - $i * var(--circle-gap));
-
-                @include laptop {
-                    --circle-gap: 132px;
-                }
             }
         }
     }
 
     &__main-image {
-        bottom: -17px;
-        transform: rotate(1deg);
         transform-origin: bottom;
         pointer-events: none;
-        
-        
-        @include abs-x;
-        left: 55%;
 
-        @include laptop {
-            width: 535px;
-            height: 390px;
-            bottom: -15px;
-        }
+        @include abs-x;
     }
 
 }

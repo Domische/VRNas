@@ -38,7 +38,8 @@
 
 @mixin square($size) {
     width: $size + px;
-    aspect-ratio: 1;
+    height: $size + px;
+    // aspect-ratio: 1;
 }
 
 @mixin circle($size) {

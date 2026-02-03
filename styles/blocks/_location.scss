@@ -1,0 +1,25 @@
+@use '../helpers' as *;
+
+.location {
+    padding-bottom: 100px;
+
+    &__body {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: var(--color-black-50);
+            opacity: 0.4;
+        }
+
+        &>iframe {
+            width: 100%;
+
+            @include tablet {
+                height: 157px;
+            }
+        }
+    }
+}

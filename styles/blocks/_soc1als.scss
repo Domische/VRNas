@@ -2,6 +2,72 @@
 
 .soc1als {
 
+    &--contact-us {
+        position: absolute;
+
+        .soc1als__item {
+            position: absolute;
+
+            &:nth-child(1){
+                bottom: 530px;
+                left: 45px;
+
+                @include tablet {
+                    bottom: 440px;
+                    left: 300px;
+                }
+            }
+
+            &:nth-child(2){
+                bottom: 195px;
+                left: 0px;
+
+                @include tablet {
+                    bottom: 420px;
+                    left: 90px;
+                }
+
+                @include mobile-l {
+                    bottom: 445px;
+                    left: 150px;
+                }
+            }
+
+            &:nth-child(3){
+                bottom: 5px;
+                left: 180px;
+
+                @include tablet {
+                    bottom: 230px;
+                    left: 455px;
+                }
+            }
+
+            &:nth-child(4){
+                bottom: 145px;
+                left: 540px;
+
+                @include tablet {
+                    bottom: 105px;
+                    left: 375px;
+                }
+            }
+        }
+
+        .soc1als__link {
+            @include tablet {
+                @include circle(32);
+            }
+
+            &>svg {
+
+                @include tablet {
+                    @include square(16);
+                }
+            }
+        }
+    }
+
     &__list {
         display: flex;
         align-items: center;
@@ -14,23 +80,23 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        // background-color: var(--color-black-100);
+        background-color: var(--color-black-100);
         
 
         &>svg {
             z-index: 2;
         }
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            translate: -50% -50%;
-            z-index: 1;
-            background-color: var(--color-black-100);
-            border-radius: 50%;
-        }
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: 50%;
+        //     left: 50%;
+        //     translate: -50% -50%;
+        //     z-index: 1;
+        //     background-color: var(--color-black-100);
+        //     border-radius: 50%;
+        // }
 
         &::after {
             content: '';
@@ -44,20 +110,20 @@
         }
 
         &:hover {
-            // background: var(--linear-gradient-blue-pink);
+            background: var(--linear-gradient-blue-pink);
 
-            &::before {
-                background: var(--linear-gradient-blue-pink);
-            }
+            // &::before {
+            //     background: var(--linear-gradient-blue-pink);
+            // }
             
         }
 
         &--transparent {
-            // background-color: transparent;
+            background-color: transparent;
 
-            &::before {
-                background-color: transparent;
-            }
+            // &::before {
+            //     background-color: transparent;
+            // }
         }
 
         //исправить hover на svg!

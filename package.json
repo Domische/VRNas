@@ -17,7 +17,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass-watch": "sass --watch .",
-    "server-3001": "npx json-server --watch server/db3001.json -p 3001 --delay 2000"
+    "server-3001": "npx json-server --watch server/db3001.json -p 3001 --delay 2000",
+    "server-3002": "npx json-server --watch server/db3002.json -p 3002 --delay 2000"
   },
   "devDependencies": {
     "json-server": "^0.17.4",

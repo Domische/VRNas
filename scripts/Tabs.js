@@ -1,6 +1,7 @@
 const rootSelector = '[data-js-tablist]';
 
 class Tabs {
+    //!!! попробовать сделать этот класс универсальным для detail-service и faq page, Tabs (для faq page) универсальный класс от которого мы наследуем универсальную логику в класс TabsAlt (для detail-service page), переделать структуру
 
     selectors = {
         tablink: '[data-js-tablink]',

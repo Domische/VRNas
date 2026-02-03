@@ -62,6 +62,7 @@ async function load() {
         tabs: 'data-js-tablist',
         blog: 'data-js-blog',
         detailBlog: 'data-js-detail-blog',
+        form: 'data-js-form',
     }
 
     const scrollPage = await import('./scrollPage.js');
@@ -142,6 +143,11 @@ async function load() {
         if (element.getAttributeNames().includes(selectorsObserver.detailBlog)) {
             const DetailBlog = await import('./DetailBlog.js');
             new DetailBlog.default();
+        }
+
+        if (element.getAttributeNames().includes(selectorsObserver.form)) {
+            const formValidationCollection = await import('./formValidation.js');
+            formValidationCollection.default();
         }
 
     }

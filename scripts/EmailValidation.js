@@ -1,6 +1,7 @@
 const rootSelector = '[data-js-email-form]';
 
 class EmailValidation {
+    //!!! доделать валидацию (подсказки и тд)
     selectors = {
         input: '[data-js-email-input]',
         message: '[data-js-email-message]',
@@ -51,7 +52,7 @@ class EmailValidation {
     onSubmitInput = (event) => {
         event.preventDefault();
 
-        const {value} = event.target[0];
+        const {value} = event.target[0];        
 
         const isValid = this.regexp.validationRFC5322.test(value);
 

@@ -9,7 +9,7 @@
         padding-bottom: 100px;
     }
 
-    &__body{
+    &__body {
 
         &:has(.accordion-group){
             
@@ -391,6 +391,41 @@
                     }
                 }
             }
+        }
+
+        &--contact-us {
+            @include laptop {
+                flex-direction: column-reverse;
+                row-gap: 100px;
+            }
+
+            .section__picture {
+                display: inline-block;
+                
+                @include laptop-above {
+                    margin-left: -86px;
+                }
+
+                @include tablet {
+                    margin-left: -90px;
+                }
+
+                @include mobile-l {
+                    margin-left: -150px;
+                }
+            }
+
+            .section__body {
+                @include laptop-above {
+                    padding-top: 49px;
+                    margin-left: -40px;
+                }
+            }
+
+            .section__description {
+                padding-bottom: 32px;
+            }
+
         }
 
 

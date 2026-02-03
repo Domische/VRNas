@@ -116,7 +116,7 @@ p[class*=subtitle]:not([class$=tile]) {
 @media(hover: hover) {
 
     a:not(:has(svg)),
-    button:has(svg) {
+    button {
 
         &::before,
         &::after {

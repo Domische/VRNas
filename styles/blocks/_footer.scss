@@ -71,7 +71,7 @@
             justify-content: start;
         }
 
-        
+
 
         &-column, &-list {
             display: grid;
@@ -79,7 +79,8 @@
             row-gap: 16px;
         }
 
-        &-main-link {
+        &-title {
+            font-size: 16px;
             font-weight: 600;
         }
 
