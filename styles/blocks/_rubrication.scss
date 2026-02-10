@@ -1,0 +1,23 @@
+@use '../helpers' as *;
+
+.rubrication {
+    display: grid;
+    row-gap: 32px;
+
+    &__title {
+        padding-bottom: 16px;
+    }
+
+    &__list {
+        list-style: disc;
+        font-weight: 300;
+        line-height: 1.75;
+        color: var(--color-grey-2);
+    }
+
+    &__item {
+        margin-left: 23px;
+    }
+
+
+}

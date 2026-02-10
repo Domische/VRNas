@@ -1673,14 +1673,16 @@ p[class*=subtitle]:not([class$=tile]) {
   overflow: hidden;
 }
 .section-alt:has(.section-alt__main--faq,
-.section-alt__main--tems-and-conditions,
+.section-alt__main--terms-and-conditions,
 .section-alt__main--privacy-policy) {
   position: relative;
+  padding-top: 150px;
+  margin-top: -150px;
 }
 .section-alt:has(.section-alt__main--faq,
-.section-alt__main--tems-and-conditions,
+.section-alt__main--terms-and-conditions,
 .section-alt__main--privacy-policy)::before, .section-alt:has(.section-alt__main--faq,
-.section-alt__main--tems-and-conditions,
+.section-alt__main--terms-and-conditions,
 .section-alt__main--privacy-policy)::after {
   content: "";
   position: absolute;
@@ -1688,13 +1690,13 @@ p[class*=subtitle]:not([class$=tile]) {
   height: 520px;
   width: 360px;
   background: url("../images/faq/human.webp") center/contain no-repeat;
-  z-index: -1;
+  z-index: -2;
 }
 @media (max-width: 1024.98px) {
   .section-alt:has(.section-alt__main--faq,
-  .section-alt__main--tems-and-conditions,
+  .section-alt__main--terms-and-conditions,
   .section-alt__main--privacy-policy)::before, .section-alt:has(.section-alt__main--faq,
-  .section-alt__main--tems-and-conditions,
+  .section-alt__main--terms-and-conditions,
   .section-alt__main--privacy-policy)::after {
     height: 255px;
     width: 176px;
@@ -1702,9 +1704,9 @@ p[class*=subtitle]:not([class$=tile]) {
 }
 @media (max-width: 768.98px) {
   .section-alt:has(.section-alt__main--faq,
-  .section-alt__main--tems-and-conditions,
+  .section-alt__main--terms-and-conditions,
   .section-alt__main--privacy-policy)::before, .section-alt:has(.section-alt__main--faq,
-  .section-alt__main--tems-and-conditions,
+  .section-alt__main--terms-and-conditions,
   .section-alt__main--privacy-policy)::after {
     top: 155px;
     height: 155px;
@@ -1712,40 +1714,40 @@ p[class*=subtitle]:not([class$=tile]) {
   }
 }
 .section-alt:has(.section-alt__main--faq,
-.section-alt__main--tems-and-conditions,
+.section-alt__main--terms-and-conditions,
 .section-alt__main--privacy-policy)::before {
   left: -128px;
 }
 @media (max-width: 1024.98px) {
   .section-alt:has(.section-alt__main--faq,
-  .section-alt__main--tems-and-conditions,
+  .section-alt__main--terms-and-conditions,
   .section-alt__main--privacy-policy)::before {
     left: -65px;
   }
 }
 @media (max-width: 768.98px) {
   .section-alt:has(.section-alt__main--faq,
-  .section-alt__main--tems-and-conditions,
+  .section-alt__main--terms-and-conditions,
   .section-alt__main--privacy-policy)::before {
     left: -40px;
   }
 }
 .section-alt:has(.section-alt__main--faq,
-.section-alt__main--tems-and-conditions,
+.section-alt__main--terms-and-conditions,
 .section-alt__main--privacy-policy)::after {
   right: -96px;
   transform: scale(-1, 1);
 }
 @media (max-width: 1024.98px) {
   .section-alt:has(.section-alt__main--faq,
-  .section-alt__main--tems-and-conditions,
+  .section-alt__main--terms-and-conditions,
   .section-alt__main--privacy-policy)::after {
     right: -45px;
   }
 }
 @media (max-width: 768.98px) {
   .section-alt:has(.section-alt__main--faq,
-  .section-alt__main--tems-and-conditions,
+  .section-alt__main--terms-and-conditions,
   .section-alt__main--privacy-policy)::after {
     right: -30px;
   }
@@ -1989,10 +1991,10 @@ p[class*=subtitle]:not([class$=tile]) {
   filter: blur(40px);
   opacity: 0.9;
 }
-.section-alt__main--faq, .section-alt__main--tems-and-conditions, .section-alt__main--privacy-policy {
+.section-alt__main--faq, .section-alt__main--terms-and-conditions, .section-alt__main--privacy-policy {
   position: relative;
 }
-.section-alt__main--faq::before, .section-alt__main--tems-and-conditions::before, .section-alt__main--privacy-policy::before {
+.section-alt__main--faq::before, .section-alt__main--terms-and-conditions::before, .section-alt__main--privacy-policy::before {
   content: "";
   position: absolute;
   top: 250px;
@@ -2000,18 +2002,34 @@ p[class*=subtitle]:not([class$=tile]) {
   width: 100vw;
   height: 344px;
   background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, #18181b 55.93%, #18181b 100%);
+  z-index: -1;
 }
 @media (max-width: 1024.98px) {
-  .section-alt__main--faq::before, .section-alt__main--tems-and-conditions::before, .section-alt__main--privacy-policy::before {
+  .section-alt__main--faq::before, .section-alt__main--terms-and-conditions::before, .section-alt__main--privacy-policy::before {
     height: 150px;
     top: 130px;
   }
 }
 @media (max-width: 768.98px) {
-  .section-alt__main--faq::before, .section-alt__main--tems-and-conditions::before, .section-alt__main--privacy-policy::before {
+  .section-alt__main--faq::before, .section-alt__main--terms-and-conditions::before, .section-alt__main--privacy-policy::before {
     top: 85px;
     height: 103px;
   }
+}
+.section-alt__main--terms-and-conditions {
+  --container-width: 788px;
+}
+.section-alt__main--terms-and-conditions .section-alt__header {
+  max-width: 623px;
+  padding-bottom: 48px;
+}
+@media (max-width: 768.98px) {
+  .section-alt__main--terms-and-conditions .section-alt__header {
+    max-width: 347px;
+  }
+}
+.section-alt__main--terms-and-conditions .section-alt__title {
+  padding-bottom: 24px;
 }
 .section-alt__main:has(.accordion-group) {
   --container-width: 790px;
@@ -4608,6 +4626,23 @@ p[class*=subtitle]:not([class$=tile]) {
 }
 .tabs__content.is-active {
   display: block;
+}
+
+.rubrication {
+  display: grid;
+  row-gap: 32px;
+}
+.rubrication__title {
+  padding-bottom: 16px;
+}
+.rubrication__list {
+  list-style: disc;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-grey-2);
+}
+.rubrication__item {
+  margin-left: 23px;
 }
 
 /*# sourceMappingURL=main.css.map */

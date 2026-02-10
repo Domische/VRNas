@@ -7,9 +7,11 @@
     overflow: hidden;
 
     &:has(.section-alt__main--faq,
-        .section-alt__main--tems-and-conditions,
+        .section-alt__main--terms-and-conditions,
         .section-alt__main--privacy-policy) {
         position: relative;
+        padding-top: 150px;
+        margin-top: -150px;
 
         &::before,
         &::after {
@@ -19,7 +21,7 @@
             height: 520px;
             width: 360px;
             background: url('../images/faq/human.webp') center/contain no-repeat;
-            z-index: -1;
+            z-index: -2;
 
             @include laptop {
                 height: 255px;
@@ -357,7 +359,7 @@
         }
 
         &--faq,
-        &--tems-and-conditions,
+        &--terms-and-conditions,
         &--privacy-policy {
             position: relative;
 
@@ -369,6 +371,7 @@
                 width: 100vw;
                 height: 344px;
                 background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, #18181b 55.93%, #18181b 100%);
+                z-index: -1;
 
                 @include laptop {
                     height: 150px;
@@ -380,6 +383,26 @@
                     height: 103px;
                 }
             }
+        }
+
+        &--terms-and-conditions {
+
+            --container-width: 788px;
+
+            .section-alt__header {
+                max-width: 623px;
+                padding-bottom: 48px;
+
+                @include tablet {
+                    max-width: 347px;
+                }
+            }
+
+            .section-alt__title {
+                padding-bottom: 24px;
+            }
+
+
         }
 
         &:has(.accordion-group) {
