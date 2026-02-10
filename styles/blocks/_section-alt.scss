@@ -12,6 +12,11 @@
         position: relative;
         padding-top: 150px;
         margin-top: -150px;
+        padding-bottom: 150px;
+
+        @include tablet {
+            padding-bottom: 100px;
+        }
 
         &::before,
         &::after {
@@ -385,7 +390,8 @@
             }
         }
 
-        &--terms-and-conditions {
+        &--terms-and-conditions,
+        &--privacy-policy {
 
             --container-width: 788px;
 
