@@ -1,0 +1,45 @@
+@use '../helpers' as *;
+
+.tabs {
+   
+    &__header {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 32px;
+    }
+
+    &__list {
+        display: flex;
+        column-gap: 24px;
+    }
+
+    &__item {
+        position: relative;
+        padding: 12px 24px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            padding: 1px;
+            background: var(--linear-gradient-blue-pink);
+            mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+            opacity: 0.4;
+        }
+
+        &.is-active {
+
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__content {
+        display: none;
+        
+        &.is-active{
+            display: block;
+        }
+    }
+}

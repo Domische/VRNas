@@ -47,7 +47,7 @@
                                     <a href="our-team.html" class="header__menu-link" data-js-header-submenu-link>Our Team</a>
                                 </li>
                                 <li class="header__menu-item">
-                                    <a href="#" class="header__menu-link" data-js-header-submenu-link>FAQ</a>
+                                    <a href="faq.html" class="header__menu-link" data-js-header-submenu-link>FAQ</a>
                                 </li>
                                 <li class="header__menu-item">
                                     <a href="#" class="header__menu-link" data-js-header-submenu-link>Tems &
@@ -128,37 +128,39 @@
             </div>
         </section>
         <section class="detail-service" aria-labelledby="detail-service-title">
-            <div class="detail-service__main container">
+            <div class="detail-service__main container" data-js-tabs-alt>
+                <h2 class="detail-service__title visually-hidden" id="detail-service-title">Detail service</h2>
                 <div class="detail-service__circles">
                     <div class="detail-service__circle"></div>
                     <div class="detail-service__circle" data-js-circle>
-                        <div class="detail-service__tablist" data-js-tablist role="tablist">
-                            <button class="detail-service__tablink" data-js-tablink
-                                data-js-tablink-value="vr-development" role="tab" aria-controls="tabpanel-1"
+                        <h3 class="detail-service__title visually-hidden" id="vr-category-title">VR category</h3>
+                        <div class="detail-service__tablist" role="tablist" aria-labelledby="vr-category-title">
+                            <button class="detail-service__tablink" id="tab-1" data-js-tabs-item
+                                data-js-tabs-value="vr-development" role="tab" aria-controls="tabpanel-1"
                                 aria-selected="false" tabindex="-1">VR <br>Development</button>
-                            <button class="detail-service__tablink" data-js-tablink data-js-tablink-value="vr-games"
+                            <button class="detail-service__tablink" id="tab-2" data-js-tabs-item data-js-tabs-value="vr-games"
                                 role="tab" aria-controls="tabpanel-2" aria-selected="false" tabindex="-1">VR
                                 <br>Games</button>
-                            <button class="detail-service__tablink" data-js-tablink data-js-tablink-value="vr-events"
+                            <button class="detail-service__tablink" id="tab-3" data-js-tabs-item data-js-tabs-value="vr-events"
                                 role="tab" aria-controls="tabpanel-3" aria-selected="false" tabindex="-1">VR
                                 <br>Events</button>
-                            <button class="detail-service__tablink" data-js-tablink data-js-tablink-value="vr-design"
+                            <button class="detail-service__tablink" id="tab-4" data-js-tabs-item data-js-tabs-value="vr-design"
                                 role="tab" aria-controls="tabpanel-4" aria-selected="false" tabindex="-1">VR
                                 <br>Design</button>
-                            <button class="detail-service__tablink" data-js-tablink
-                                data-js-tablink-value="vr-consulting" role="tab" aria-controls="tabpanel-5"
+                            <button class="detail-service__tablink" id="tab-5" data-js-tabs-item
+                                data-js-tabs-value="vr-consulting" role="tab" aria-controls="tabpanel-5"
                                 aria-selected="false" tabindex="-1">VR <br>Consulting</button>
-                            <button class="detail-service__tablink" data-js-tablink
-                                data-js-tablink-value="vr-entertainment" role="tab" aria-controls="tabpanel-6"
+                            <button class="detail-service__tablink" id="tab-6" data-js-tabs-item
+                                data-js-tabs-value="vr-entertainment" role="tab" aria-controls="tabpanel-6"
                                 aria-selected="false" tabindex="-1">VR <br>Entertainment</button>
-                            <button class="detail-service__tablink" data-js-tablink
-                                data-js-tablink-value="client-testimony" role="tab" aria-controls="tabpanel-7"
+                            <button class="detail-service__tablink" id="tab-7" data-js-tabs-item
+                                data-js-tabs-value="client-testimony" role="tab" aria-controls="tabpanel-7"
                                 aria-selected="false" tabindex="-1">Client <br>Testimony</button>
                         </div>
                     </div>
                     <div class="detail-service__circle">
                         <div class="detail-service__tabnavigation">
-                            <button class="detail-service__tabbutton-previous" data-js-tabbutton-previous
+                            <button class="detail-service__tabbutton-previous" data-js-tabs-button-previous
                                 aria-label="To the previous tab">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -175,7 +177,7 @@
                                     </defs>
                                 </svg>
                             </button>
-                            <button class="detail-service__tabbutton-next" data-js-tabbutton-next
+                            <button class="detail-service__tabbutton-next" data-js-tabs-button-next
                                 aria-label="To the next tab">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -198,7 +200,7 @@
                     <div class="detail-service__circle"></div>
                 </div>
                 <div class="detail-service__body">
-                    <div class="detail-service__tabcontent" data-js-tabcontent role="tabpanel" id="tabpanel-1">
+                    <div class="detail-service__tabcontent" data-js-tabs-content role="tabpanel" id="tabpanel-1" tabindex="0" aria-labelledby="tab-1">
                         <p class="detail-service__subtitle"><span class="gradient-text">SERVICE</span></p>
                         <h2 class="detail-service__title" id="detail-service-title">VR Development</h2>
                         <p class="detail-service__description">At our VR Development service, we specialize in creating
@@ -236,7 +238,7 @@
                                 us</a>
                         </div>
                     </div>
-                    <div class="detail-service__tabcontent" data-js-tabcontent role="tabpanel" id="tabpanel-2">
+                    <div class="detail-service__tabcontent" data-js-tabs-content role="tabpanel" id="tabpanel-2" tabindex="0" aria-labelledby="tab-2">
                         <p class="detail-service__subtitle"><span class="gradient-text">SERVICE</span></p>
                         <h2 class="detail-service__title" id="detail-service-title">VR Games</h2>
                         <p class="detail-service__description">At our VR Games service, we specialize in creating
@@ -272,7 +274,7 @@
                                 us</a>
                         </div>
                     </div>
-                    <div class="detail-service__tabcontent" data-js-tabcontent role="tabpanel" id="tabpanel-3">
+                    <div class="detail-service__tabcontent" data-js-tabs-content role="tabpanel" id="tabpanel-3" tabindex="0" aria-labelledby="tab-3">
                         <p class="detail-service__subtitle"><span class="gradient-text">SERVICE</span></p>
                         <h2 class="detail-service__title" id="detail-service-title">VR Events</h2>
                         <p class="detail-service__description">At our VR Events service, we specialize in creating
@@ -308,7 +310,7 @@
                                 us</a>
                         </div>
                     </div>
-                    <div class="detail-service__tabcontent" data-js-tabcontent role="tabpanel" id="tabpanel-4">
+                    <div class="detail-service__tabcontent" data-js-tabs-content role="tabpanel" id="tabpanel-4" tabindex="0" aria-labelledby="tab-4">
                         <p class="detail-service__subtitle"><span class="gradient-text">SERVICE</span></p>
                         <h2 class="detail-service__title" id="detail-service-title">VR Design</h2>
                         <p class="detail-service__description">At our VR Design service, we specialize in creating
@@ -344,7 +346,7 @@
                                 us</a>
                         </div>
                     </div>
-                    <div class="detail-service__tabcontent" data-js-tabcontent role="tabpanel" id="tabpanel-5">
+                    <div class="detail-service__tabcontent" data-js-tabs-content role="tabpanel" id="tabpanel-5" tabindex="0" aria-labelledby="tab-5">
                         <p class="detail-service__subtitle"><span class="gradient-text">SERVICE</span></p>
                         <h2 class="detail-service__title" id="detail-service-title">VR Consulting</h2>
                         <p class="detail-service__description">At our VR Consulting service, we specialize in creating
@@ -382,7 +384,7 @@
                                 us</a>
                         </div>
                     </div>
-                    <div class="detail-service__tabcontent" data-js-tabcontent role="tabpanel" id="tabpanel-6">
+                    <div class="detail-service__tabcontent" data-js-tabs-content role="tabpanel" id="tabpanel-6" tabindex="0" aria-labelledby="tab-6">
                         <p class="detail-service__subtitle"><span class="gradient-text">SERVICE</span></p>
                         <h2 class="detail-service__title" id="detail-service-title">VR Entertainment</h2>
                         <p class="detail-service__description">At our VR Entertainment service, we specialize in
@@ -421,7 +423,7 @@
                                 us</a>
                         </div>
                     </div>
-                    <div class="detail-service__tabcontent" data-js-tabcontent role="tabpanel" id="tabpanel-7">
+                    <div class="detail-service__tabcontent" data-js-tabs-content role="tabpanel" id="tabpanel-7" tabindex="0" aria-labelledby="tab-7">
                         <p class="detail-service__subtitle"><span class="gradient-text">SERVICE</span></p>
                         <h2 class="detail-service__title" id="detail-service-title">Client Testimony</h2>
                         <p class="detail-service__description">At our Client Testimony service, we specialize in
@@ -461,7 +463,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
         <section class="section-alt" aria-labelledby="video-title">

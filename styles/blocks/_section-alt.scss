@@ -6,7 +6,61 @@
 
     overflow: hidden;
 
-    &:has(.team-members--our-team){
+    &:has(.section-alt__main--faq,
+        .section-alt__main--tems-and-conditions,
+        .section-alt__main--privacy-policy) {
+        position: relative;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 137px;
+            height: 520px;
+            width: 360px;
+            background: url('../images/faq/human.webp') center/contain no-repeat;
+            z-index: -1;
+
+            @include laptop {
+                height: 255px;
+                width: 176px;
+            }
+
+            @include tablet {
+                top: 155px;
+                height: 155px;
+                width: 108px;
+            }
+        }
+
+        &::before {
+            left: -128px;
+
+            @include laptop {
+                left: -65px;
+            }
+
+            @include tablet {
+                left: -40px;
+            }
+        }
+
+        &::after {
+            right: -96px;
+            transform: scale(-1, 1);
+
+            @include laptop {
+                right: -45px;
+            }
+
+            @include tablet {
+                right: -30px;
+            }
+        }
+
+    }
+
+    &:has(.team-members--our-team) {
         @include tablet-above {
             padding-bottom: 150px;
         }
@@ -16,7 +70,7 @@
         }
     }
 
-    &:has(.section-alt__main--pricing-plan){
+    &:has(.section-alt__main--pricing-plan) {
         @include tablet-above {
             padding-bottom: 150px;
         }
@@ -189,9 +243,9 @@
             }
         }
 
-        .section-alt__header {
-            // max-width: 679px;
-        }
+        // .section-alt__header {
+        //     // max-width: 679px;
+        // }
 
         .section-alt__button {
             will-change: opacity;
@@ -302,16 +356,51 @@
 
         }
 
-        &:has(.section-alt__accordion-group) {
-            max-width: calc(790px + var(--container-padding-x) * 2);
+        &--faq,
+        &--tems-and-conditions,
+        &--privacy-policy {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 250px;
+                left: min(0, calc((100vw - var(--container-width) - var(--container-padding-x) * 2) / -2));
+                width: 100vw;
+                height: 344px;
+                background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, #18181b 55.93%, #18181b 100%);
+
+                @include laptop {
+                    height: 150px;
+                    top: 130px;
+                }
+
+                @include tablet {
+                    top: 85px;
+                    height: 103px;
+                }
+            }
+        }
+
+        &:has(.accordion-group) {
+            // max-width: calc(790px + var(--container-padding-x) * 2);
+            --container-width: 790px;
 
             .section-alt__title {
                 padding-bottom: 24px;
+
+                @include tablet {
+                    padding-bottom: 12px;
+                }
             }
 
             .section-alt__header {
                 max-width: 764px;
                 padding-bottom: 48px;
+
+                @include tablet {
+                    padding-bottom: 24px;
+                }
             }
         }
 

@@ -29,7 +29,6 @@
 
 async function load() {
     
-
     const observerImage = new IntersectionObserver(
         (entries, observer) => {
             entries.forEach(entry => {
@@ -59,7 +58,8 @@ async function load() {
         emailForm: 'data-js-email-form',
         accordion: 'data-js-accordion-group',
         addIsActive: 'data-js-list',
-        tabs: 'data-js-tablist',
+        tabs: 'data-js-tabs',
+        tabsAlt: 'data-js-tabs-alt',
         blog: 'data-js-blog',
         detailBlog: 'data-js-detail-blog',
         form: 'data-js-form',
@@ -133,6 +133,11 @@ async function load() {
         if (element.getAttributeNames().includes(selectorsObserver.tabs)) {
             const TabsCollection = await import('./Tabs.js');
             new TabsCollection.default();
+        }
+
+        if (element.getAttributeNames().includes(selectorsObserver.tabsAlt)) {
+            const TabsAltCollection = await import('./TabsAlt.js');
+            new TabsAltCollection.default();
         }
 
         if (element.getAttributeNames().includes(selectorsObserver.blog)) {

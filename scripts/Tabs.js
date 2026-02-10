@@ -1,174 +1,123 @@
-const rootSelector = '[data-js-tablist]';
+const rootSelector = '[data-js-tabs]';
 
 class Tabs {
-    //!!! попробовать сделать этот класс универсальным для detail-service и faq page, Tabs (для faq page) универсальный класс от которого мы наследуем универсальную логику в класс TabsAlt (для detail-service page), переделать структуру
-
     selectors = {
-        tablink: '[data-js-tablink]',
-        tabcontent: '[data-js-tabcontent]',
-        tabbuttonPrevious: '[data-js-tabbutton-previous]',
-        tabbuttonNext: '[data-js-tabbutton-next]',
-        circle: '[data-js-circle]',
+        item: '[data-js-tabs-item]',
+        content: '[data-js-tabs-content]',
+    }
+
+    stateAttributes = {
+        tabindex: 'tabindex',
+        ariaSelected: 'aria-selected',
+        tabsValue: 'data-js-tabs-value',
     }
 
     stateClasses = {
         isActive: 'is-active'
     }
 
-    stateAttributes = {
-        ariaSelected: 'aria-selected',
-        tablinkValue: 'data-js-tablink-value',
-        tabindex: 'tabindex',
-    }
-
-    stateProperty = {
-        rotate: '--rotate'
-    }
-
     initialState = {
-        activeIndex: 0,
+        activeIndex: 0
     }
 
     constructor(rootElement) {
         this.rootElement = rootElement;
-        this.tablinkElements = document.querySelectorAll(this.selectors.tablink);
-        this.tabcontentElements = document.querySelectorAll(this.selectors.tabcontent);
-        this.tabbuttonPreviousElement = document.querySelector(this.selectors.tabbuttonPrevious);
-        this.tabbuttonNextElement = document.querySelector(this.selectors.tabbuttonNext);
-        this.circleElement = document.querySelector(this.selectors.circle);
+        this.itemElements = this.rootElement.querySelectorAll(this.selectors.item);
+        this.contentElements = this.rootElement.querySelectorAll(this.selectors.content);
+
         this.parseQueryParams();
-        this.changePositionCircle();
         this.bindEvents();
     }
 
-    selectTablink() {
-        const tablinkElement = [...this.tablinkElements][this.initialState.activeIndex];
+    deselectTab() {
+        const lastActiveItemElement = this.itemElements[this.initialState.activeIndex];
+        const lastActiveContentElement = this.contentElements[this.initialState.activeIndex];
 
-        if (tablinkElement) {
-            tablinkElement.classList.add(this.stateClasses.isActive);
-            tablinkElement.setAttribute(this.stateAttributes.ariaSelected, 'true');
-            tablinkElement.setAttribute(this.stateAttributes.tabindex, '0');
-            this.tabcontentElements[this.initialState.activeIndex].classList.add(this.stateClasses.isActive);
+        lastActiveItemElement.classList.remove(this.stateClasses.isActive);
+        lastActiveContentElement.classList.remove(this.stateClasses.isActive);
 
-            const newId = tablinkElement.getAttribute(this.stateAttributes.tablinkValue);
-            window.history.replaceState(
-                {},
-                '',
-                `./detail-service.html?id=${newId}`
-            )
-        }
+        lastActiveItemElement.setAttribute(this.stateAttributes.tabindex, '-1');
+        lastActiveItemElement.setAttribute(this.stateAttributes.ariaSelected, false);
     }
 
-    deselectTablink() {
-        const tablinkElement = [...this.tablinkElements][this.initialState.activeIndex];
+    selectTab() {
+        const newActiveItemElement = this.itemElements[this.initialState.activeIndex];
+        const newActiveContentElement = this.contentElements[this.initialState.activeIndex];
 
-        if (tablinkElement) {
-            tablinkElement.classList.remove(this.stateClasses.isActive);
-            tablinkElement.setAttribute(this.stateAttributes.ariaSelected, 'false');
-            tablinkElement.setAttribute(this.stateAttributes.tabindex, '-1');
-            this.tabcontentElements[this.initialState.activeIndex].classList.remove(this.stateClasses.isActive);
-        }
+        newActiveItemElement.classList.add(this.stateClasses.isActive);
+        newActiveContentElement.classList.add(this.stateClasses.isActive);
+
+        newActiveItemElement.setAttribute(this.stateAttributes.tabindex, '0');
+        newActiveItemElement.setAttribute(this.stateAttributes.ariaSelected, true);
+
+        const newId = newActiveItemElement.getAttribute(this.stateAttributes.tabsValue);
+
+        window.history.replaceState(
+            {},
+            '',
+            `?id=${newId}`
+        )
     }
 
-    onPointerUpTablink({ target }) {
-        if (target.closest(this.selectors.tablink)) {
-            this.deselectTablink();
-            const newActiveIndex = [...this.tablinkElements].indexOf(target);
-            this.initialState.activeIndex = newActiveIndex;
-            this.selectTablink();
-        }
-    }
+    selectTabBasedOnQueryParams(id){
+        const itemIndex = [...this.itemElements].findIndex(item => item.getAttribute(this.stateAttributes.tabsValue)===id);
 
-    toTheNextTab = () => { // стрелочная функция, потому что при вызове action() теряется контекст this, а стрелочная фукция как раз берет тот контекст в котором она находится, то есть контекст DetailService
-        if (this.initialState.activeIndex < this.tablinkElements.length - 1) {
-            this.deselectTablink();
-            this.initialState.activeIndex++;
-            this.selectTablink();
-        }
-    }
+        itemIndex!==-1 && (this.initialState.activeIndex = itemIndex);
 
-    toThePreviousTab = () => { // стрелочная функция, потому что при вызове action() теряется контекст this, а стрелочная фукция как раз берет тот контекст в котором она находится, то есть контекст DetailService
-        if (this.initialState.activeIndex > 0) {
-            this.deselectTablink();
-            this.initialState.activeIndex--;
-            this.selectTablink();
-        }
-    }
-
-    onKeyDown(event) {
-        const { code } = event;
-
-        const action = {
-            ArrowRight: this.toTheNextTab,
-            ArrowLeft: this.toThePreviousTab
-        }[code];
-
-        if (action) {
-            event.preventDefault();
-            action();
-        }
-
-    }
-
-    onPointerUpTabbuttonNext() {
-        this.toTheNextTab();
-        this.changePositionCircle();
-    }
-
-    onPointerUpTabbuttonPrevious() {
-        this.toThePreviousTab();
-        this.changePositionCircle();
-    }
-
-    selectTablinkBasedOnQueryParams(id) {
-        const tablinkIndex = [...this.tablinkElements].findIndex(item => item.getAttribute(this.stateAttributes.tablinkValue) === id);
-        this.initialState.activeIndex = tablinkIndex;
-        this.selectTablink();
+        this.selectTab();
     }
 
     parseQueryParams() {
         const queryParams = new URLSearchParams(document.location.search);
         const id = queryParams.get('id');
-        id ? this.selectTablinkBasedOnQueryParams(id) : this.selectTablink();
+        id ? this.selectTabBasedOnQueryParams(id) : this.selectTab();
     }
 
-    changePositionCircle() {
-        if(window.matchMedia('(max-width: 1024.98px)').matches){
-            switch (this.initialState.activeIndex) {
-                case 0:
-                    this.circleElement.style.setProperty(this.stateProperty.rotate, '87.5deg')
-                    break;
-                case 1:
-                    this.circleElement.style.setProperty(this.stateProperty.rotate, '62.5deg')
-                    break;
-                case 2:
-                    this.circleElement.style.setProperty(this.stateProperty.rotate, '32.5deg')
-                    break;
-                case 3:
-                    this.circleElement.style.setProperty(this.stateProperty.rotate, '0deg')
-                    break;
-                case 4:
-                    this.circleElement.style.setProperty(this.stateProperty.rotate, '-32.5deg')
-                    break;
-                case 5:
-                    this.circleElement.style.setProperty(this.stateProperty.rotate, '-62.5deg')
-                    break;
-                case 6:
-                    this.circleElement.style.setProperty(this.stateProperty.rotate, '-87.5deg')
-                    break;
-                default:
-                    break;
-            }
+    onClickTabs({ target }) {
+        if (target.closest(this.selectors.item)) {
+            this.deselectTab();
+
+            const newActiveIndex = [...this.itemElements].indexOf(target);
+            this.initialState.activeIndex = newActiveIndex;
+
+            this.selectTab();
+        }
+    }
+
+    toTheNextTab = () => { // стрелочная функция, потому что при вызове action() теряется контекст this, а стрелочная фукция как раз берет тот контекст в котором она находится
+        if(this.initialState.activeIndex < [...this.itemElements].length - 1){
+            this.deselectTab();
+            this.initialState.activeIndex++;
+            this.selectTab();
+        } 
+    }
+
+    toThePreviousTab = () => { // стрелочная функция, потому что при вызове action() теряется контекст this, а стрелочная фукция как раз берет тот контекст в котором она находится
+        if(this.initialState.activeIndex > 0){
+            this.deselectTab();
+            this.initialState.activeIndex--;
+            this.selectTab();
+        } 
+    }
+
+    onKeyDown(event){
+        const {code} = event;
+
+        const action = {
+            ArrowRight: this.toTheNextTab,
+            ArrowLeft: this.toThePreviousTab,
+        }[code];        
+
+        if(action){
+            event.preventDefault();
+            action();
         }
     }
 
     bindEvents() {
-        this.rootElement.addEventListener('pointerup', (event) => this.onPointerUpTablink(event));
+        this.rootElement.addEventListener('click', (event) => this.onClickTabs(event));
         this.rootElement.addEventListener('keydown', (event) => this.onKeyDown(event));
-        this.tabbuttonNextElement.addEventListener('pointerup', () => this.onPointerUpTabbuttonNext());
-        this.tabbuttonPreviousElement.addEventListener('pointerup', () => this.onPointerUpTabbuttonPrevious());
     }
-
 }
 
 class TabsCollection {
@@ -179,8 +128,10 @@ class TabsCollection {
     init() {
         document.querySelectorAll(rootSelector).forEach(rootElement => {
             new Tabs(rootElement);
-        });
+        })
     }
 }
+
+export {Tabs};
 
 export default TabsCollection;

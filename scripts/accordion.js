@@ -26,10 +26,7 @@ function accordion(rootElement) {
         const previousActiveButtonIndex = initialState.previousActiveButtonIndex;
         const wasExpanded = element.getAttribute(stateAttributes.ariaExpanded) === 'true';
 
-        element.setAttribute(stateAttributes.ariaExpanded, !wasExpanded);
-        console.log(previousActiveButtonIndex);
-        console.log(newActiveButtonIndex);
-        
+        element.setAttribute(stateAttributes.ariaExpanded, !wasExpanded);        
 
         if (previousActiveButtonIndex !== newActiveButtonIndex) {
             const previousActiveButton = buttonElementsArray[previousActiveButtonIndex];            

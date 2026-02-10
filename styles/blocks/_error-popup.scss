@@ -1,0 +1,46 @@
+@use '../helpers' as *;
+
+.error-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(36, 36, 36, 0.6);
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: var(--transition-duration);
+
+    &.is-active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__body {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+        height: 200px;
+        background-color: var(--color-grey-3);
+        border-radius: 4px;
+    }
+
+    &__button {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &__image {
+        @include square(40);
+    }
+
+    &__message {
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--color-red);
+    }
+}

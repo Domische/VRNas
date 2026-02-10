@@ -1370,6 +1370,9 @@ p[class*=subtitle]:not([class$=tile]) {
     margin-left: -40px;
   }
 }
+.section__main--contact-us .section__title {
+  padding-bottom: 15px;
+}
 .section__main--contact-us .section__description {
   padding-bottom: 32px;
 }
@@ -1669,6 +1672,84 @@ p[class*=subtitle]:not([class$=tile]) {
   padding-bottom: 100px;
   overflow: hidden;
 }
+.section-alt:has(.section-alt__main--faq,
+.section-alt__main--tems-and-conditions,
+.section-alt__main--privacy-policy) {
+  position: relative;
+}
+.section-alt:has(.section-alt__main--faq,
+.section-alt__main--tems-and-conditions,
+.section-alt__main--privacy-policy)::before, .section-alt:has(.section-alt__main--faq,
+.section-alt__main--tems-and-conditions,
+.section-alt__main--privacy-policy)::after {
+  content: "";
+  position: absolute;
+  top: 137px;
+  height: 520px;
+  width: 360px;
+  background: url("../images/faq/human.webp") center/contain no-repeat;
+  z-index: -1;
+}
+@media (max-width: 1024.98px) {
+  .section-alt:has(.section-alt__main--faq,
+  .section-alt__main--tems-and-conditions,
+  .section-alt__main--privacy-policy)::before, .section-alt:has(.section-alt__main--faq,
+  .section-alt__main--tems-and-conditions,
+  .section-alt__main--privacy-policy)::after {
+    height: 255px;
+    width: 176px;
+  }
+}
+@media (max-width: 768.98px) {
+  .section-alt:has(.section-alt__main--faq,
+  .section-alt__main--tems-and-conditions,
+  .section-alt__main--privacy-policy)::before, .section-alt:has(.section-alt__main--faq,
+  .section-alt__main--tems-and-conditions,
+  .section-alt__main--privacy-policy)::after {
+    top: 155px;
+    height: 155px;
+    width: 108px;
+  }
+}
+.section-alt:has(.section-alt__main--faq,
+.section-alt__main--tems-and-conditions,
+.section-alt__main--privacy-policy)::before {
+  left: -128px;
+}
+@media (max-width: 1024.98px) {
+  .section-alt:has(.section-alt__main--faq,
+  .section-alt__main--tems-and-conditions,
+  .section-alt__main--privacy-policy)::before {
+    left: -65px;
+  }
+}
+@media (max-width: 768.98px) {
+  .section-alt:has(.section-alt__main--faq,
+  .section-alt__main--tems-and-conditions,
+  .section-alt__main--privacy-policy)::before {
+    left: -40px;
+  }
+}
+.section-alt:has(.section-alt__main--faq,
+.section-alt__main--tems-and-conditions,
+.section-alt__main--privacy-policy)::after {
+  right: -96px;
+  transform: scale(-1, 1);
+}
+@media (max-width: 1024.98px) {
+  .section-alt:has(.section-alt__main--faq,
+  .section-alt__main--tems-and-conditions,
+  .section-alt__main--privacy-policy)::after {
+    right: -45px;
+  }
+}
+@media (max-width: 768.98px) {
+  .section-alt:has(.section-alt__main--faq,
+  .section-alt__main--tems-and-conditions,
+  .section-alt__main--privacy-policy)::after {
+    right: -30px;
+  }
+}
 @media (min-width: 768.98px) {
   .section-alt:has(.team-members--our-team) {
     padding-bottom: 150px;
@@ -1908,15 +1989,49 @@ p[class*=subtitle]:not([class$=tile]) {
   filter: blur(40px);
   opacity: 0.9;
 }
-.section-alt__main:has(.section-alt__accordion-group) {
-  max-width: calc(790px + var(--container-padding-x) * 2);
+.section-alt__main--faq, .section-alt__main--tems-and-conditions, .section-alt__main--privacy-policy {
+  position: relative;
 }
-.section-alt__main:has(.section-alt__accordion-group) .section-alt__title {
+.section-alt__main--faq::before, .section-alt__main--tems-and-conditions::before, .section-alt__main--privacy-policy::before {
+  content: "";
+  position: absolute;
+  top: 250px;
+  left: min(0, (100vw - var(--container-width) - var(--container-padding-x) * 2) / -2);
+  width: 100vw;
+  height: 344px;
+  background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, #18181b 55.93%, #18181b 100%);
+}
+@media (max-width: 1024.98px) {
+  .section-alt__main--faq::before, .section-alt__main--tems-and-conditions::before, .section-alt__main--privacy-policy::before {
+    height: 150px;
+    top: 130px;
+  }
+}
+@media (max-width: 768.98px) {
+  .section-alt__main--faq::before, .section-alt__main--tems-and-conditions::before, .section-alt__main--privacy-policy::before {
+    top: 85px;
+    height: 103px;
+  }
+}
+.section-alt__main:has(.accordion-group) {
+  --container-width: 790px;
+}
+.section-alt__main:has(.accordion-group) .section-alt__title {
   padding-bottom: 24px;
 }
-.section-alt__main:has(.section-alt__accordion-group) .section-alt__header {
+@media (max-width: 768.98px) {
+  .section-alt__main:has(.accordion-group) .section-alt__title {
+    padding-bottom: 12px;
+  }
+}
+.section-alt__main:has(.accordion-group) .section-alt__header {
   max-width: 764px;
   padding-bottom: 48px;
+}
+@media (max-width: 768.98px) {
+  .section-alt__main:has(.accordion-group) .section-alt__header {
+    padding-bottom: 24px;
+  }
 }
 .section-alt__body {
   width: 100%;
@@ -4420,6 +4535,79 @@ p[class*=subtitle]:not([class$=tile]) {
   .location__body > iframe {
     height: 157px;
   }
+}
+
+.error-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(36, 36, 36, 0.6);
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition-duration: var(--transition-duration);
+}
+.error-popup.is-active {
+  visibility: visible;
+  opacity: 1;
+}
+.error-popup__body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 200px;
+  background-color: var(--color-grey-3);
+  border-radius: 4px;
+}
+.error-popup__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.error-popup__image {
+  width: 40px;
+  height: 40px;
+}
+.error-popup__message {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-red);
+}
+
+.tabs__header {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+.tabs__list {
+  display: flex;
+  column-gap: 24px;
+}
+.tabs__item {
+  position: relative;
+  padding: 12px 24px;
+}
+.tabs__item::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  background: var(--linear-gradient-blue-pink);
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0.4;
+}
+.tabs__item.is-active::after {
+  opacity: 1;
+}
+.tabs__content {
+  display: none;
+}
+.tabs__content.is-active {
+  display: block;
 }
 
 /*# sourceMappingURL=main.css.map */
