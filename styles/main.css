@@ -1067,10 +1067,6 @@ p[class*=subtitle]:not([class$=tile]) {
 .section__subtitle {
   padding-bottom: 12px;
 }
-.section:has(.section__main--about-us, .section__main--pricing-plan):has(.accordion-group) {
-  margin-top: -100px;
-  padding-top: 100px;
-}
 .section__main {
   display: flex;
 }
@@ -1377,6 +1373,10 @@ p[class*=subtitle]:not([class$=tile]) {
 .section__main--contact-us .section__description {
   padding-bottom: 32px;
 }
+.section:has(.section__main--about-us, .section__main--pricing-plan):has(.accordion-group) {
+  margin-top: -100px;
+  padding-top: 100px;
+}
 
 .gradient-text {
   display: inline-block;
@@ -1670,23 +1670,134 @@ p[class*=subtitle]:not([class$=tile]) {
 }
 
 .section-alt {
-  padding-bottom: 100px;
   overflow: hidden;
+  padding-bottom: 100px;
+}
+.section-alt__subtitle {
+  padding-bottom: 12px;
+}
+.section-alt__body {
+  width: 100%;
+}
+.section-alt__header {
+  contain: paint;
+}
+.section-alt__main {
+  position: relative;
+  display: grid;
+}
+.section-alt__main--center {
+  justify-items: center;
+}
+.section-alt__main--center .section-alt__header {
+  text-align: center;
+}
+@media (max-width: 768.98px) {
+  .section-alt__main--homepage, .section-alt__main--our-service, .section-alt__main--detail-service {
+    row-gap: 32px;
+  }
+}
+.section-alt__main--homepage::before, .section-alt__main--our-service::before, .section-alt__main--detail-service::before {
+  content: "";
+  position: absolute;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
+  z-index: -1;
+}
+.section-alt__main--pricing-plan:has(.pricing-plans) .section-alt__header {
+  max-width: 751px;
+}
+.section-alt__main--pricing-plan:has(.pricing-plans) .section-alt__title {
+  padding-bottom: 16px;
+}
+.section-alt__main--pricing-plan:has(.pricing-plans) .section-alt__description > p {
+  font-weight: 400;
+}
+.section-alt__main--our-service:has(.price)::after {
+  content: "";
+  position: absolute;
+  top: -110px;
+  left: -220px;
+  width: 577px;
+  height: 551px;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
+  filter: blur(40px);
+  z-index: -1;
+}
+@media (max-width: 768.98px) {
+  .section-alt__main--our-service:has(.price)::after {
+    display: none;
+  }
+}
+.section-alt__main--about-us .section-alt__header {
+  max-width: 608px;
+  padding-bottom: 54px;
+}
+@media (max-width: 768.98px) {
+  .section-alt__main--about-us .section-alt__header {
+    padding-bottom: 32px;
+  }
+}
+.section-alt__main--about-us:has(.accordion__inner--painted) {
+  position: relative;
+}
+.section-alt__main--about-us:has(.accordion__inner--painted)::before {
+  content: "";
+  position: absolute;
+  transform: translateZ(0);
+  right: -350px;
+  top: -50px;
+  width: 656px;
+  height: 551px;
+  background: url("../images/background-gradient.webp") center/contain no-repeat;
+  filter: blur(40px);
+  opacity: 0.9;
+}
+.section-alt__main--our-team .section-alt__header, .section-alt__main--terms-and-conditions .section-alt__header, .section-alt__main--privacy-policy .section-alt__header {
+  padding-bottom: 48px;
+}
+.section-alt__main--faq, .section-alt__main--terms-and-conditions, .section-alt__main--privacy-policy {
+  position: relative;
+}
+.section-alt__main--faq::before, .section-alt__main--terms-and-conditions::before, .section-alt__main--privacy-policy::before {
+  content: "";
+  position: absolute;
+  top: 250px;
+  left: min(0, (100vw - var(--container-width) - var(--container-padding-x) * 2) / -2);
+  width: 100vw;
+  height: 344px;
+  background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, #18181b 55.93%, #18181b 100%);
+  z-index: -1;
+}
+@media (max-width: 1024.98px) {
+  .section-alt__main--faq::before, .section-alt__main--terms-and-conditions::before, .section-alt__main--privacy-policy::before {
+    height: 150px;
+    top: 130px;
+  }
+}
+@media (max-width: 768.98px) {
+  .section-alt__main--faq::before, .section-alt__main--terms-and-conditions::before, .section-alt__main--privacy-policy::before {
+    top: 85px;
+    height: 103px;
+  }
+}
+.section-alt__main--terms-and-conditions, .section-alt__main--privacy-policy {
+  --container-width: 788px;
+}
+.section-alt__main--terms-and-conditions .section-alt__header, .section-alt__main--privacy-policy .section-alt__header {
+  max-width: 623px;
+}
+@media (max-width: 768.98px) {
+  .section-alt__main--terms-and-conditions .section-alt__header, .section-alt__main--privacy-policy .section-alt__header {
+    max-width: 347px;
+  }
+}
+.section-alt__main--terms-and-conditions .section-alt__title, .section-alt__main--privacy-policy .section-alt__title {
+  padding-bottom: 24px;
 }
 .section-alt:has(.section-alt__main--faq,
 .section-alt__main--terms-and-conditions,
 .section-alt__main--privacy-policy) {
   position: relative;
-  padding-top: 150px;
-  margin-top: -150px;
-  padding-bottom: 150px;
-}
-@media (max-width: 768.98px) {
-  .section-alt:has(.section-alt__main--faq,
-  .section-alt__main--terms-and-conditions,
-  .section-alt__main--privacy-policy) {
-    padding-bottom: 100px;
-  }
 }
 .section-alt:has(.section-alt__main--faq,
 .section-alt__main--terms-and-conditions,
@@ -1762,15 +1873,14 @@ p[class*=subtitle]:not([class$=tile]) {
   }
 }
 @media (min-width: 768.98px) {
-  .section-alt:has(.team-members--our-team) {
-    padding-bottom: 150px;
-  }
-}
-.section-alt:has(.team-members--our-team) .section-alt__header {
-  padding-bottom: 48px;
-}
-@media (min-width: 768.98px) {
-  .section-alt:has(.section-alt__main--pricing-plan) {
+  .section-alt:has(.section-alt__main--pricing-plan,
+  .section-alt__main--our-team,
+  .accordion__inner--painted,
+  .price,
+  .partners,
+  .section-alt__main--faq,
+  .section-alt__main--terms-and-conditions,
+  .section-alt__main--privacy-policy) {
     padding-bottom: 150px;
   }
 }
@@ -1779,14 +1889,13 @@ p[class*=subtitle]:not([class$=tile]) {
     margin-bottom: 150px;
   }
 }
-.section-alt:has(.accordion__inner--painted), .section-alt:has(.price) {
+.section-alt:has(.accordion__inner--painted,
+.price,
+.section-alt__main--faq,
+.section-alt__main--terms-and-conditions,
+.section-alt__main--privacy-policy) {
   margin-top: -150px;
   padding-top: 150px;
-}
-@media (min-width: 768.98px) {
-  .section-alt:has(.accordion__inner--painted), .section-alt:has(.price) {
-    padding-bottom: 150px;
-  }
 }
 .section-alt:has(.section-alt__main--about-us .product-features) {
   position: relative;
@@ -1810,9 +1919,24 @@ p[class*=subtitle]:not([class$=tile]) {
     left: -75px;
   }
 }
-@media (min-width: 768.98px) {
-  .section-alt:has(.partners) {
-    padding-bottom: 150px;
+.section-alt:has(.accordion-group) .section-alt__main {
+  --container-width: 790px;
+}
+.section-alt:has(.accordion-group) .section-alt__title {
+  padding-bottom: 24px;
+}
+@media (max-width: 768.98px) {
+  .section-alt:has(.accordion-group) .section-alt__title {
+    padding-bottom: 12px;
+  }
+}
+.section-alt:has(.accordion-group) .section-alt__header {
+  max-width: 764px;
+  padding-bottom: 48px;
+}
+@media (max-width: 768.98px) {
+  .section-alt:has(.accordion-group) .section-alt__header {
+    padding-bottom: 24px;
   }
 }
 .section-alt:has(.partners) .section-alt__main {
@@ -1926,145 +2050,6 @@ p[class*=subtitle]:not([class$=tile]) {
 }
 .section-alt:has(.video-player) .section-alt__button {
   will-change: opacity;
-}
-.section-alt__subtitle {
-  padding-bottom: 12px;
-}
-.section-alt__main {
-  position: relative;
-  display: grid;
-}
-.section-alt__main--center {
-  justify-items: center;
-}
-.section-alt__main--center .section-alt__header {
-  text-align: center;
-}
-@media (max-width: 768.98px) {
-  .section-alt__main--homepage, .section-alt__main--our-service, .section-alt__main--detail-service {
-    row-gap: 32px;
-  }
-}
-.section-alt__main--homepage::before, .section-alt__main--our-service::before, .section-alt__main--detail-service::before {
-  content: "";
-  position: absolute;
-  background: url("../images/background-gradient.webp") center/contain no-repeat;
-  z-index: -1;
-}
-.section-alt__main--pricing-plan:has(.pricing-plans) .section-alt__header {
-  max-width: 751px;
-}
-.section-alt__main--pricing-plan:has(.pricing-plans) .section-alt__title {
-  padding-bottom: 16px;
-}
-.section-alt__main--pricing-plan:has(.pricing-plans) .section-alt__description > p {
-  font-weight: 400;
-}
-.section-alt__main--our-service:has(.price)::after {
-  content: "";
-  position: absolute;
-  top: -110px;
-  left: -220px;
-  width: 577px;
-  height: 551px;
-  background: url("../images/background-gradient.webp") center/contain no-repeat;
-  filter: blur(40px);
-  z-index: -1;
-}
-@media (max-width: 768.98px) {
-  .section-alt__main--our-service:has(.price)::after {
-    display: none;
-  }
-}
-.section-alt__main--about-us .section-alt__header {
-  max-width: 608px;
-  padding-bottom: 54px;
-}
-@media (max-width: 768.98px) {
-  .section-alt__main--about-us .section-alt__header {
-    padding-bottom: 32px;
-  }
-}
-.section-alt__main--about-us:has(.accordion__inner--painted) {
-  position: relative;
-}
-.section-alt__main--about-us:has(.accordion__inner--painted)::before {
-  content: "";
-  position: absolute;
-  transform: translateZ(0);
-  right: -350px;
-  top: -50px;
-  width: 656px;
-  height: 551px;
-  background: url("../images/background-gradient.webp") center/contain no-repeat;
-  filter: blur(40px);
-  opacity: 0.9;
-}
-.section-alt__main--faq, .section-alt__main--terms-and-conditions, .section-alt__main--privacy-policy {
-  position: relative;
-}
-.section-alt__main--faq::before, .section-alt__main--terms-and-conditions::before, .section-alt__main--privacy-policy::before {
-  content: "";
-  position: absolute;
-  top: 250px;
-  left: min(0, (100vw - var(--container-width) - var(--container-padding-x) * 2) / -2);
-  width: 100vw;
-  height: 344px;
-  background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, #18181b 55.93%, #18181b 100%);
-  z-index: -1;
-}
-@media (max-width: 1024.98px) {
-  .section-alt__main--faq::before, .section-alt__main--terms-and-conditions::before, .section-alt__main--privacy-policy::before {
-    height: 150px;
-    top: 130px;
-  }
-}
-@media (max-width: 768.98px) {
-  .section-alt__main--faq::before, .section-alt__main--terms-and-conditions::before, .section-alt__main--privacy-policy::before {
-    top: 85px;
-    height: 103px;
-  }
-}
-.section-alt__main--terms-and-conditions, .section-alt__main--privacy-policy {
-  --container-width: 788px;
-}
-.section-alt__main--terms-and-conditions .section-alt__header, .section-alt__main--privacy-policy .section-alt__header {
-  max-width: 623px;
-  padding-bottom: 48px;
-}
-@media (max-width: 768.98px) {
-  .section-alt__main--terms-and-conditions .section-alt__header, .section-alt__main--privacy-policy .section-alt__header {
-    max-width: 347px;
-  }
-}
-.section-alt__main--terms-and-conditions .section-alt__title, .section-alt__main--privacy-policy .section-alt__title {
-  padding-bottom: 24px;
-}
-.section-alt__main:has(.accordion-group) {
-  --container-width: 790px;
-}
-.section-alt__main:has(.accordion-group) .section-alt__title {
-  padding-bottom: 24px;
-}
-@media (max-width: 768.98px) {
-  .section-alt__main:has(.accordion-group) .section-alt__title {
-    padding-bottom: 12px;
-  }
-}
-.section-alt__main:has(.accordion-group) .section-alt__header {
-  max-width: 764px;
-  padding-bottom: 48px;
-}
-@media (max-width: 768.98px) {
-  .section-alt__main:has(.accordion-group) .section-alt__header {
-    padding-bottom: 24px;
-  }
-}
-.section-alt__body {
-  width: 100%;
-}
-.section-alt__header {
-  contain: paint;
 }
 
 .tile {

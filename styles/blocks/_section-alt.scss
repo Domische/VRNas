@@ -1,22 +1,179 @@
 @use '../helpers' as *;
 
 .section-alt {
-
+    overflow: hidden;
     padding-bottom: 100px;
 
-    overflow: hidden;
+    &__subtitle {
+        padding-bottom: 12px;
+    }
+
+    &__body {
+        width: 100%;
+    }
+
+    &__header {
+        contain: paint;
+    }
+
+    &__main {
+        position: relative;
+        display: grid;
+
+        &--center {
+            justify-items: center;
+
+            .section-alt__header {
+                text-align: center;
+            }
+        }
+
+        &--homepage,
+        &--our-service,
+        &--detail-service {
+            @include tablet {
+                row-gap: 32px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background: url('../images/background-gradient.webp') center/contain no-repeat;
+                z-index: -1;
+            }
+        }
+
+        &--pricing-plan {
+
+            &:has(.pricing-plans) {
+
+                .section-alt__header {
+                    max-width: 751px;
+                }
+
+                .section-alt__title {
+                    padding-bottom: 16px;
+                }
+
+                .section-alt__description>p {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        &--our-service {
+
+            &:has(.price) {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: -110px;
+                    left: -220px;
+                    width: 577px;
+                    height: 551px;
+                    background: url('../images/background-gradient.webp') center/contain no-repeat;
+                    filter: blur(40px);
+                    z-index: -1;
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &--about-us {
+            // position: relative;
+            // overflow: hidden;
+
+            .section-alt__header {
+                max-width: 608px;
+                padding-bottom: 54px;
+
+                @include tablet {
+                    padding-bottom: 32px;
+                }
+            }
+
+            &:has(.accordion__inner--painted) {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    transform: translateZ(0); //создает новый слой и не перерисовывается от изменения аккордеона (исправление дерганности анимации аккордеона)
+                    right: -350px;
+                    top: -50px;
+                    width: 656px;
+                    height: 551px;
+                    background: url('../images/background-gradient.webp') center/contain no-repeat;
+                    filter: blur(40px);
+                    opacity: 0.9;
+                }
+            }
+
+        }
+
+        &--our-team,
+        &--terms-and-conditions,
+        &--privacy-policy {
+            .section-alt__header {
+                padding-bottom: 48px;
+            }
+        }
+
+        &--faq,
+        &--terms-and-conditions,
+        &--privacy-policy {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 250px;
+                left: min(0, calc((100vw - var(--container-width) - var(--container-padding-x) * 2) / -2));
+                width: 100vw;
+                height: 344px;
+                background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, #18181b 55.93%, #18181b 100%);
+                z-index: -1;
+
+                @include laptop {
+                    height: 150px;
+                    top: 130px;
+                }
+
+                @include tablet {
+                    top: 85px;
+                    height: 103px;
+                }
+            }
+        }
+
+        &--terms-and-conditions,
+        &--privacy-policy {
+
+            --container-width: 788px;
+
+            .section-alt__header {
+                max-width: 623px;
+
+                @include tablet {
+                    max-width: 347px;
+                }
+            }
+
+            .section-alt__title {
+                padding-bottom: 24px;
+            }
+
+
+        }
+    }
 
     &:has(.section-alt__main--faq,
         .section-alt__main--terms-and-conditions,
         .section-alt__main--privacy-policy) {
         position: relative;
-        padding-top: 150px;
-        margin-top: -150px;
-        padding-bottom: 150px;
-
-        @include tablet {
-            padding-bottom: 100px;
-        }
 
         &::before,
         &::after {
@@ -64,20 +221,16 @@
                 right: -30px;
             }
         }
-
     }
 
-    &:has(.team-members--our-team) {
-        @include tablet-above {
-            padding-bottom: 150px;
-        }
-
-        .section-alt__header {
-            padding-bottom: 48px;
-        }
-    }
-
-    &:has(.section-alt__main--pricing-plan) {
+    &:has(.section-alt__main--pricing-plan,
+        .section-alt__main--our-team,
+        .accordion__inner--painted,
+        .price,
+        .partners,
+        .section-alt__main--faq,
+        .section-alt__main--terms-and-conditions,
+        .section-alt__main--privacy-policy) {
         @include tablet-above {
             padding-bottom: 150px;
         }
@@ -90,14 +243,13 @@
         }
     }
 
-    &:has(.accordion__inner--painted),
-    &:has(.price) {
+    &:has(.accordion__inner--painted,
+        .price,
+        .section-alt__main--faq,
+        .section-alt__main--terms-and-conditions,
+        .section-alt__main--privacy-policy) {
         margin-top: -150px;
         padding-top: 150px;
-
-        @include tablet-above {
-            padding-bottom: 150px;
-        }
     }
 
     &:has(.section-alt__main--about-us .product-features) {
@@ -124,14 +276,34 @@
         }
     }
 
+    &:has(.accordion-group) {
+
+        .section-alt__main {
+            // max-width: calc(790px + var(--container-padding-x) * 2);
+            --container-width: 790px;
+        }
+
+        .section-alt__title {
+            padding-bottom: 24px;
+
+            @include tablet {
+                padding-bottom: 12px;
+            }
+        }
+
+        .section-alt__header {
+            max-width: 764px;
+            padding-bottom: 48px;
+
+            @include tablet {
+                padding-bottom: 24px;
+            }
+        }
+    }
+
 
     &:has(.partners) {
         // overflow: hidden;
-
-        @include tablet-above {
-            padding-bottom: 150px;
-        }
-
 
         .section-alt__main {
             max-width: 1055px;
@@ -257,190 +429,5 @@
         .section-alt__button {
             will-change: opacity;
         }
-    }
-
-    &__subtitle {
-        padding-bottom: 12px;
-    }
-
-    &__main {
-        position: relative;
-        display: grid;
-
-        &--center {
-            justify-items: center;
-
-            .section-alt__header {
-                text-align: center;
-            }
-        }
-
-        &--homepage,
-        &--our-service,
-        &--detail-service {
-            @include tablet {
-                row-gap: 32px;
-            }
-
-            &::before {
-                content: '';
-                position: absolute;
-                background: url('../images/background-gradient.webp') center/contain no-repeat;
-                z-index: -1;
-            }
-        }
-
-        &--pricing-plan {
-
-            &:has(.pricing-plans) {
-
-                .section-alt__header {
-                    max-width: 751px;
-                }
-
-                .section-alt__title {
-                    padding-bottom: 16px;
-                }
-
-                .section-alt__description>p {
-                    font-weight: 400;
-                }
-            }
-        }
-
-        &--our-service {
-
-            &:has(.price) {
-                &::after {
-                    content: '';
-                    position: absolute;
-                    top: -110px;
-                    left: -220px;
-                    width: 577px;
-                    height: 551px;
-                    background: url('../images/background-gradient.webp') center/contain no-repeat;
-                    filter: blur(40px);
-                    z-index: -1;
-
-                    @include tablet {
-                        display: none;
-                    }
-                }
-            }
-        }
-
-        &--about-us {
-            // position: relative;
-            // overflow: hidden;
-
-
-
-            .section-alt__header {
-                max-width: 608px;
-                padding-bottom: 54px;
-
-                @include tablet {
-                    padding-bottom: 32px;
-                }
-            }
-
-            &:has(.accordion__inner--painted) {
-                position: relative;
-
-                &::before {
-                    content: '';
-                    position: absolute;
-                    transform: translateZ(0); //создает новый слой и не перерисовывается от изменения аккордеона (исправление дерганности анимации аккордеона)
-                    right: -350px;
-                    top: -50px;
-                    width: 656px;
-                    height: 551px;
-                    background: url('../images/background-gradient.webp') center/contain no-repeat;
-                    filter: blur(40px);
-                    opacity: 0.9;
-                }
-            }
-
-        }
-
-        &--faq,
-        &--terms-and-conditions,
-        &--privacy-policy {
-            position: relative;
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 250px;
-                left: min(0, calc((100vw - var(--container-width) - var(--container-padding-x) * 2) / -2));
-                width: 100vw;
-                height: 344px;
-                background: linear-gradient(180deg, rgba(24, 24, 27, 0) 0%, #18181b 55.93%, #18181b 100%);
-                z-index: -1;
-
-                @include laptop {
-                    height: 150px;
-                    top: 130px;
-                }
-
-                @include tablet {
-                    top: 85px;
-                    height: 103px;
-                }
-            }
-        }
-
-        &--terms-and-conditions,
-        &--privacy-policy {
-
-            --container-width: 788px;
-
-            .section-alt__header {
-                max-width: 623px;
-                padding-bottom: 48px;
-
-                @include tablet {
-                    max-width: 347px;
-                }
-            }
-
-            .section-alt__title {
-                padding-bottom: 24px;
-            }
-
-
-        }
-
-        &:has(.accordion-group) {
-            // max-width: calc(790px + var(--container-padding-x) * 2);
-            --container-width: 790px;
-
-            .section-alt__title {
-                padding-bottom: 24px;
-
-                @include tablet {
-                    padding-bottom: 12px;
-                }
-            }
-
-            .section-alt__header {
-                max-width: 764px;
-                padding-bottom: 48px;
-
-                @include tablet {
-                    padding-bottom: 24px;
-                }
-            }
-        }
-
-
-    }
-
-    &__body {
-        width: 100%;
-    }
-
-    &__header {
-        contain: paint;
     }
 }

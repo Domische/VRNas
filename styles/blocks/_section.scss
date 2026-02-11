@@ -10,9 +10,7 @@
     }
 
     &__body {
-
-        &:has(.accordion-group){
-            
+        &:has(.accordion-group) {
             @include laptop-above {
                 max-width: 548px;
             }
@@ -74,14 +72,6 @@
 
     &__subtitle {
         padding-bottom: 12px;
-    }
-
-    &:has(.section__main--about-us, .section__main--pricing-plan) {
-
-        &:has(.accordion-group) {
-            margin-top: -100px;
-            padding-top: 100px;
-        }
     }
 
     &__main {
@@ -339,7 +329,7 @@
                 }
 
                 .section__body {
-                    
+
                     @include laptop-above {
                         padding-top: 67px;
                     }
@@ -401,7 +391,7 @@
 
             .section__picture {
                 display: inline-block;
-                
+
                 @include laptop-above {
                     margin-left: -86px;
                 }
@@ -433,6 +423,13 @@
         }
 
 
+    }
+
+    &:has(.section__main--about-us, .section__main--pricing-plan) {
+        &:has(.accordion-group) {
+            margin-top: -100px;
+            padding-top: 100px;
+        }
     }
 
 
